@@ -5,9 +5,23 @@
     <description>欢迎来到我的个人博客~</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 13 Sep 2021 15:42:02 +0800</pubDate>
-    <lastBuildDate>Mon, 13 Sep 2021 15:42:02 +0800</lastBuildDate>
+    <pubDate>Tue, 26 Oct 2021 15:43:29 +0800</pubDate>
+    <lastBuildDate>Tue, 26 Oct 2021 15:43:29 +0800</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
+    
+      <item>
+        <title>git clone深度</title>
+        <description>&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;对于巨大的项目git clone的时候用 git clone -b '目标分支' --depth 1  'git@xxxxx.git'  或  git clone  --single-branch --depth 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+</description>
+        <pubDate>Tue, 26 Oct 2021 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2021/10/git_clone_depth/</link>
+        <guid isPermaLink="true">http://localhost:4000/2021/10/git_clone_depth/</guid>
+        
+        <category>git</category>
+        
+        
+      </item>
     
       <item>
         <title>iOS打印符号断点参数</title>
@@ -603,139 +617,6 @@ $ sed -i &quot;&quot; &quot;n,ms/pattern/replace/g&quot; test.txt //指定行
         <guid isPermaLink="true">http://localhost:4000/2021/06/Mac%E4%B8%8A%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8Sed/</guid>
         
         <category>shell</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>iOS国际化查找中文替换</title>
-        <description>&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# coding=utf-8
-
-import os
-import re
-
-import sys
-reload(sys)
-sys.setdefaultencoding('utf-8')
-
-DESPATH = os.getcwd()
-
-AllText = []
-
-WDESPATH = os.getcwd()+&quot;/unlocalized.strings&quot;
-
-BLACKDIRLIST = [
-    DESPATH + '/Frameworks',
-    DESPATH + '/Example',
-    '_Pods.xcodeproj',
-    'README.md',
-    'LICENSE',
-    '*.podspec'
-    'ci.rb',
-]
-
-SEPREATE = ' &amp;lt;=&amp;gt; '
-
-def isInBlackList(filePath):
-    if os.path.isfile(filePath):
-        return fileNameAtPath(filePath) in BLACKDIRLIST
-    if filePath:
-        return filePath in BLACKDIRLIST
-    return False
-
-def fileNameAtPath(filePath):
-    return os.path.split(filePath)[1]
-
-def isSignalNote(str):
-    if '//' in str:
-        return True
-    if str.startswith('#pragma'):
-        return True
-    return False
-
-def isLogMsg(str):
-    if str.startswith('NSLog') or str.startswith('FLOG') or str.startswith('TLOG_INFO') or str.startswith('TLOG') or str.startswith('TLOG_WARNING') or str.startswith('TLOG_DEBUG'):
-        return True
-    return False
-
-def unlocalizedStrs(filePath):
-    f = open(filePath)
-    fileName = fileNameAtPath(filePath)
-    isMutliNote = False
-    isImportHeader = False
-    isHaveWriteFileName = False
-    file_data = []
-    importHeaderLineNum = 0
-    isNeedImport = False
-    for index, line in enumerate(f):
-        if 'TeIntenational' in line: isImportHeader = True
-        if '#import' in line: importHeaderLineNum = index
-        newLine = line
-        line = line.strip()
-        if '/*' in line:
-            isMutliNote = True
-        if '*/' in line:
-            isMutliNote = False
-        if isMutliNote:
-            file_data.append(newLine)
-            continue
-
-        if isSignalNote(line):
-            file_data.append(newLine)
-            continue
-
-        if isLogMsg(line):
-            file_data.append(newLine)
-            continue
-        tmpLine = re.sub(u'(?&amp;lt;!TStringWithKeyFromTable\()(@&quot;[^&quot;%]*[\u4E00-\u9FA5]+[^&quot;%\n]*?&quot;)', 'TStringWithKeyFromTable(\\1, @&quot;TJTranslateApp&quot;)', newLine.decode('utf-8'))
-        if tmpLine != newLine and not 'NSAssert' in tmpLine:
-            print tmpLine
-            newLine = tmpLine
-            isNeedImport = True
-        file_data.append(newLine)
-        matchList = re.findall(u'@&quot;[^&quot;%]*[\u4E00-\u9FA5]+[^&quot;%\n]*?&quot;', line.decode('utf-8'))
-        if matchList:
-            if not isHaveWriteFileName:
-                wf.write('\n//' + fileName + '\n')
-                isHaveWriteFileName = True
-   
-            for item in matchList:
-                if not item in AllText and not 'NSAssert' in item:
-                    wf.write('\&quot;' + item[2 : len(item)] + ' = \&quot;' + item[2 : len(item)] + ';\n')
-                    AllText.append(item)
-    if not isImportHeader and isNeedImport:
-        file_data.insert(importHeaderLineNum+1, '#import &amp;lt;TJString/TJIntenational.h&amp;gt;\n')
-        with open(filePath,&quot;w&quot;) as f:
-            f.write(''.join(file_data))
-    elif isImportHeader:
-        with open(filePath,&quot;w&quot;) as f:
-            f.write(''.join(file_data))
-        
-def findFromFile(path):
-    paths = os.listdir(path)
-    for aCompent in paths:
-        aPath = os.path.join(path, aCompent)
-        if isInBlackList(aPath):
-            print('在黑名单中，被自动忽略' + aPath)
-            continue
-        if os.path.isdir(aPath):
-            findFromFile(aPath)
-        elif os.path.isfile(aPath) and os.path.splitext(aPath)[1]=='.m':
-            unlocalizedStrs(aPath)
-
-if __name__ == '__main__':
-    wf = open(WDESPATH, 'w')
-    findFromFile(DESPATH)
-    wf.close()
-    print &quot;执行完毕，共检索到&quot; + str(len(AllText)) + &quot;条&quot;
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-</description>
-        <pubDate>Mon, 31 May 2021 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2021/05/iOS%E5%9B%BD%E9%99%85%E5%8C%96%E6%9F%A5%E6%89%BE%E4%B8%AD%E6%96%87%E6%9B%BF%E6%8D%A2/</link>
-        <guid isPermaLink="true">http://localhost:4000/2021/05/iOS%E5%9B%BD%E9%99%85%E5%8C%96%E6%9F%A5%E6%89%BE%E4%B8%AD%E6%96%87%E6%9B%BF%E6%8D%A2/</guid>
-        
-        <category>iOS</category>
         
         
       </item>
