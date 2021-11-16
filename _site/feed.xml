@@ -5,8 +5,8 @@
     <description>欢迎来到我的个人博客~</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 16 Nov 2021 09:55:45 +0800</pubDate>
-    <lastBuildDate>Tue, 16 Nov 2021 09:55:45 +0800</lastBuildDate>
+    <pubDate>Tue, 16 Nov 2021 10:14:35 +0800</pubDate>
+    <lastBuildDate>Tue, 16 Nov 2021 10:14:35 +0800</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
     
       <item>
@@ -59,20 +59,22 @@
 
 &lt;p&gt;PS1 是一个很有意思的变量，是用来定义命令行的提示符的，可以按照我们自己的需求来定义自己喜欢的提示符。&lt;/p&gt;
 
-&lt;p&gt;PS1 可以支持以下这些选项：
-\d：显示曰期，格式为”星期 月 日”。
-\H：显示完整的主机名。如默认主机名”localhost.localdomain”。
-\h：显示简写的主机名。如默认主机名”localhost”。
-\t：显示 24 小时制时间，格式为”HH:MM:SS”。
-\T：显示 12 小时制时间，格式为”HH:MM:SS”。
-\A：显示 24 小时制时间，格式为”HH:MM”。
-@：显示 12 小时制时间，格式为”HH:MM am/pm”。
-\u：显示当前用户名。
-\v：显示 Bash 的版本信息。
-\w：显示当前所在目录的完整名称。
-\W：显示当前所在目录的最后一个目录。
-#：执行的第几条命令。
+&lt;p&gt;PS1 可以支持以下这些选项：&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;\d：显示曰期，格式为”星期 月 日”。&lt;br /&gt;
+\H：显示完整的主机名。如默认主机名”localhost.localdomain”。&lt;br /&gt;
+\h：显示简写的主机名。如默认主机名”localhost”。&lt;br /&gt;
+\t：显示 24 小时制时间，格式为”HH:MM:SS”。&lt;br /&gt;
+\T：显示 12 小时制时间，格式为”HH:MM:SS”。&lt;br /&gt;
+\A：显示 24 小时制时间，格式为”HH:MM”。&lt;br /&gt;
+@：显示 12 小时制时间，格式为”HH:MM am/pm”。&lt;br /&gt;
+\u：显示当前用户名。&lt;br /&gt;
+\v：显示 Bash 的版本信息。&lt;br /&gt;
+\w：显示当前所在目录的完整名称。&lt;br /&gt;
+\W：显示当前所在目录的最后一个目录。&lt;br /&gt;
+#：执行的第几条命令。&lt;br /&gt;
 $：提示符。如果是 root 用户，则会显示提示符为”#”；如果是普通用户，则会显示提示符为”$”。&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;p&gt;这些选项该怎么用呢？我们先看看 PS1 变量的默认值，如下：&lt;/p&gt;
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[root@localhost ~]# echo $PS1
