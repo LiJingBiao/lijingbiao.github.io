@@ -5,9 +5,112 @@
     <description>欢迎来到我的个人博客~</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 26 Oct 2021 15:43:29 +0800</pubDate>
-    <lastBuildDate>Tue, 26 Oct 2021 15:43:29 +0800</lastBuildDate>
+    <pubDate>Tue, 16 Nov 2021 09:55:45 +0800</pubDate>
+    <lastBuildDate>Tue, 16 Nov 2021 09:55:45 +0800</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
+    
+      <item>
+        <title>MacOS命令行终端隐藏电脑名和用户名的方法</title>
+        <description>&lt;h1 id=&quot;macos命令行终端隐藏电脑名和用户名的方法&quot;&gt;MacOS命令行终端隐藏电脑名和用户名的方法&lt;/h1&gt;
+
+&lt;p&gt;对于经常在MacOS的命令行终端工作的用户，有一个很头疼的事，那就是命令行终端显示电脑名和用户名，这占据了命令行上的太多空间。&lt;/p&gt;
+
+&lt;p&gt;怎样才可以隐藏电脑名和用户名呢？方法很简单！&lt;/p&gt;
+
+&lt;p&gt;打开终端偏好设置，然后到如下图的卡片&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/Shell/2021-11-16/1.webp&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;然后添加如下命令&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;PS1=&quot;\W \$ &quot;; clear;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;修改后的卡片如下&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/Shell/2021-11-16/2.webp&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;然后重新打开命令行终端，就变成如下图一样的简洁了。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/Shell/2021-11-16/3.webp&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;另外还有一个方法，是我感觉更纯粹的设置方式：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;vim ~/.bash_profile
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;打开配置文件后，在最后一行下面添加如下代码：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;export PS1=&quot;[\u@\h \W]\$ &quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;然后让配置文件立即生效，执行以下命令：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;source ~/.bash_profile
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;说明一下：&lt;br /&gt;
+\u – 当前用户名&lt;br /&gt;
+\h – 主机名hostname&lt;br /&gt;
+\W – 当前目录&lt;br /&gt;
+\w – 当前目录的完整路径&lt;br /&gt;
+\d – 现在的系统日期&lt;br /&gt;
+\t – 现在的系统时间&lt;/p&gt;
+
+&lt;p&gt;PS1 是一个很有意思的变量，是用来定义命令行的提示符的，可以按照我们自己的需求来定义自己喜欢的提示符。&lt;/p&gt;
+
+&lt;p&gt;PS1 可以支持以下这些选项：
+\d：显示曰期，格式为”星期 月 日”。
+\H：显示完整的主机名。如默认主机名”localhost.localdomain”。
+\h：显示简写的主机名。如默认主机名”localhost”。
+\t：显示 24 小时制时间，格式为”HH:MM:SS”。
+\T：显示 12 小时制时间，格式为”HH:MM:SS”。
+\A：显示 24 小时制时间，格式为”HH:MM”。
+@：显示 12 小时制时间，格式为”HH:MM am/pm”。
+\u：显示当前用户名。
+\v：显示 Bash 的版本信息。
+\w：显示当前所在目录的完整名称。
+\W：显示当前所在目录的最后一个目录。
+#：执行的第几条命令。
+$：提示符。如果是 root 用户，则会显示提示符为”#”；如果是普通用户，则会显示提示符为”$”。&lt;/p&gt;
+
+&lt;p&gt;这些选项该怎么用呢？我们先看看 PS1 变量的默认值，如下：&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[root@localhost ~]# echo $PS1
+[\u@\h\W]\$
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;默认的提示符是显示”[用户名@简写主机名最后所在目录]提示符”&lt;/p&gt;
+
+&lt;p&gt;在 PS1 变量中，如果是可以解释的符号，如”\u”、”\h”等，则显示这个符号的作用；如果是不能解释的符号，如”@“或”空格”，则原符号输出。我们修改一下 PS1 变量，看看会出现什么情况。&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[root@localhost ~]# PS1='[\u@\t \w]\$'
+#修改提示符为'[用户名@当前时间当前所在完整目录]提示符'
+[root@04:46:40 ~]#cd /usr/local/src/
+#切换到当前所在目录，因为家目录是看不出来区别的
+[root@04:47:29 /usr/local/src]#
+#看到了吗？提示符按照我们的设计发生了变化
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;这里要小心，PS1 变量的值要用单引号包含，否则设置不生效。再举个例子：&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[root@04:50:08 /usr/local/src]#PS1='[\u@ \@ \h \# \W]\$'
+[root@04:53上午 localhost 31 src]#
+#提示符又变了。\@：时间格式是HH:MM am/pm;\#:会显示执行了多少条命令
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;PS1 变量可以自由定制，好像看到了一点 Linux 可以自由定制和修改的影子，还是很有意思的。不过说实话，一个提示符已经使用习惯了，如果换一个还是非常别扭的，还是改回默认的提示符吧，命令如下：&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[root@04:53上午 localhost 31 src]#PS1='[\u@\h \W]\$'
+[root@localhost src]#
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;注意，这些提示符的修改同样是临时生效的，一旦注销或重启系统就会消失。要想永久生效，必须写入环境变量配置文件。&lt;/p&gt;
+
+</description>
+        <pubDate>Tue, 16 Nov 2021 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2021/11/MacOS%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%BB%88%E7%AB%AF%E9%9A%90%E8%97%8F%E7%94%B5%E8%84%91%E5%90%8D%E5%92%8C%E7%94%A8%E6%88%B7%E5%90%8D%E7%9A%84%E6%96%B9%E6%B3%95/</link>
+        <guid isPermaLink="true">http://localhost:4000/2021/11/MacOS%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%BB%88%E7%AB%AF%E9%9A%90%E8%97%8F%E7%94%B5%E8%84%91%E5%90%8D%E5%92%8C%E7%94%A8%E6%88%B7%E5%90%8D%E7%9A%84%E6%96%B9%E6%B3%95/</guid>
+        
+        <category>iOS</category>
+        
+        
+      </item>
     
       <item>
         <title>git clone深度</title>
@@ -482,141 +585,6 @@ fi
         <guid isPermaLink="true">http://localhost:4000/2021/06/Shell%E8%84%9A%E6%9C%AC%E4%B8%AD%E5%88%A4%E6%96%AD%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%98%AF%E5%90%A6%E8%A2%AB%E5%8C%85%E5%90%AB%E5%9C%A8%E5%86%85/</guid>
         
         <category>Shell</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>Mac 上简单使用 Sed</title>
-        <description>&lt;h1 id=&quot;mac-上简单使用-sed&quot;&gt;Mac 上简单使用 Sed&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;有时我们需要通过脚本简单修改某个文件中的某个值时，可以用到 Sed 命令的。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;一安装&quot;&gt;一、安装&lt;/h2&gt;
-
-&lt;p&gt;如果已安装请忽略，没有安装需要 install 下&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;brew install gnu-sed
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;二简单使用&quot;&gt;二、简单使用&lt;/h2&gt;
-
-&lt;p&gt;&lt;strong&gt;注意： Linux Mac 下使用是略有不同的，此处以 Mac 使用的。&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;举例子，直接替换&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ cat test.txt
-12345
-aaa
-CCC
-$ sed -i &quot;&quot; &quot;s/12345/Hello/&quot; test.txt
-$ cat test.txt
-Hello
-aaa
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;分析命令 &lt;code class=&quot;highlighter-rouge&quot;&gt;sed -i &quot;&quot; &quot;s/12345/Hello/&quot; test.txt&lt;/code&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;-i&lt;/code&gt; 直接操作文件并不需要备份文件，如果需要备分则使用 -i “benfen”&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;s&lt;/code&gt; 代表 &lt;code class=&quot;highlighter-rouge&quot;&gt;substitue&lt;/code&gt; 即替换&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;12345&lt;/code&gt; 要被代替的文字&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Hello&lt;/code&gt; 要代替的文字&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;test.txt&lt;/code&gt; 对应修改的文件&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;sed 全名为 stream editor，流编辑器，用程序的方式来编辑文本，功能相当的强大，此处简单记录下&lt;/p&gt;
-
-&lt;h3 id=&quot;修改文件要用-i-另外基本操作码如下以及熟悉简单的正则表达式就ok&quot;&gt;修改文件要用-i， 另外基本操作码如下，以及熟悉简单的正则表达式就OK&lt;/h3&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;s 替换
-c change line
-d 删除line
-i 插入line
-a 追加line
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;2-1删-d&quot;&gt;2-1、删 d&lt;/h3&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ `sed -i &quot;&quot; &quot;2d&quot; test.txt` 删除
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;删除第二行&lt;br /&gt;
-&lt;code class=&quot;highlighter-rouge&quot;&gt;sed -i &quot;&quot; &quot;2d&quot; test.txt&lt;/code&gt; 2 代表第二行&lt;/li&gt;
-  &lt;li&gt;删除以什么开头的某行&lt;br /&gt;
-&lt;code class=&quot;highlighter-rouge&quot;&gt;sed -i &quot;&quot; &quot;/^C.*/d&quot; test.txt&lt;/code&gt; /C.* 代表 以C 开头的行数，.* 是通配符&lt;/li&gt;
-  &lt;li&gt;删除包含什么的行&lt;br /&gt;
-&lt;code class=&quot;highlighter-rouge&quot;&gt;sed -i &quot;&quot; &quot;/2/d&quot; test.txt&lt;/code&gt; 2 代表包含 2 的行&lt;/li&gt;
-  &lt;li&gt;删除空行&lt;br /&gt;
-&lt;code class=&quot;highlighter-rouge&quot;&gt;sed -i &quot;&quot; &quot;/^$/d&quot; test.txt&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;2-2增-a-i&quot;&gt;2-2、增 a i&lt;/h3&gt;
-
-&lt;p&gt;在 Mac 系统是原生于bsd系, 所以此处添加 和 插入有点奇怪的（a 添加下一行，i 插入上一行）&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sed &quot;$line a\ (注意此处有空格,要在下一行添加文本)
-$value(如果想换行要把&quot;写到下一行)
-&quot; $file
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sed -i &quot;&quot; &quot;2 a\   
-aaa
-&quot; test.txt
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sed -i &quot;&quot; &quot;2 i\   
-xxx
-&quot; test.txt
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;其他规则如删除差不多，就是要注意 \ 要换行的，好麻烦&lt;/p&gt;
-
-&lt;h3 id=&quot;2-3查-p&quot;&gt;2-3、查 p&lt;/h3&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ sed -n &quot;p&quot; test.txt // 输出
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;输出所有&lt;br /&gt;
-&lt;code class=&quot;highlighter-rouge&quot;&gt;sed -n 'p' test.txt&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;输出第二行&lt;br /&gt;
-&lt;code class=&quot;highlighter-rouge&quot;&gt;sed -n '2p' test.txt&lt;/code&gt; 2 代表所有&lt;/li&gt;
-  &lt;li&gt;输出前缀为 1 的行&lt;br /&gt;
-&lt;code class=&quot;highlighter-rouge&quot;&gt;sed -n '/^1.*/p' test.txt&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;2-4改-s&quot;&gt;2-4、改 s&lt;/h3&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ sed -i &quot;&quot; &quot;s/pattern/replace/&quot; test.txt 
-$ sed -i &quot;&quot; &quot;n,ms/pattern/replace/g&quot; test.txt //指定行
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;修改某个字符串&lt;br /&gt;
-&lt;code class=&quot;highlighter-rouge&quot;&gt;sed -i &quot;&quot; &quot;s/Hello/xxxx/&quot; test.txt&lt;/code&gt; Hello 表示要修改的文字，xxx 表示替代的&lt;/li&gt;
-  &lt;li&gt;修改某行的指定&lt;br /&gt;
-&lt;code class=&quot;highlighter-rouge&quot;&gt;sed -i &quot;&quot; &quot;4s/xxxx/aaa/&quot; test.txt&lt;/code&gt; 4 代表第四行&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;以上我们修改一些简单的文件，暂时是没问题啦的，再配合正则表达式 多尝试下，基本OK&lt;br /&gt;
-只是要注意下 Mac 和 Linux Sed 命令规则很不同的。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;参考： &lt;a href=&quot;https://links.jianshu.com/go?to=https%3A%2F%2Fahuigo.github.io%2Fb%2Fc%2Fops-sed%23%2F&quot;&gt;SED 简记&lt;/a&gt;, &lt;a href=&quot;https://links.jianshu.com/go?to=https%3A%2F%2Fwww.cnblogs.com%2Fliwei0526vip%2Fp%2F5644163.html&quot;&gt;sed入门详解教程&lt;/a&gt;&lt;/p&gt;
-
-</description>
-        <pubDate>Wed, 02 Jun 2021 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2021/06/Mac%E4%B8%8A%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8Sed/</link>
-        <guid isPermaLink="true">http://localhost:4000/2021/06/Mac%E4%B8%8A%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8Sed/</guid>
-        
-        <category>shell</category>
         
         
       </item>
