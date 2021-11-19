@@ -5,9 +5,55 @@
     <description>欢迎来到我的个人博客~</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 16 Nov 2021 10:14:35 +0800</pubDate>
-    <lastBuildDate>Tue, 16 Nov 2021 10:14:35 +0800</lastBuildDate>
+    <pubDate>Fri, 19 Nov 2021 10:31:04 +0800</pubDate>
+    <lastBuildDate>Fri, 19 Nov 2021 10:31:04 +0800</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
+    
+      <item>
+        <title>Cocoapods卸载与安装</title>
+        <description>&lt;h2 id=&quot;1查看cocoapods组件安装位置&quot;&gt;1、查看CocoaPods组件安装位置：&lt;/h2&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;which pod
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;结果：&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/usr/bin/pod
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h2 id=&quot;2手动移除这个组件&quot;&gt;2、手动移除这个组件：&lt;/h2&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo rm -rf /usr/bin/pod
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h2 id=&quot;3移除rubygems中的cocoapods程序包&quot;&gt;3、移除RubyGems中的CocoaPods程序包&lt;/h2&gt;
+&lt;h3 id=&quot;31查看gems中本地程序包&quot;&gt;3.1、查看gems中本地程序包&lt;/h3&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gem list
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h3 id=&quot;32移除程序包&quot;&gt;3.2、移除程序包&lt;/h3&gt;
+&lt;p&gt;有了版本号，就可以根据当前版本号移除CocoaPods了：&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo gem uninstall cocoapods -v 1.5.3
+sudo gem uninstall cocoapods-core
+sudo gem uninstall fourflusher
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h2 id=&quot;4修改-source-路径&quot;&gt;4、修改 source 路径&lt;/h2&gt;
+&lt;h3 id=&quot;41删除-gem-源&quot;&gt;4.1、删除 gem 源：&lt;/h3&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gem sources --remove https://gems.ruby-china.org
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h3 id=&quot;42修改-gem-源&quot;&gt;4.2、修改 gem 源：&lt;/h3&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gem sources -a https://gems.ruby-china.com
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h2 id=&quot;5安装cocoapods&quot;&gt;5、安装Cocoapods&lt;/h2&gt;
+&lt;h3 id=&quot;51安装cocoapods&quot;&gt;5.1、安装Cocoapods&lt;/h3&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo gem install cocoapods
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h3 id=&quot;52安装指定版本&quot;&gt;5.2、安装指定版本&lt;/h3&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo gem install -n /usr/local/bin cocoapods -v 1.5.3
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+</description>
+        <pubDate>Fri, 19 Nov 2021 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2021/11/cocoapods-install/</link>
+        <guid isPermaLink="true">http://localhost:4000/2021/11/cocoapods-install/</guid>
+        
+        <category>cocoapods</category>
+        
+        
+      </item>
     
       <item>
         <title>MacOS命令行终端隐藏电脑名和用户名的方法</title>
@@ -540,53 +586,6 @@ fi
         <guid isPermaLink="true">http://localhost:4000/2021/06/rebase%E4%BD%BF%E7%94%A8/</guid>
         
         <category>git</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>Shell脚本中判断字符串是否被包含在内</title>
-        <description>&lt;h1 id=&quot;shell脚本中判断字符串是否被包含在内&quot;&gt;Shell脚本中判断字符串是否被包含在内&lt;/h1&gt;
-
-&lt;h1 id=&quot;1字段-grep&quot;&gt;1、字段 grep：&lt;/h1&gt;
-&lt;p&gt;案例：&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;str1=&quot;abcdefgh&quot;
-str2=&quot;def&quot;
-result=$(echo $str1 | grep &quot;${str2}&quot;)
-if [[ &quot;$result&quot; != &quot;&quot; ]];then
-    echo &quot;包含&quot;
-else
-    echo &quot;不包含&quot;
-fi
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h1 id=&quot;2-字符串运算符-&quot;&gt;2、 字符串运算符 =~:&lt;/h1&gt;
-&lt;p&gt;案例：&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;str1=&quot;abcdefgh&quot;
-str2=&quot;def&quot;
-if [[ $str1 =~ $str2 ]];then
-    echo &quot;包含&quot;
-else
-    echo &quot;不包含&quot;
-fi
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h1 id=&quot;3-正则表达式中的通配符-&quot;&gt;3、 正则表达式中的通配符 *:&lt;/h1&gt;
-&lt;p&gt;案例：&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;str1=&quot;abcdefgh&quot;
-str2=&quot;def&quot;
-if [[ $str1 == *$str2* ]];then
-    echo &quot;包含&quot;
-else
-    echo &quot;不包含&quot;
-fi
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-</description>
-        <pubDate>Wed, 02 Jun 2021 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2021/06/Shell%E8%84%9A%E6%9C%AC%E4%B8%AD%E5%88%A4%E6%96%AD%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%98%AF%E5%90%A6%E8%A2%AB%E5%8C%85%E5%90%AB%E5%9C%A8%E5%86%85/</link>
-        <guid isPermaLink="true">http://localhost:4000/2021/06/Shell%E8%84%9A%E6%9C%AC%E4%B8%AD%E5%88%A4%E6%96%AD%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%98%AF%E5%90%A6%E8%A2%AB%E5%8C%85%E5%90%AB%E5%9C%A8%E5%86%85/</guid>
-        
-        <category>Shell</category>
         
         
       </item>
