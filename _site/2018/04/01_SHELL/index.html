@@ -680,19 +680,62 @@ patching file file1
 
 <p><strong>常匹配字符串：</strong></p>
 
-<p>| 字符串             | 含义                 | 备注                                                         |
-| —————— | ——————– | ———————————————————————— |
-| a-z或[:lower:] | 匹配所有小写字母     | 所有大小写和数字[a-zA-Z0-9]|
-| A-Z或[:upper:] | 匹配所有大写字母     |                                                              |
-| 0-9或[:digit:] | 匹配所有数字         |                                                              |
-| [:alnum:]          | 匹配所有字母和数字   |                                                              |
-| [:alpha:]          | 匹配所有字母         |                                                              |
-| [:blank:]          | 所有水平空白         |                                                              |
-| [:punct:]          | 匹配所有标点符号     |                                                              |
-| [:space:]          | 所有水平或垂直的空格 |                                                              |
-| [:cntrl:]          | 所有控制字符         | \f Ctrl-L        走行换页<br />\n Ctrl-J      换行
-\r Ctrl-M        回车
-\t Ctrl-I      tab键 |</p>
+<table>
+  <thead>
+    <tr>
+      <th>字符串</th>
+      <th>含义</th>
+      <th>备注</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>a-z或[:lower:]</td>
+      <td>匹配所有小写字母</td>
+      <td>所有大小写和数字[a-zA-Z0-9]</td>
+    </tr>
+    <tr>
+      <td>A-Z或[:upper:]</td>
+      <td>匹配所有大写字母</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>0-9或[:digit:]</td>
+      <td>匹配所有数字</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>[:alnum:]</td>
+      <td>匹配所有字母和数字</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>[:alpha:]</td>
+      <td>匹配所有字母</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>[:blank:]</td>
+      <td>所有水平空白</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>[:punct:]</td>
+      <td>匹配所有标点符号</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>[:space:]</td>
+      <td>所有水平或垂直的空格</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>[:cntrl:]</td>
+      <td>所有控制字符</td>
+      <td>\f Ctrl-L        走行换页<br /> \n Ctrl-J      换行<br /> \r Ctrl-M        回车<br /> \t Ctrl-I      tab键</td>
+    </tr>
+  </tbody>
+</table>
 
 <p><strong>举例说明：</strong></p>
 
