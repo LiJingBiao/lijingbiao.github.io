@@ -6,17 +6,17 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <title>Cocoapods卸载与安装</title>
-  <meta name="description" content="1、查看CocoaPods组件安装位置：which pod结果：/usr/bin/pod2、手动移除这个组件：sudo rm -rf /usr/bin/pod3、移除RubyGems中的CocoaPods程序包3.1、查看gems中本地程序包gem list3.2、移除程序包有了版本号，就可以根据当前版本号移除C...">
+  <title>flutter支持MacOS配置</title>
+  <meta name="description" content="1、切换flutter channel```flutter channel devflutter upgrade">
   <meta name="author" content="leopardpan">
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Cocoapods卸载与安装">
-  <meta name="twitter:description" content="1、查看CocoaPods组件安装位置：which pod结果：/usr/bin/pod2、手动移除这个组件：sudo rm -rf /usr/bin/pod3、移除RubyGems中的CocoaPods程序包3.1、查看gems中本地程序包gem list3.2、移除程序包有了版本号，就可以根据当前版本号移除C...">
+  <meta name="twitter:title" content="flutter支持MacOS配置">
+  <meta name="twitter:description" content="1、切换flutter channel```flutter channel devflutter upgrade">
   
   <meta property="og:type" content="article">
-  <meta property="og:title" content="Cocoapods卸载与安装">
-  <meta property="og:description" content="1、查看CocoaPods组件安装位置：which pod结果：/usr/bin/pod2、手动移除这个组件：sudo rm -rf /usr/bin/pod3、移除RubyGems中的CocoaPods程序包3.1、查看gems中本地程序包gem list3.2、移除程序包有了版本号，就可以根据当前版本号移除C...">
+  <meta property="og:title" content="flutter支持MacOS配置">
+  <meta property="og:description" content="1、切换flutter channel```flutter channel devflutter upgrade">
   
   <link rel="icon" type="image/png" href="/images/favicon.png" />
   <link href="/images/favicon.png" rel="shortcut icon" type="image/png">
@@ -24,7 +24,7 @@
   <link rel="stylesheet" href="/css/main.css">
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
-  <link rel="canonical" href="http://localhost:4000/2021/11/cocoapods-install/">
+  <link rel="canonical" href="http://localhost:4000/2021/11/flutter-config-macos/">
   <link rel="alternate" type="application/rss+xml" title="LiJingBiao" href="http://localhost:4000/feed.xml">
   
   <meta name="google-site-verification" content="1-1ZlHoRvM0T2FqPbW2S-qLgYXN6rsn52kErlMPd_gw" />
@@ -179,7 +179,7 @@
 
 <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
-    <h1 class="post-title">Cocoapods卸载与安装</h1>
+    <h1 class="post-title">flutter支持MacOS配置</h1>
     <div class="post-meta">
       <img src="/images/calendar.png" width="20px"/> 
       <time datetime="2021-11-19 00:00:00 +0800" itemprop="datePublished" class="post-meta__date date">2021-11-19</time>  
@@ -192,64 +192,63 @@
   
     <h2 class="post-title">目录</h2>
     <ul>
-  <li><a href="#1查看cocoapods组件安装位置">1、查看CocoaPods组件安装位置：</a></li>
-  <li><a href="#2手动移除这个组件">2、手动移除这个组件：</a></li>
-  <li><a href="#3移除rubygems中的cocoapods程序包">3、移除RubyGems中的CocoaPods程序包</a>
-    <ul>
-      <li><a href="#31查看gems中本地程序包">3.1、查看gems中本地程序包</a></li>
-      <li><a href="#32移除程序包">3.2、移除程序包</a></li>
-    </ul>
-  </li>
-  <li><a href="#4修改-source-路径">4、修改 source 路径</a>
-    <ul>
-      <li><a href="#41删除-gem-源">4.1、删除 gem 源：</a></li>
-      <li><a href="#42修改-gem-源">4.2、修改 gem 源：</a></li>
-    </ul>
-  </li>
-  <li><a href="#5安装cocoapods">5、安装Cocoapods</a>
-    <ul>
-      <li><a href="#51安装cocoapods">5.1、安装Cocoapods</a></li>
-      <li><a href="#52安装指定版本">5.2、安装指定版本</a></li>
-    </ul>
-  </li>
+  <li><a href="#1切换flutter-channel">1、切换flutter channel</a></li>
+  <li><a href="#2启用desktop开发支持">2、启用desktop开发支持</a></li>
+  <li><a href="#3检查环境">3、检查环境</a></li>
+  <li><a href="#4创建flutter-app">4、创建flutter App</a></li>
+  <li><a href="#5运行app">5、运行App</a></li>
+  <li><a href="#5build-a-release-app">5、Build a release app</a></li>
+  <li><a href="#6对已存在的app支持desktop">6、对已存在的App支持Desktop</a></li>
 </ul>
 
   
 
   <section class="post">
-    <h2 id="1查看cocoapods组件安装位置">1、查看CocoaPods组件安装位置：</h2>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>which pod
+    <h1 id="1切换flutter-channel">1、切换flutter channel</h1>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>flutter channel dev
+flutter upgrade
+
 </code></pre></div></div>
-<p>结果：</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/usr/bin/pod
+
+<h1 id="2启用desktop开发支持">2、启用desktop开发支持</h1>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>flutter config --enable-windows-desktop
+flutter config --enable-macos-desktop
+flutter config --enable-linux-desktop
+
 </code></pre></div></div>
-<h2 id="2手动移除这个组件">2、手动移除这个组件：</h2>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo rm -rf /usr/bin/pod
+
+<h1 id="3检查环境">3、检查环境</h1>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>flutter doctor
 </code></pre></div></div>
-<h2 id="3移除rubygems中的cocoapods程序包">3、移除RubyGems中的CocoaPods程序包</h2>
-<h3 id="31查看gems中本地程序包">3.1、查看gems中本地程序包</h3>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gem list
+
+<h1 id="4创建flutter-app">4、创建flutter App</h1>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>flutter create myapp
+cd myapp
+
 </code></pre></div></div>
-<h3 id="32移除程序包">3.2、移除程序包</h3>
-<p>有了版本号，就可以根据当前版本号移除CocoaPods了：</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo gem uninstall cocoapods -v 1.5.3
-sudo gem uninstall cocoapods-core
-sudo gem uninstall fourflusher
+
+<h1 id="5运行app">5、运行App</h1>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>flutter run -d windows
+flutter run -d macos
+flutter run -d linux
 </code></pre></div></div>
-<h2 id="4修改-source-路径">4、修改 source 路径</h2>
-<h3 id="41删除-gem-源">4.1、删除 gem 源：</h3>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gem sources --remove https://gems.ruby-china.org
+
+<h1 id="5build-a-release-app">5、Build a release app</h1>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>flutter build windows
+flutter build macos
+flutter build linux
+
 </code></pre></div></div>
-<h3 id="42修改-gem-源">4.2、修改 gem 源：</h3>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gem sources -a https://gems.ruby-china.com
+
+<h1 id="6对已存在的app支持desktop">6、对已存在的App支持Desktop</h1>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>flutter create --platforms=windows,macos,linux
+
 </code></pre></div></div>
-<h2 id="5安装cocoapods">5、安装Cocoapods</h2>
-<h3 id="51安装cocoapods">5.1、安装Cocoapods</h3>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo gem install cocoapods
-</code></pre></div></div>
-<h3 id="52安装指定版本">5.2、安装指定版本</h3>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo gem install -n /usr/local/bin cocoapods -v 1.5.3
-</code></pre></div></div>
+
+<p>参考:https://docs.flutter.dev/desktop</p>
 
 
   </section>
@@ -320,15 +319,10 @@ sudo gem uninstall fourflusher
        <ul class="pager">
         
         <li class="previous">
-            <a href="/2021/11/MacOS%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%BB%88%E7%AB%AF%E9%9A%90%E8%97%8F%E7%94%B5%E8%84%91%E5%90%8D%E5%92%8C%E7%94%A8%E6%88%B7%E5%90%8D%E7%9A%84%E6%96%B9%E6%B3%95/" data-toggle="tooltip" data-placement="top" title="MacOS命令行终端隐藏电脑名和用户名的方法">上一篇：  <span>MacOS命令行终端隐藏电脑名和用户名的方法</span>
+            <a href="/2021/11/cocoapods-install/" data-toggle="tooltip" data-placement="top" title="Cocoapods卸载与安装">上一篇：  <span>Cocoapods卸载与安装</span>
             </a>
         </li>
         
-        
-        <li class="next">
-            <a href="/2021/11/flutter-config-macos/" data-toggle="tooltip" data-placement="top" title="flutter支持MacOS配置">下一篇：  <span>flutter支持MacOS配置</span>
-            </a>
-        </li>
         
     </ul>
 </section>

@@ -5,9 +5,67 @@
     <description>欢迎来到我的个人博客~</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 19 Nov 2021 10:31:04 +0800</pubDate>
-    <lastBuildDate>Fri, 19 Nov 2021 10:31:04 +0800</lastBuildDate>
+    <pubDate>Fri, 19 Nov 2021 14:30:07 +0800</pubDate>
+    <lastBuildDate>Fri, 19 Nov 2021 14:30:07 +0800</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
+    
+      <item>
+        <title>flutter支持MacOS配置</title>
+        <description>&lt;h1 id=&quot;1切换flutter-channel&quot;&gt;1、切换flutter channel&lt;/h1&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;flutter channel dev
+flutter upgrade
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;2启用desktop开发支持&quot;&gt;2、启用desktop开发支持&lt;/h1&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;flutter config --enable-windows-desktop
+flutter config --enable-macos-desktop
+flutter config --enable-linux-desktop
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;3检查环境&quot;&gt;3、检查环境&lt;/h1&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;flutter doctor
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;4创建flutter-app&quot;&gt;4、创建flutter App&lt;/h1&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;flutter create myapp
+cd myapp
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;5运行app&quot;&gt;5、运行App&lt;/h1&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;flutter run -d windows
+flutter run -d macos
+flutter run -d linux
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;5build-a-release-app&quot;&gt;5、Build a release app&lt;/h1&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;flutter build windows
+flutter build macos
+flutter build linux
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;6对已存在的app支持desktop&quot;&gt;6、对已存在的App支持Desktop&lt;/h1&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;flutter create --platforms=windows,macos,linux
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;参考:https://docs.flutter.dev/desktop&lt;/p&gt;
+
+</description>
+        <pubDate>Fri, 19 Nov 2021 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2021/11/flutter-config-macos/</link>
+        <guid isPermaLink="true">http://localhost:4000/2021/11/flutter-config-macos/</guid>
+        
+        <category>flutter</category>
+        
+        
+      </item>
     
       <item>
         <title>Cocoapods卸载与安装</title>
@@ -556,36 +614,6 @@ fi
         <guid isPermaLink="true">http://localhost:4000/2021/06/%E5%88%A9%E7%94%A8shell%E8%AF%BB%E5%8F%96README.MD%E9%85%8D%E7%BD%AE%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83/</guid>
         
         <category>shell</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>rebase使用</title>
-        <description>&lt;h1 id=&quot;1当前分支为feature基于master合并&quot;&gt;1、当前分支为feature，基于master合并&lt;/h1&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git rebase -i master 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h1 id=&quot;2出现冲突&quot;&gt;2、出现冲突&lt;/h1&gt;
-&lt;ul&gt;
-  &lt;li&gt;1、解决冲突&lt;/li&gt;
-  &lt;li&gt;2、&lt;code class=&quot;highlighter-rouge&quot;&gt;git add .&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;3、&lt;code class=&quot;highlighter-rouge&quot;&gt;git rebase --continue&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;3出现冲突&quot;&gt;3、出现冲突&lt;/h1&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git rebase --abort
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h1 id=&quot;4合并提交信息&quot;&gt;4、合并提交信息&lt;/h1&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git rebase -i &amp;lt;first commit id&amp;gt; &amp;lt;last commit id&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-</description>
-        <pubDate>Fri, 04 Jun 2021 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2021/06/rebase%E4%BD%BF%E7%94%A8/</link>
-        <guid isPermaLink="true">http://localhost:4000/2021/06/rebase%E4%BD%BF%E7%94%A8/</guid>
-        
-        <category>git</category>
         
         
       </item>
