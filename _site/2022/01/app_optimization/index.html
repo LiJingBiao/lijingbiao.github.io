@@ -6,17 +6,17 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <title>iOS使用Shell脚本签名</title>
-  <meta name="description" content="```${SRCROOT} 它是工程文件所在的目录TEMP_PATH=”${SRCROOT}/Temp”#资源文件夹，我们提前在工程目录下新建一个APP文件夹，里面放ipa包ASSETS_PATH=”${SRCROOT}/APP”#目标ipa包路径TARGET_IPA_PATH=”${ASSETS_PATH}/*...">
+  <title>app优化博客</title>
+  <meta name="description" content="app优化博客">
   <meta name="author" content="leopardpan">
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="iOS使用Shell脚本签名">
-  <meta name="twitter:description" content="```${SRCROOT} 它是工程文件所在的目录TEMP_PATH=”${SRCROOT}/Temp”#资源文件夹，我们提前在工程目录下新建一个APP文件夹，里面放ipa包ASSETS_PATH=”${SRCROOT}/APP”#目标ipa包路径TARGET_IPA_PATH=”${ASSETS_PATH}/*...">
+  <meta name="twitter:title" content="app优化博客">
+  <meta name="twitter:description" content="app优化博客">
   
   <meta property="og:type" content="article">
-  <meta property="og:title" content="iOS使用Shell脚本签名">
-  <meta property="og:description" content="```${SRCROOT} 它是工程文件所在的目录TEMP_PATH=”${SRCROOT}/Temp”#资源文件夹，我们提前在工程目录下新建一个APP文件夹，里面放ipa包ASSETS_PATH=”${SRCROOT}/APP”#目标ipa包路径TARGET_IPA_PATH=”${ASSETS_PATH}/*...">
+  <meta property="og:title" content="app优化博客">
+  <meta property="og:description" content="app优化博客">
   
   <link rel="icon" type="image/png" href="/images/favicon.png" />
   <link href="/images/favicon.png" rel="shortcut icon" type="image/png">
@@ -24,7 +24,7 @@
   <link rel="stylesheet" href="/css/main.css">
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
-  <link rel="canonical" href="http://localhost:4000/2021/04/iOS%E4%BD%BF%E7%94%A8Shell%E8%84%9A%E6%9C%AC%E7%AD%BE%E5%90%8D/">
+  <link rel="canonical" href="http://localhost:4000/2022/01/app_optimization/">
   <link rel="alternate" type="application/rss+xml" title="LiJingBiao" href="http://localhost:4000/feed.xml">
   
   <meta name="google-site-verification" content="1-1ZlHoRvM0T2FqPbW2S-qLgYXN6rsn52kErlMPd_gw" />
@@ -179,10 +179,10 @@
 
 <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
-    <h1 class="post-title">iOS使用Shell脚本签名</h1>
+    <h1 class="post-title">app优化博客</h1>
     <div class="post-meta">
       <img src="/images/calendar.png" width="20px"/> 
-      <time datetime="2021-04-25 00:00:00 +0800" itemprop="datePublished" class="post-meta__date date">2021-04-25</time>  
+      <time datetime="2022-01-04 00:00:00 +0800" itemprop="datePublished" class="post-meta__date date">2022-01-04</time>  
 
       <span id="busuanzi_container_page_pv"> | 阅读：<span id="busuanzi_value_page_pv"></span>次</span>
     </p>
@@ -196,87 +196,7 @@
   
 
   <section class="post">
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># ${SRCROOT} 它是工程文件所在的目录
-TEMP_PATH="${SRCROOT}/Temp"
-#资源文件夹，我们提前在工程目录下新建一个APP文件夹，里面放ipa包
-ASSETS_PATH="${SRCROOT}/APP"
-#目标ipa包路径
-TARGET_IPA_PATH="${ASSETS_PATH}/*.ipa"
-#清空Temp文件夹
-rm -rf "${SRCROOT}/Temp"
-mkdir -p "${SRCROOT}/Temp"
-
-
-
-#----------------------------------------
-# 1. 解压IPA到Temp下
-unzip -oqq "$TARGET_IPA_PATH" -d "$TEMP_PATH"
-# 拿到解压的临时的APP的路径
-TEMP_APP_PATH=$(set -- "$TEMP_PATH/Payload/"*.app;echo "$1")
-# echo "路径是:$TEMP_APP_PATH"
-
-
-#----------------------------------------
-# 2. 将解压出来的.app拷贝进入工程下
-# BUILT_PRODUCTS_DIR 工程生成的APP包的路径
-# TARGET_NAME target名称
-TARGET_APP_PATH="$BUILT_PRODUCTS_DIR/$TARGET_NAME.app"
-echo "app路径:$TARGET_APP_PATH"
-
-rm -rf "$TARGET_APP_PATH"
-mkdir -p "$TARGET_APP_PATH"
-cp -rf "$TEMP_APP_PATH/" "$TARGET_APP_PATH"
-
-
-
-#----------------------------------------
-# 3. 删除extension和WatchAPP.个人证书没法签名Extention
-rm -rf "$TARGET_APP_PATH/PlugIns"
-rm -rf "$TARGET_APP_PATH/Watch"
-
-
-
-#----------------------------------------
-# 4. 更新info.plist文件 CFBundleIdentifier
-#  设置:"Set : KEY Value" "目标文件路径"
-/usr/libexec/PlistBuddy -c "Set :CFBundleIdentifier $PRODUCT_BUNDLE_IDENTIFIER" "$TARGET_APP_PATH/Info.plist"
-
-
-#----------------------------------------
-# 5. 给MachO文件上执行权限
-# 拿到MachO文件的路径
-APP_BINARY=`plutil -convert xml1 -o - $TARGET_APP_PATH/Info.plist|grep -A1 Exec|tail -n1|cut -f2 -d\&gt;|cut -f1 -d\&lt;`
-#上可执行权限
-chmod +x "$TARGET_APP_PATH/$APP_BINARY"
-
-
-
-#----------------------------------------
-# 6. 重签名第三方 FrameWorks
-TARGET_APP_FRAMEWORKS_PATH="$TARGET_APP_PATH/Frameworks"
-if [ -d "$TARGET_APP_FRAMEWORKS_PATH" ];
-then
-for FRAMEWORK in "$TARGET_APP_FRAMEWORKS_PATH/"*
-do
-
-#签名
-/usr/bin/codesign --force --sign "$EXPANDED_CODE_SIGN_IDENTITY" "$FRAMEWORK"
-done
-fi
-
-
-#注入
-#yololib "$TARGET_APP_PATH/$APP_BINARY" "Frameworks/HankHook.framework/HankHook"
-
-
-
-
-
-
-
-
-</code></pre></div></div>
-
+    <p><a href="https://github.com/MrLujh/App--performance--Optimization">app优化博客</a></p>
 
   </section>
 
@@ -346,15 +266,10 @@ fi
        <ul class="pager">
         
         <li class="previous">
-            <a href="/2021/04/Shell%E8%87%AA%E5%8A%A8%E6%8F%90%E4%BA%A4Git%E8%84%9A%E6%9C%AC/" data-toggle="tooltip" data-placement="top" title="Shell自动提交Git脚本">上一篇：  <span>Shell自动提交Git脚本</span>
+            <a href="/2021/11/flutter-config-macos/" data-toggle="tooltip" data-placement="top" title="flutter支持MacOS配置">上一篇：  <span>flutter支持MacOS配置</span>
             </a>
         </li>
         
-        
-        <li class="next">
-            <a href="/2021/04/iOS%E4%BD%BF%E7%94%A8Shell%E8%87%AA%E5%8A%A8%E5%88%87%E6%8D%A2%E7%8E%AF%E5%A2%83/" data-toggle="tooltip" data-placement="top" title="iOS使用Shell自动切换环境">下一篇：  <span>iOS使用Shell自动切换环境</span>
-            </a>
-        </li>
         
     </ul>
 </section>

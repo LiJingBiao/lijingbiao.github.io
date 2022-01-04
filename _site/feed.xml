@@ -5,9 +5,22 @@
     <description>欢迎来到我的个人博客~</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 19 Nov 2021 15:58:19 +0800</pubDate>
-    <lastBuildDate>Fri, 19 Nov 2021 15:58:19 +0800</lastBuildDate>
+    <pubDate>Tue, 04 Jan 2022 11:39:11 +0800</pubDate>
+    <lastBuildDate>Tue, 04 Jan 2022 11:39:11 +0800</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
+    
+      <item>
+        <title>app优化博客</title>
+        <description>&lt;p&gt;&lt;a href=&quot;https://github.com/MrLujh/App--performance--Optimization&quot;&gt;app优化博客&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Tue, 04 Jan 2022 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2022/01/app_optimization/</link>
+        <guid isPermaLink="true">http://localhost:4000/2022/01/app_optimization/</guid>
+        
+        <category>iOS</category>
+        
+        
+      </item>
     
       <item>
         <title>flutter支持MacOS配置</title>
@@ -378,240 +391,6 @@ void ct_addMethod(Class originalClass,Class swizzledClass, SEL swizzledSelector)
         <pubDate>Fri, 04 Jun 2021 00:00:00 +0800</pubDate>
         <link>http://localhost:4000/2021/06/%E5%8D%9A%E5%AE%A2%E6%9C%AC%E5%9C%B0%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%BC%80%E5%90%AF%E5%B9%B6%E6%89%93%E5%BC%80%E6%9C%AC%E5%9C%B0%E5%8D%9A%E5%AE%A2%E7%BD%91%E9%A1%B5/</link>
         <guid isPermaLink="true">http://localhost:4000/2021/06/%E5%8D%9A%E5%AE%A2%E6%9C%AC%E5%9C%B0%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%BC%80%E5%90%AF%E5%B9%B6%E6%89%93%E5%BC%80%E6%9C%AC%E5%9C%B0%E5%8D%9A%E5%AE%A2%E7%BD%91%E9%A1%B5/</guid>
-        
-        <category>shell</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>利用shell读取README.MD配置修改配置环境</title>
-        <description>&lt;p&gt;&lt;strong&gt;READM.ME内容&lt;/strong&gt;&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;|企业证书|key|详情|
----|---|---
-企业证书 | `PRODUCT_BUNDLE_IDENTIFIER` | `com.helloworld.enterprise.app`
- | `DEVELOPMENT_TEAM` | `TLWGLP697Z5D`
- | `PROVISIONING_PROFILE_SPECIFIER` | `HaiDianTong_Distribution`
- App Store证书 | `PRODUCT_BUNDLE_IDENTIFIER` | `com.helloworld.app`
-  | `DEVELOPMENT_TEAM` | `9D4SRNFSVF43`
-  | `PROVISIONING_PROFILE_SPECIFIER` | `app_Distribution`
- Debug证书 | `PRODUCT_BUNDLE_IDENTIFIER` | `com.helloworld.beijingtong`
- | `DEVELOPMENT_TEAM` | `XYD7AF2EXNZZ`
- | `PROVISIONING_PROFILE_SPECIFIER` | `BeiJingRenShe_Development`
-
-
-|数据环境|key|详情|
----|---|---
-线上环境 | `toon_router_domain` | `http://routerhd.hebeizhichuang.com/user/router/basicRouter`
- |`cdtp_dns_router`| `http://www.cdtpdns.com/`
- |`sensorsAnalyticsServerUrl`| `https://da.helloworld.com/sa?project=production`
- |`sensorsAnalyticsConfigUrl`| `https://da.helloworld.com/config/?project=production`
-t600环境| `toon_router_domain` | `http://routert600.helloworld.com/user/router/basicRouter`
- |`cdtp_dns_router` | `http://cdtpdnstmail.helloworld.com`
- |`sensorsAnalyticsServerUrl` | `https://da.helloworld.com/sa?project=default`
- |`sensorsAnalyticsConfigUrl` | `https://da.helloworld.com/config/?project=default`
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;切换测试线上环境&quot;&gt;切换测试、线上环境&lt;/h2&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/bash&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;function &lt;/span&gt;Set_Info_Plist&lt;span class=&quot;o&quot;&gt;(){&lt;/span&gt;
-   /usr/libexec/PlistBuddy &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Set :&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$1&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$2&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$info_plist&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;nv&quot;&gt;ENV_TOON&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;awk&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-F&lt;/span&gt;: &lt;span class=&quot;s1&quot;&gt;'BEGIN{};/toon_router_domain/{ gsub(/[[:blank:]]*/,&quot;&quot;,$0);gsub(/\`/,&quot;&quot;,$0);print $0 }'&lt;/span&gt; ../README.MD|cut &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\|&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-f3&lt;/span&gt;&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;ENV_CDTP&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;awk&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-F&lt;/span&gt;: &lt;span class=&quot;s1&quot;&gt;'BEGIN{};/cdtp_dns_router/{ gsub(/[[:blank:]]*/,&quot;&quot;,$0); gsub(/\`/,&quot;&quot;,$0);print $0 }'&lt;/span&gt; ../README.MD|cut &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\|&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-f3&lt;/span&gt;&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;ENV_SENSOR_SERVER&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;awk&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-F&lt;/span&gt;: &lt;span class=&quot;s1&quot;&gt;'BEGIN{};/sensorsAnalyticsServerUrl/{ gsub(/[[:blank:]]*/,&quot;&quot;,$0); gsub(/\`/,&quot;&quot;,$0);print $0 }'&lt;/span&gt; ../README.MD|cut &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\|&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-f3&lt;/span&gt;&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;ENV_SENSOR_CONFIG&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;awk&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-F&lt;/span&gt;: &lt;span class=&quot;s1&quot;&gt;'BEGIN{};/sensorsAnalyticsConfigUrl/{ gsub(/[[:blank:]]*/,&quot;&quot;,$0); gsub(/\`/,&quot;&quot;,$0);print $0 }'&lt;/span&gt; ../README.MD|cut &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\|&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-f3&lt;/span&gt;&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;
-
-&lt;span class=&quot;nv&quot;&gt;ENV_TOON&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ENV_TOON&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;ENV_CDTP&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ENV_CDTP&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;ENV_SENSOR_SERVER&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ENV_SENSOR_SERVER&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;ENV_SENSOR_CONFIG&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ENV_SENSOR_CONFIG&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;${#&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;ENV_TOON&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[*]&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-eq&lt;/span&gt; 2 &lt;span class=&quot;nt&quot;&gt;-a&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;${#&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;ENV_CDTP&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[*]&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-eq&lt;/span&gt; 2 &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;then
-    &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;ENV_TOON_RELEASE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;ENV_TOON&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[0]&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;nv&quot;&gt;ENV_TOON_DEVELOPMENT&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;ENV_TOON&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[1]&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;
-
-    &lt;span class=&quot;nv&quot;&gt;ENV_CDTP_RELEASE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;ENV_CDTP&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[0]&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;nv&quot;&gt;ENV_CDTP_DEVELOPMENT&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;ENV_CDTP&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[1]&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;else 
-    &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo &lt;/span&gt;获取失败
-    &lt;span class=&quot;nb&quot;&gt;exit&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-1&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;fi
-
-if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;${#&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;ENV_SENSOR_SERVER&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[*]&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-eq&lt;/span&gt; 2 &lt;span class=&quot;nt&quot;&gt;-a&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;${#&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;ENV_SENSOR_CONFIG&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[*]&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-eq&lt;/span&gt; 2 &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;then
-    &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;ENV_SENSOR_SERVER_RELEASE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;ENV_SENSOR_SERVER&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[0]&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;nv&quot;&gt;ENV_SENSOR_SERVER_DEVELOPMENT&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;ENV_SENSOR_SERVER&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[1]&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;
-
-    &lt;span class=&quot;nv&quot;&gt;ENV_SENSOR_CONFIG_RELEASE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;ENV_SENSOR_CONFIG&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[0]&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;nv&quot;&gt;ENV_SENSOR_CONFIG_DEVELOPMENT&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;ENV_SENSOR_CONFIG&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[1]&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;else 
-    &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo &lt;/span&gt;获取失败
-    &lt;span class=&quot;nb&quot;&gt;exit&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-1&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;fi
-&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;--------toon_router_domain develop------------&quot;&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$ENV_TOON_DEVELOPMENT&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# echo $ENV_TOON_RELEASE1&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;--------toon_router_domain release------------&quot;&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$ENV_TOON_RELEASE&lt;/span&gt;
-
-
-&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;--------cdtp_dns_router develop------------&quot;&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$ENV_CDTP_DEVELOPMENT&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# echo $ENV_CDTP_RELEASE1&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;--------cdtp_dns_router release------------&quot;&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$ENV_CDTP_RELEASE&lt;/span&gt;
-
-&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;--------sensorsAnalyticsServerUrl develop------------&quot;&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$ENV_SENSOR_SERVER_DEVELOPMENT&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;--------sensorsAnalyticsServerUrl release------------&quot;&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$ENV_SENSOR_SERVER_RELEASE&lt;/span&gt;
-
-&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;--------sensorsAnalyticsConfigUrl develop------------&quot;&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$ENV_SENSOR_CONFIG_DEVELOPMENT&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;--------sensorsAnalyticsConfigUrl release------------&quot;&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$ENV_SENSOR_CONFIG_RELEASE&lt;/span&gt;
-
-
-&lt;span class=&quot;nv&quot;&gt;info_plist&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;./TLauncher/Info.plist
-
-&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-f&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$info_plist&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;then
-    &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;找不到plist文件&quot;&lt;/span&gt;
-    &lt;span class=&quot;nb&quot;&gt;exit&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-1&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;fi
-
-
-&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;CURRENT_TOON_ENV&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;/usr/libexec/PlistBuddy &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Print toon_router_domain'&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$info_plist&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;------两个环境比较---------&quot;&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$CURRENT_TOON_ENV&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$ENV_TOON_DEVELOPMENT&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$ENV_TOON_DEVELOPMENT&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$CURRENT_TOON_ENV&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;then
-    &lt;/span&gt;Set_Info_Plist &lt;span class=&quot;s2&quot;&gt;&quot;toon_router_domain&quot;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$ENV_TOON_RELEASE&lt;/span&gt;
-    Set_Info_Plist &lt;span class=&quot;s2&quot;&gt;&quot;cdtp_dns_router&quot;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$ENV_CDTP_RELEASE&lt;/span&gt;
-    Set_Info_Plist &lt;span class=&quot;s2&quot;&gt;&quot;sensorsAnalyticsServerUrl&quot;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$ENV_SENSOR_SERVER_RELEASE&lt;/span&gt;
-    Set_Info_Plist &lt;span class=&quot;s2&quot;&gt;&quot;sensorsAnalyticsConfigUrl&quot;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$ENV_SENSOR_CONFIG_RELEASE&lt;/span&gt;
-    &lt;span class=&quot;nb&quot;&gt;echo &lt;/span&gt;由之前测试环境修改为线上环境
- &lt;span class=&quot;k&quot;&gt;else 
-    &lt;/span&gt;Set_Info_Plist &lt;span class=&quot;s2&quot;&gt;&quot;toon_router_domain&quot;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$ENV_TOON_DEVELOPMENT&lt;/span&gt;
-    Set_Info_Plist &lt;span class=&quot;s2&quot;&gt;&quot;cdtp_dns_router&quot;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$ENV_CDTP_DEVELOPMENT&lt;/span&gt;
-    Set_Info_Plist &lt;span class=&quot;s2&quot;&gt;&quot;sensorsAnalyticsServerUrl&quot;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$ENV_SENSOR_SERVER_DEVELOPMENT&lt;/span&gt;
-    Set_Info_Plist &lt;span class=&quot;s2&quot;&gt;&quot;sensorsAnalyticsConfigUrl&quot;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$ENV_SENSOR_CONFIG_DEVELOPMENT&lt;/span&gt;
-    &lt;span class=&quot;nb&quot;&gt;echo &lt;/span&gt;由之前线上环境修改为测试环境
-&lt;span class=&quot;k&quot;&gt;fi&lt;/span&gt;
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;h2 id=&quot;证书切换&quot;&gt;证书切换&lt;/h2&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;set -e
-set -u
-set -o pipefail
-
-README_PATH=&quot;$SRCROOT/../README.MD&quot;
-PBXPROJ_PATH=&quot;$PROJECT_FILE_PATH/project.pbxproj&quot;
-PRODUCT_BUNDLE_IDENTIFIER=`awk 'BEGIN{};/PRODUCT_BUNDLE_IDENTIFIER/{ gsub(/[[:blank:]]*/,&quot;&quot;,$0);gsub(/\`/,&quot;&quot;,$0);print $0 }' $README_PATH|cut -d\| -f3`
-DEVELOPMENT_TEAM=`awk 'BEGIN{};/DEVELOPMENT_TEAM/{ gsub(/[[:blank:]]*/,&quot;&quot;,$0);gsub(/\`/,&quot;&quot;,$0);print $0 }' $README_PATH|cut -d\| -f3`
-PROVISIONING_PROFILE_SPECIFIER=`awk 'BEGIN{};/PROVISIONING_PROFILE_SPECIFIER/{ gsub(/[[:blank:]]*/,&quot;&quot;,$0);gsub(/\`/,&quot;&quot;,$0);print $0 }' $README_PATH|cut -d\| -f3`
-
-CONFIG_COUNT=3
-
-
-echo $PRODUCT_BUNDLE_IDENTIFIER
-echo $DEVELOPMENT_TEAM
-echo $PROVISIONING_PROFILE_SPECIFIER
-
-PRODUCT_BUNDLE_IDENTIFIER=($PRODUCT_BUNDLE_IDENTIFIER)
-DEVELOPMENT_TEAM=($DEVELOPMENT_TEAM)
-PROVISIONING_PROFILE_SPECIFIER=($PROVISIONING_PROFILE_SPECIFIER)
-if [ ${#PRODUCT_BUNDLE_IDENTIFIER[*]} -eq $CONFIG_COUNT -a ${#DEVELOPMENT_TEAM[*]} -eq $CONFIG_COUNT -a ${#PROVISIONING_PROFILE_SPECIFIER[*]} -eq $CONFIG_COUNT ]; then
-    ############################ 内部市场 Bundle ID #############################
-    PRODUCT_BUNDLE_IDENTIFIER_ENTERPRISE=${PRODUCT_BUNDLE_IDENTIFIER[0]}
-    ############################ App Store Bundle ID #############################
-    PRODUCT_BUNDLE_IDENTIFIER_APPSTORE=${PRODUCT_BUNDLE_IDENTIFIER[1]}
-
-    ############################ 内部市场证书#############################
-    PROVISIONING_PROFILE_SPECIFIER_ENTERPRISE_Distribution=${PROVISIONING_PROFILE_SPECIFIER[0]}
-    ############################ App Store 证书#############################
-    PROVISIONING_PROFILE_SPECIFIER_APPSTORE_Distribution=${PROVISIONING_PROFILE_SPECIFIER[1]}
-
-    ############################ 内部市场 TEAM #############################
-    DEVELOPMENT_TEAM_ENTERPRISE=${DEVELOPMENT_TEAM[0]}
-    ############################ App Store TEAM #############################
-    DEVELOPMENT_TEAM_APPSTORE=${DEVELOPMENT_TEAM[1]}
-
-    echo $PRODUCT_BUNDLE_IDENTIFIER_ENTERPRISE $PROVISIONING_PROFILE_SPECIFIER_ENTERPRISE_Distribution $DEVELOPMENT_TEAM_ENTERPRISE
-    echo $PRODUCT_BUNDLE_IDENTIFIER_APPSTORE $PROVISIONING_PROFILE_SPECIFIER_APPSTORE_Distribution $DEVELOPMENT_TEAM_APPSTORE
-
-    PRODUCT_BUNDLE_IDENTIFIER_PROJ=`awk 'BEGIN{};/PRODUCT_BUNDLE_IDENTIFIER/{ gsub(/[[:blank:]]*/,&quot;&quot;,$0);if($0!~&quot;shellScript&quot;)  print $0 }' $PBXPROJ_PATH`
-    echo ----------------
-    echo $PBXPROJ_PATH
-    echo $PRODUCT_BUNDLE_IDENTIFIER_PROJ
-    echo $PROJECT_FILE_PATH
-    echo $PBXPROJ_PATH                       
-    echo ----------------
-    if [[ $PRODUCT_BUNDLE_IDENTIFIER_PROJ =~ $PRODUCT_BUNDLE_IDENTIFIER_ENTERPRISE ]]; then
-        echo '由企业证书改为App Store证书'
-        sed -i '' -e 's/PROVISIONING_PROFILE_SPECIFIER\ =\ .*/PROVISIONING_PROFILE_SPECIFIER\ =\ '$PROVISIONING_PROFILE_SPECIFIER_APPSTORE_Distribution'\;/' $PBXPROJ_PATH
-        sed -i '' -e 's/PRODUCT_BUNDLE_IDENTIFIER\ =\ .*/PRODUCT_BUNDLE_IDENTIFIER\ =\ '$PRODUCT_BUNDLE_IDENTIFIER_APPSTORE'\;/' $PBXPROJ_PATH
-        sed -i '' -e 's/DEVELOPMENT_TEAM\ =\ .*/DEVELOPMENT_TEAM\ =\ '$DEVELOPMENT_TEAM_APPSTORE'\;/' $PBXPROJ_PATH
-    elif [[ $PRODUCT_BUNDLE_IDENTIFIER_PROJ =~ $PRODUCT_BUNDLE_IDENTIFIER_APPSTORE ]]; then
-        echo '由App Store证书改为企业证书'
-        sed -i '' -e 's/PROVISIONING_PROFILE_SPECIFIER\ =\ .*/PROVISIONING_PROFILE_SPECIFIER\ =\ '$PROVISIONING_PROFILE_SPECIFIER_ENTERPRISE_Distribution'\;/' $PBXPROJ_PATH
-        sed -i '' -e 's/PRODUCT_BUNDLE_IDENTIFIER\ =\ .*/PRODUCT_BUNDLE_IDENTIFIER\ =\ '$PRODUCT_BUNDLE_IDENTIFIER_ENTERPRISE'\;/' $PBXPROJ_PATH
-        sed -i '' -e 's/DEVELOPMENT_TEAM\ =\ .*/DEVELOPMENT_TEAM\ =\ '$DEVELOPMENT_TEAM_ENTERPRISE'\;/' $PBXPROJ_PATH
-    fi
-
-else 
-    echo '修改失败'
-    exit -1
-fi
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;设置debug证书&quot;&gt;设置debug证书&lt;/h2&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# Type a script or drag a script file from your workspace to insert its path.
-set -e
-set -u
-set -o pipefail
-
-README_PATH=&quot;$SRCROOT/../README.MD&quot;
-PBXPROJ_PATH=&quot;$PROJECT_FILE_PATH/project.pbxproj&quot;
-PRODUCT_BUNDLE_IDENTIFIER=`awk 'BEGIN{};/PRODUCT_BUNDLE_IDENTIFIER/{ gsub(/[[:blank:]]*/,&quot;&quot;,$0);gsub(/\`/,&quot;&quot;,$0);print $0 }' $README_PATH|cut -d\| -f3`
-DEVELOPMENT_TEAM=`awk 'BEGIN{};/DEVELOPMENT_TEAM/{ gsub(/[[:blank:]]*/,&quot;&quot;,$0);gsub(/\`/,&quot;&quot;,$0);print $0 }' $README_PATH|cut -d\| -f3`
-PROVISIONING_PROFILE_SPECIFIER=`awk 'BEGIN{};/PROVISIONING_PROFILE_SPECIFIER/{ gsub(/[[:blank:]]*/,&quot;&quot;,$0);gsub(/\`/,&quot;&quot;,$0);print $0 }' $README_PATH|cut -d\| -f3`
-CONFIG_COUNT=3
-echo $PRODUCT_BUNDLE_IDENTIFIER
-echo $DEVELOPMENT_TEAM
-echo $PROVISIONING_PROFILE_SPECIFIER
-
-PRODUCT_BUNDLE_IDENTIFIER=($PRODUCT_BUNDLE_IDENTIFIER)
-DEVELOPMENT_TEAM=($DEVELOPMENT_TEAM)
-PROVISIONING_PROFILE_SPECIFIER=($PROVISIONING_PROFILE_SPECIFIER)
-if [ ${#PRODUCT_BUNDLE_IDENTIFIER[*]} -eq $CONFIG_COUNT -a ${#DEVELOPMENT_TEAM[*]} -eq $CONFIG_COUNT -a ${#PROVISIONING_PROFILE_SPECIFIER[*]} -eq $CONFIG_COUNT ]; then
-    ############################ DEBUG Bundle ID #############################
-    PRODUCT_BUNDLE_IDENTIFIER_DEBUG=${PRODUCT_BUNDLE_IDENTIFIER[2]}
-    ############################ DEBUG 证书#############################
-    PROVISIONING_PROFILE_SPECIFIER_DEBUG=${PROVISIONING_PROFILE_SPECIFIER[2]}
-    ############################ DEBGU TEAM #############################
-    DEVELOPMENT_TEAM_DEBUG=${DEVELOPMENT_TEAM[2]}
-
-    echo $PRODUCT_BUNDLE_IDENTIFIER_DEBUG $PROVISIONING_PROFILE_SPECIFIER_DEBUG $DEVELOPMENT_TEAM_DEBUG
-
-    sed -i '' -e 's/PROVISIONING_PROFILE_SPECIFIER\ =\ .*/PROVISIONING_PROFILE_SPECIFIER\ =\ '$PROVISIONING_PROFILE_SPECIFIER_DEBUG'\;/' $PBXPROJ_PATH
-    sed -i '' -e 's/PRODUCT_BUNDLE_IDENTIFIER\ =\ .*/PRODUCT_BUNDLE_IDENTIFIER\ =\ '$PRODUCT_BUNDLE_IDENTIFIER_DEBUG'\;/' $PBXPROJ_PATH
-    sed -i '' -e 's/DEVELOPMENT_TEAM\ =\ .*/DEVELOPMENT_TEAM\ =\ '$DEVELOPMENT_TEAM_DEBUG'\;/' $PBXPROJ_PATH
-
-else 
-    echo '修改失败'
-    exit -1
-fi
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-</description>
-        <pubDate>Fri, 04 Jun 2021 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2021/06/%E5%88%A9%E7%94%A8shell%E8%AF%BB%E5%8F%96README.MD%E9%85%8D%E7%BD%AE%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83/</link>
-        <guid isPermaLink="true">http://localhost:4000/2021/06/%E5%88%A9%E7%94%A8shell%E8%AF%BB%E5%8F%96README.MD%E9%85%8D%E7%BD%AE%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83/</guid>
         
         <category>shell</category>
         
