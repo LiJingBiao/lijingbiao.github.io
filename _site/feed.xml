@@ -5,9 +5,115 @@
     <description>欢迎来到我的个人博客~</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 05 Jan 2022 09:41:57 +0800</pubDate>
-    <lastBuildDate>Wed, 05 Jan 2022 09:41:57 +0800</lastBuildDate>
+    <pubDate>Mon, 18 Apr 2022 17:56:14 +0800</pubDate>
+    <lastBuildDate>Mon, 18 Apr 2022 17:56:14 +0800</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
+    
+      <item>
+        <title>Ruby Ruby 里的 %Q, %q, %W, %w, %x, %r, %s, %i</title>
+        <description>&lt;h1 id=&quot;ruby-ruby-里的-q-q-w-w-x-r-s-i-译&quot;&gt;&lt;a href=&quot;/topics/node1&quot;&gt;Ruby&lt;/a&gt; Ruby 里的 %Q, %q, %W, %w, %x, %r, %s, %i (译)&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://simpleror.wordpress.com/2009/03/15/q-q-w-w-x-r-s/&quot;&gt;原文地址&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;q&quot;&gt;%Q&lt;/h2&gt;
+
+&lt;p&gt;用于替代双引号的字符串. 当你需要在字符串里放入很多引号时候, 可以直接用下面方法而不需要在引号前逐个添加反斜杠 (&quot;)&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt;&amp;gt; %Q(Joe said: &quot;Frank said: &quot;#{what_frank_said}&quot;&quot;)
+=&amp;gt; &quot;Joe said: &quot;Frank said: &quot;Hello!&quot;&quot;&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;(&lt;/code&gt;…&lt;code class=&quot;highlighter-rouge&quot;&gt;)&lt;/code&gt;也可用其他非数字字母的符号或成对的符号代替, 诸如&lt;code class=&quot;highlighter-rouge&quot;&gt;[&lt;/code&gt;…&lt;code class=&quot;highlighter-rouge&quot;&gt;]&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;!&lt;/code&gt;…&lt;code class=&quot;highlighter-rouge&quot;&gt;!&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;+&lt;/code&gt;…&lt;code class=&quot;highlighter-rouge&quot;&gt;+&lt;/code&gt;,&lt;code class=&quot;highlighter-rouge&quot;&gt;{&lt;/code&gt;…&lt;code class=&quot;highlighter-rouge&quot;&gt;}&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;&lt;/code&gt;…&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;gt;&lt;/code&gt;等.&lt;br /&gt;
+以下写法全部与上面等效:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt;&amp;gt; %Q!Joe said: &quot;Frank said: &quot;#{what_frank_said}&quot;&quot;!
+&amp;gt;&amp;gt; %Q[Joe said: &quot;Frank said: &quot;#{what_frank_said}&quot;&quot;]
+&amp;gt;&amp;gt; %Q+Joe said: &quot;Frank said: &quot;#{what_frank_said}&quot;&quot;+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;除此之外还可省略&lt;code class=&quot;highlighter-rouge&quot;&gt;Q&lt;/code&gt;写作:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt;&amp;gt; %/Joe said: &quot;Frank said: &quot;#{what_frank_said}&quot;&quot;/
+=&amp;gt; &quot;Joe said: &quot;Frank said: &quot;Hello!&quot;&quot;&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;q-1&quot;&gt;%q&lt;/h2&gt;
+
+&lt;p&gt;与&lt;code class=&quot;highlighter-rouge&quot;&gt;%Q&lt;/code&gt;类似, 但是表示的是单引号字符串&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt;&amp;gt; %q(Joe said: 'Frank said: '#{what_frank_said} ' ')
+=&amp;gt; &quot;Joe said: 'Frank said: '\#{what_frank_said} ' '&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;w&quot;&gt;%W&lt;/h2&gt;
+
+&lt;p&gt;语法近似于&lt;code class=&quot;highlighter-rouge&quot;&gt;%Q&lt;/code&gt;, 用于表示其中元素被双引号括起的数组.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt;&amp;gt; %W(#{foo} Bar Bar\ with\ space)
+=&amp;gt; [&quot;Foo&quot;, &quot;Bar&quot;, &quot;Bar with space&quot;]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;w-1&quot;&gt;%w&lt;/h2&gt;
+
+&lt;p&gt;用于表示其中元素被单引号括起的数组. 比较奇怪的是&lt;code class=&quot;highlighter-rouge&quot;&gt;\&lt;/code&gt;(斜杠空格) 会被转化成``(空格), 但是其他的内容不会.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt;&amp;gt; %w(a b c\ d \#e #{1}f)
+=&amp;gt; [&quot;a&quot;, &quot;b&quot;, &quot;c d&quot;, &quot;\\#e&quot;, &quot;\#{1}f&quot;]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;x&quot;&gt;%x&lt;/h2&gt;
+
+&lt;p&gt;使用`方法执行一段 shell 脚本并返回标准输出内容.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt;&amp;gt; %x(echo foo:#{foo})
+=&amp;gt; &quot;foo:Foo\n&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;r&quot;&gt;%r&lt;/h2&gt;
+
+&lt;p&gt;语法近似于&lt;code class=&quot;highlighter-rouge&quot;&gt;%Q&lt;/code&gt;, 用于正则表达式.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt;&amp;gt; %r(/home/#{foo})
+ =&amp;gt; &quot;/\\/home\\/Foo/&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;s&quot;&gt;%s&lt;/h2&gt;
+
+&lt;p&gt;用于表示 symbol, 但是不会对其中表达式等内容进行转化&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt;&amp;gt; %s(foo)
+=&amp;gt; :foo
+&amp;gt;&amp;gt; %s(foo bar)
+=&amp;gt; :&quot;foo bar&quot;
+&amp;gt;&amp;gt; %s(#{foo} bar)
+=&amp;gt; :&quot;\#{foo} bar&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;i&quot;&gt;%i&lt;/h2&gt;
+
+&lt;p&gt;Ruby 2.0 之后引入的语法, 用于生成一个 symbol 数组&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;2.0.0p247 :014 &amp;gt; %i(a b c)
+=&amp;gt; [:a, :b, :c]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2&gt;%&lt;/h2&gt;
+
+&lt;p&gt;还有% 操作符 &lt;a href=&quot;http://www.kuqin.com/rubycndocument/man/sprintf_format.html&quot;&gt;% 的用法（即 sprintf）&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;irb(main):125:0&amp;gt; '%02d' % 9
+=&amp;gt; &quot;09&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+</description>
+        <pubDate>Mon, 18 Apr 2022 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2022/04/RubyRuby%E9%87%8C%E7%9A%84-Q,-q,-W,-w,-x,-r,-s,-i%E8%AF%91/</link>
+        <guid isPermaLink="true">http://localhost:4000/2022/04/RubyRuby%E9%87%8C%E7%9A%84-Q,-q,-W,-w,-x,-r,-s,-i%E8%AF%91/</guid>
+        
+        <category>ruby</category>
+        
+        
+      </item>
     
       <item>
         <title>app优化博客</title>
@@ -378,21 +484,6 @@ void ct_addMethod(Class originalClass,Class swizzledClass, SEL swizzledSelector)
         <guid isPermaLink="true">http://localhost:4000/2021/07/%E5%88%A4%E6%96%AD%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E5%8C%85%E5%90%AB%E6%95%B0%E5%AD%97%E6%88%96%E5%AD%97%E6%AF%8D/</guid>
         
         <category>iOS</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>博客本地服务器开启并打开本地博客网页</title>
-        <description>&lt;p&gt;在~/.bash_profile中添加如下代码&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;alias rbs='sleep 7 &amp;amp;&amp;amp; open http://127.0.0.1:4000 &amp;amp; cd /Users/syswin/Desktop/MySite &amp;amp;&amp;amp; bundle exec jekyll serve'
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-</description>
-        <pubDate>Fri, 04 Jun 2021 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2021/06/%E5%8D%9A%E5%AE%A2%E6%9C%AC%E5%9C%B0%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%BC%80%E5%90%AF%E5%B9%B6%E6%89%93%E5%BC%80%E6%9C%AC%E5%9C%B0%E5%8D%9A%E5%AE%A2%E7%BD%91%E9%A1%B5/</link>
-        <guid isPermaLink="true">http://localhost:4000/2021/06/%E5%8D%9A%E5%AE%A2%E6%9C%AC%E5%9C%B0%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%BC%80%E5%90%AF%E5%B9%B6%E6%89%93%E5%BC%80%E6%9C%AC%E5%9C%B0%E5%8D%9A%E5%AE%A2%E7%BD%91%E9%A1%B5/</guid>
-        
-        <category>shell</category>
         
         
       </item>
