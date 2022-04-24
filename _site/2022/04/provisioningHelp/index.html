@@ -6,17 +6,17 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <title>Ruby标准库</title>
-  <meta name="description" content="Ruby标准库">
+  <title>批量删除过期描述文件</title>
+  <meta name="description" content="ProvisioningProfile.h文件```#import &lt;Foundation/Foundation.h&gt;">
   <meta name="author" content="leopardpan">
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Ruby标准库">
-  <meta name="twitter:description" content="Ruby标准库">
+  <meta name="twitter:title" content="批量删除过期描述文件">
+  <meta name="twitter:description" content="ProvisioningProfile.h文件```#import &lt;Foundation/Foundation.h&gt;">
   
   <meta property="og:type" content="article">
-  <meta property="og:title" content="Ruby标准库">
-  <meta property="og:description" content="Ruby标准库">
+  <meta property="og:title" content="批量删除过期描述文件">
+  <meta property="og:description" content="ProvisioningProfile.h文件```#import &lt;Foundation/Foundation.h&gt;">
   
   <link rel="icon" type="image/png" href="/images/favicon.png" />
   <link href="/images/favicon.png" rel="shortcut icon" type="image/png">
@@ -24,7 +24,7 @@
   <link rel="stylesheet" href="/css/main.css">
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
-  <link rel="canonical" href="http://localhost:4000/2022/04/ruby_lib/">
+  <link rel="canonical" href="http://localhost:4000/2022/04/provisioningHelp/">
   <link rel="alternate" type="application/rss+xml" title="LiJingBiao" href="http://localhost:4000/feed.xml">
   
   <meta name="google-site-verification" content="1-1ZlHoRvM0T2FqPbW2S-qLgYXN6rsn52kErlMPd_gw" />
@@ -179,10 +179,10 @@
 
 <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
-    <h1 class="post-title">Ruby标准库</h1>
+    <h1 class="post-title">批量删除过期描述文件</h1>
     <div class="post-meta">
       <img src="/images/calendar.png" width="20px"/> 
-      <time datetime="2022-04-18 00:00:00 +0800" itemprop="datePublished" class="post-meta__date date">2022-04-18</time>  
+      <time datetime="2022-04-24 00:00:00 +0800" itemprop="datePublished" class="post-meta__date date">2022-04-24</time>  
 
       <span id="busuanzi_container_page_pv"> | 阅读：<span id="busuanzi_value_page_pv"></span>次</span>
     </p>
@@ -196,7 +196,187 @@
   
 
   <section class="post">
-    <p><a href="https://ruby-doc.org/stdlib-3.1.2/libdoc/">Ruby标准库</a></p>
+    <p><code class="highlighter-rouge">ProvisioningProfile.h</code>文件</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#import &lt;Foundation/Foundation.h&gt;
+
+@interface ProvisioningProfile : NSObject
+
+- (id)initWithPath:(NSString *)path;
+
+@property (nonatomic, strong, readonly) NSString    *name;
+@property (nonatomic, strong, readonly) NSString    *teamName;
+@property (nonatomic, strong, readonly) NSString    *valid;
+@property (nonatomic, assign, readonly) NSString    *debug;
+@property (nonatomic, strong, readonly) NSDate      *creationDate;
+@property (nonatomic, strong, readonly) NSDate      *expirationDate;
+@property (nonatomic, strong, readonly) NSString    *UUID;
+@property (nonatomic, strong, readonly) NSArray     *devices;
+@property (nonatomic, assign, readonly) NSInteger   timeToLive;
+@property (nonatomic, strong, readonly) NSString    *applicationIdentifier;
+@property (nonatomic, strong, readonly) NSString    *bundleIdentifier;
+@property (nonatomic, strong, readonly) NSArray     *certificates;
+@property (nonatomic, assign, readonly) NSInteger   version;
+@property (nonatomic, assign, readonly) NSArray     *prefixes;
+@property (nonatomic, strong, readonly) NSString    *appIdName;
+@property (nonatomic, strong, readonly) NSString    *teamIdentifier;
+@property (nonatomic, strong, readonly) NSString    *path;
+
+@end
+
+</code></pre></div></div>
+<p><code class="highlighter-rouge">ProvisioningProfile.m</code>文件</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#import "ProvisioningProfile.h"
+
+@interface ProvisioningProfile ()
+
+@property (nonatomic, strong) NSDictionary *profileDictionary;
+@property (readwrite) NSString  *name;
+@property (readwrite) NSString  *teamName;
+@property (readwrite) NSString  *valid;
+@property (readwrite) NSString  *debug;
+@property (readwrite) NSDate    *creationDate;
+@property (readwrite) NSDate    *expirationDate;
+@property (readwrite) NSString  *UUID;
+@property (readwrite) NSArray   *devices;
+@property (readwrite) NSInteger timeToLive;
+@property (readwrite) NSString  *applicationIdentifier;
+@property (readwrite) NSString  *bundleIdentifier;
+@property (readwrite) NSArray   *certificates;
+@property (readwrite) NSInteger version;
+@property (readwrite) NSArray   *prefixes;
+@property (readwrite) NSString  *appIdName;
+@property (readwrite) NSString  *teamIdentifier;
+@property (readwrite) NSString  *path;
+
+@end
+
+@implementation ProvisioningProfile
+
+- (id)initWithPath:(NSString *)path
+{
+    self = [super init];
+    if (self) {
+        self.path = path;
+        self.profileDictionary = [self provisioningProfileAtPath:path];
+        [self processDictionary];
+    }
+    return self;
+}
+
+- (void)processDictionary
+{
+    self.appIdName = self.profileDictionary[@"AppIDName"];
+    self.teamIdentifier = self.profileDictionary[@"Entitlements"][@"com.apple.developer.team-identifier"];
+    self.name = self.profileDictionary[@"Name"];
+    self.teamName = self.profileDictionary[@"TeamName"];
+    self.debug = [self.profileDictionary[@"Entitlements"][@"get-task-allow"] isEqualToNumber:@(1)] ? @"YES" : @"NO";
+    self.creationDate = self.profileDictionary[@"CreationDate"];
+    self.expirationDate = self.profileDictionary[@"ExpirationDate"];
+    self.devices = self.profileDictionary[@"ProvisionedDevices"];
+    self.timeToLive = [self.profileDictionary[@"TimeToLive"] integerValue];
+    self.applicationIdentifier = self.profileDictionary[@"Entitlements"][@"application-identifier"];
+    self.certificates = self.profileDictionary[@"DeveloperCertificates"];
+    self.valid = ([[NSDate date] timeIntervalSinceDate:self.expirationDate] &gt; 0) ? @"NO" : @"YES";
+    self.version = [self.profileDictionary[@"Version"] integerValue];
+    self.bundleIdentifier = self.applicationIdentifier;
+    self.UUID = self.profileDictionary[@"UUID"];
+    self.prefixes = self.profileDictionary[@"ApplicationIdentifierPrefix"];
+    
+    for (NSString *prefix in self.prefixes) {
+        NSRange range = [self.bundleIdentifier rangeOfString:prefix];
+        if (range.location != NSNotFound)
+        {
+            self.bundleIdentifier = [self.bundleIdentifier stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"%@.", prefix] withString:@""];
+        }
+    }
+    
+}
+
+- (NSDictionary *)provisioningProfileAtPath:(NSString *)path {
+    CMSDecoderRef decoder = NULL;
+    CFDataRef dataRef = NULL;
+    NSString *plistString = nil;
+    NSDictionary *plist = nil;
+    
+    @try {
+        CMSDecoderCreate(&amp;decoder);
+        NSData *fileData = [NSData dataWithContentsOfFile:path];
+        CMSDecoderUpdateMessage(decoder, fileData.bytes, fileData.length);
+        CMSDecoderFinalizeMessage(decoder);
+        CMSDecoderCopyContent(decoder, &amp;dataRef);
+        plistString = [[NSString alloc] initWithData:(__bridge NSData *)dataRef encoding:NSUTF8StringEncoding];
+        NSData *plistData = [plistString dataUsingEncoding:NSUTF8StringEncoding];
+        
+        plist = [NSPropertyListSerialization propertyListWithData:plistData options:NSPropertyListImmutable format:nil error:nil];
+    }
+    @catch (NSException *exception) {
+        NSLog(@"Could not decode file.\n");
+    }
+    @finally {
+        if (decoder) CFRelease(decoder);
+        if (dataRef) CFRelease(dataRef);
+    }
+    
+    return plist;
+}
+
+@end
+
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">main.m</code>文件</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//
+//  main.m
+//  ProvisioningHelper
+//
+//  Created by lijingbiao on 2022/4/24.
+//
+#import &lt;AppKit/AppKit.h&gt;
+#import "ProvisioningProfile.h"
+#import &lt;Foundation/Foundation.h&gt;
+static const NSString *kMobileprovisionDirName = @"Library/MobileDevice/Provisioning Profiles";
+
+int main(int argc, const char * argv[]) {
+    @autoreleasepool {
+        NSFileManager *manager = [NSFileManager defaultManager];
+        NSString *ProvisioningPath = [NSString stringWithFormat:@"%@/%@", NSHomeDirectory(), kMobileprovisionDirName];
+        [[NSWorkspace sharedWorkspace]openURL:[NSURL fileURLWithPath:ProvisioningPath]];
+        NSLog(@"描述文件路径:%@",ProvisioningPath);
+        NSArray *provisionExtensions = @[@"mobileprovision", @"provisionprofile"];
+        NSArray *provisioningProfiles = [manager contentsOfDirectoryAtPath:[NSString stringWithFormat:@"%@/%@", NSHomeDirectory(), kMobileprovisionDirName] error:nil];
+        provisioningProfiles = [provisioningProfiles filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"pathExtension IN %@", provisionExtensions]];
+        
+        NSMutableArray *provisioningArray = @[].mutableCopy;
+        [provisioningProfiles enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+            NSString *path = (NSString*)obj;
+            BOOL isDirectory;
+            if ([manager fileExistsAtPath:[NSString stringWithFormat:@"%@/%@/%@", NSHomeDirectory(), kMobileprovisionDirName, path] isDirectory:&amp;isDirectory]) {
+                ProvisioningProfile *profile = [[ProvisioningProfile alloc] initWithPath:[NSString stringWithFormat:@"%@/%@/%@", NSHomeDirectory(), kMobileprovisionDirName, path]];
+                
+                [provisioningArray addObject:profile];
+            }
+        }];
+        for (ProvisioningProfile *profile in provisioningArray) {
+            if ([profile.valid isEqualToString:@"NO"] &amp;&amp; [manager fileExistsAtPath:profile.path]) {
+                NSDateFormatter*formatter =[[NSDateFormatter alloc]init];
+                [formatter setDateFormat:@"yyyy-MM-dd"];
+                NSString*expirationDate =[formatter stringFromDate:profile.expirationDate];
+                NSLog(@"描述文件：%@已过期,过期日期:%@",profile.name,expirationDate);
+                NSError *error;
+                [manager removeItemAtPath:profile.path error:&amp;error];
+                if (error) {
+                    NSLog(@"%@删除失败:%@",profile.name,error);
+                }else {
+                    NSLog(@"%@已删除",profile.name);
+                }
+            }
+        }
+
+    }
+    return 0;
+}
+
+</code></pre></div></div>
 
   </section>
 
@@ -266,15 +446,10 @@
        <ul class="pager">
         
         <li class="previous">
-            <a href="/2022/04/RubyRuby%E9%87%8C%E7%9A%84-Q,-q,-W,-w,-x,-r,-s,-i%E8%AF%91/" data-toggle="tooltip" data-placement="top" title="Ruby Ruby 里的 %Q, %q, %W, %w, %x, %r, %s, %i">上一篇：  <span>Ruby Ruby 里的 %Q, %q, %W, %w, %x, %r, %s, %i</span>
+            <a href="/2022/04/ruby_lib/" data-toggle="tooltip" data-placement="top" title="Ruby标准库">上一篇：  <span>Ruby标准库</span>
             </a>
         </li>
         
-        
-        <li class="next">
-            <a href="/2022/04/provisioningHelp/" data-toggle="tooltip" data-placement="top" title="批量删除过期描述文件">下一篇：  <span>批量删除过期描述文件</span>
-            </a>
-        </li>
         
     </ul>
 </section>
