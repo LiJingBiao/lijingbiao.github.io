@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <title>工作笔记(1)</title>
+  <meta name="description" content="全局文件中字符串替换sed -i '' "s/192.28.6.24/192.26.5.171/g" `find -L ~/ -type f | grep .git/config`">
+  <meta name="author" content="leopardpan">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="工作笔记(1)">
+  <meta name="twitter:description" content="全局文件中字符串替换sed -i '' "s/192.28.6.24/192.26.5.171/g" `find -L ~/ -type f | grep .git/config`">
+  
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="工作笔记(1)">
+  <meta property="og:description" content="全局文件中字符串替换sed -i '' "s/192.28.6.24/192.26.5.171/g" `find -L ~/ -type f | grep .git/config`">
+  
+  <link rel="icon" type="image/png" href="/images/favicon.png" />
+  <link href="/images/favicon.png" rel="shortcut icon" type="image/png">
+  
+  <link rel="stylesheet" href="/css/main.css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="canonical" href="http://localhost:4000/2022/04/work_note1/">
+  <link rel="alternate" type="application/rss+xml" title="LiJingBiao" href="http://localhost:4000/feed.xml">
+  
+  <meta name="google-site-verification" content="1-1ZlHoRvM0T2FqPbW2S-qLgYXN6rsn52kErlMPd_gw" />
+
+<!-- 站点统计 -->
+  <script 
+  async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+  </script>  
+
+<!-- 百度统计 -->
+  
+  <script>
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?e75b13a108d5f088539c03b796edf58e";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+  </script>
+  
+
+<!-- google 统计 -->
+  
+  <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'G-4VB3MXZ8T0', 'auto');
+      ga('send', 'pageview');
+  </script>
+  
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-9005224472374751",
+    enable_page_level_ads: true
+  });
+</script>
+
+</head>
+
+
+  <body>
+
+    <span class="mobile btn-mobile-menu">        
+      <div class="nav_container">
+         <nav class="nav-menu-item" style = "float:right">
+            <i class="nav-menu-item">
+              <a href="/#blog" title="" class="blog-button">  博客主页
+              </a>
+            </i>
+            
+                <i class="nav-menu-item">
+
+                  <a href="/archive" title="archive" class="btn-mobile-menu__icon">
+                      所有文章
+                  </a>
+                </i>
+            
+                <i class="nav-menu-item">
+
+                  <a href="/tags" title="tags" class="btn-mobile-menu__icon">
+                      标签
+                  </a>
+                </i>
+            
+                <i class="nav-menu-item">
+
+                  <a href="/about" title="about" class="btn-mobile-menu__icon">
+                      关于我
+                  </a>
+                </i>
+            
+          </nav>
+      </div>
+    </span>
+    
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url('/images/background-cover.jpg')">
+  <div class="panel-main">
+
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+        <!-- 头像效果-start -->
+        <div class="ih-item circle effect right_to_left">            
+            <a href="/#blog" title="前往 LiJingBiao 的主页" class="blog-button">
+                <div class="img"><img src="/images/avatar.jpg" alt="img"></div>
+                <div class="info">
+                    <div class="info-back">
+                        <h2> 
+                            
+                                天道酬勤
+                            
+                        </h2>
+                        <p>
+                           
+                                iOS / Ruby /Shell
+                            
+                        </p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <!-- 头像效果-end -->
+        <h1 class="panel-cover__title panel-title"><a href="/#blog" title="link to homepage for LiJingBiao" class="blog-button">LiJingBiao</a></h1>
+        
+        <span class="panel-cover__subtitle panel-subtitle">个人网站</span>
+        
+        <hr class="panel-cover__divider" />
+        <p class="panel-cover__description">欢迎来到我的个人博客~</p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+        
+        
+
+        <div class="navigation-wrapper">
+          <div>
+            <nav class="cover-navigation cover-navigation--primary">
+              <ul class="navigation">
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">博客主页</a></li>
+                
+                  <li class="navigation__item"><a href="/archive" title="archive">所有文章</a></li>
+                
+                  <li class="navigation__item"><a href="/tags" title="tags">标签</a></li>
+                
+                  <li class="navigation__item"><a href="/about" title="about">关于我</a></li>
+                
+              </ul>
+            </nav>
+          </div>          
+        </div>
+
+
+        </div>
+      </div>
+    </div>
+    
+    
+    <div class="panel-cover--overlay cover-clear"></div>
+    
+  </div>
+</header>
+
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            <head>
+  <link rel="stylesheet" href="/css/post.css">
+</head>
+
+<article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title">工作笔记(1)</h1>
+    <div class="post-meta">
+      <img src="/images/calendar.png" width="20px"/> 
+      <time datetime="2022-04-27 00:00:00 +0800" itemprop="datePublished" class="post-meta__date date">2022-04-27</time>  
+
+      <span id="busuanzi_container_page_pv"> | 阅读：<span id="busuanzi_value_page_pv"></span>次</span>
+    </p>
+    </div>
+  </header>
+
+  
+    <h2 class="post-title">目录</h2>
+    <ul>
+  <li><a href="#全局文件中字符串替换">全局文件中字符串替换</a></li>
+  <li><a href="#终端只显示路径">终端只显示路径</a></li>
+  <li><a href="#允许安装任何来源">允许安装任何来源</a></li>
+  <li><a href="#时间统计">时间统计</a></li>
+  <li><a href="#ios-遍历子视图">iOS 遍历子视图</a></li>
+  <li><a href="#归档命令">归档命令</a></li>
+  <li><a href="#pod资源">pod资源</a></li>
+  <li><a href="#打印字典">打印字典</a></li>
+  <li><a href="#添加断点">添加断点</a></li>
+  <li><a href="#ssl_connect-ssl_error_syscall-in-connection-to-githubcom443">SSL_connect: SSL_ERROR_SYSCALL in connection to github.com:443</a></li>
+  <li><a href="#字符串匹配">字符串匹配</a></li>
+  <li><a href="#xcode快捷键">Xcode快捷键</a></li>
+  <li><a href="#pods">Pods</a>
+    <ul>
+      <li><a href="#清楚pod缓存">清楚pod缓存</a></li>
+      <li><a href="#pods-库-file-not-found">Pods 库 file not found</a></li>
+      <li><a href="#pod不升级库安装">Pod不升级库安装</a></li>
+      <li><a href="#unknown-encountered-an-unknown-error-unable-to-find-a-specification-for-router-depended-upon-by-homepage-during-validation">unknown: Encountered an unknown error (Unable to find a specification for <code class="highlighter-rouge">Router</code> depended upon by <code class="highlighter-rouge">Homepage</code>) during validation.</a></li>
+      <li><a href="#pod-lib-lint-验证常见参数">Pod lib lint 验证常见参数</a></li>
+      <li><a href="#打印详细日志">打印详细日志</a></li>
+      <li><a href="#添加私有源">添加私有源</a></li>
+      <li><a href="#error-include-of-non-modular-header-inside-framework-module">error: include of non-modular header inside framework module</a></li>
+      <li><a href="#添加podspec到你的repo">添加 Podspec 到你的 repo</a></li>
+      <li><a href="#pod私有库报错">pod私有库报错</a></li>
+      <li><a href="#cocoapods卸载">CocoaPods卸载</a>
+        <ul>
+          <li><a href="#1查看cocoapods组件安装位置">1、查看CocoaPods组件安装位置：</a></li>
+          <li><a href="#2手动移除这个组件">2、手动移除这个组件：</a></li>
+        </ul>
+      </li>
+      <li><a href="#2移除rubygems中的cocoapods程序包">2、移除RubyGems中的CocoaPods程序包</a>
+        <ul>
+          <li><a href="#21查看gems中本地程序包">2.1、查看gems中本地程序包</a></li>
+          <li><a href="#22移除程序包">2.2、移除程序包</a></li>
+          <li><a href="#23安装指定版本">2.3安装指定版本</a></li>
+        </ul>
+      </li>
+      <li><a href="#podspec设置buildsetting">podspec设置buildsetting</a></li>
+      <li><a href="#验证pods">验证pods</a></li>
+      <li><a href="#解决pod-lib-lintrepo-push不支持i386编译只能真机运行的库">解决pod lib lint/repo push不支持i386编译&amp;只能真机运行的库</a></li>
+      <li><a href="#pod-打包">Pod 打包</a></li>
+      <li><a href="#pod-package-参数">pod package 参数</a></li>
+      <li><a href="#cocoapods-cant-find-simulators-pod-repo-push-fails">cocoapods can’t find simulators, pod repo push fails</a></li>
+    </ul>
+  </li>
+  <li><a href="#雷达">雷达</a></li>
+  <li><a href="#library-not-found-for--libstdc609">library not found for -libstdc++.6.0.9</a></li>
+  <li><a href="#reveal-安装方法">Reveal 安装方法</a></li>
+  <li><a href="#创建模板">创建模板</a></li>
+  <li><a href="#修改app版本build-版本号">修改APP版本build 版本号</a></li>
+  <li><a href="#flutter">flutter</a></li>
+  <li><a href="#flutter安装">flutter安装</a></li>
+  <li><a href="#bash_profile">.bash_profile</a></li>
+</ul>
+
+  
+
+  <section class="post">
+    <h1 id="全局文件中字符串替换">全局文件中字符串替换</h1>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sed -i '' "s/192.28.6.24/192.26.5.171/g" `find -L ~/ -type f | grep .git/config`
+</code></pre></div></div>
+
+<h1 id="终端只显示路径">终端只显示路径</h1>
+<p>在偏好设置-&gt;描述文件-&gt;Shell-&gt;启动 shell命令添加</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PS1="\W \$:"; clear;
+PS1="\W 😊:"; clear;
+</code></pre></div></div>
+
+<h1 id="允许安装任何来源">允许安装任何来源</h1>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo spctl --master-disable
+</code></pre></div></div>
+
+<h1 id="时间统计">时间统计</h1>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>CFAbsoluteTime startTime =CFAbsoluteTimeGetCurrent();
+CFAbsoluteTime linkTime = (CFAbsoluteTimeGetCurrent() - startTime);
+NSLog(@"&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;time %f ms&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;", linkTime *1000.0);
+
+</code></pre></div></div>
+<h1 id="ios-遍历子视图">iOS 遍历子视图</h1>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>po [0x7fcdce80f030 recursiveDescription]
+[[[UIApplication sharedApplication] keyWindow] recursiveDescription]
+
+
+</code></pre></div></div>
+<h1 id="归档命令">归档命令</h1>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tar -cjf DSYM.tar.bz2 
+</code></pre></div></div>
+<h1 id="pod资源">pod资源</h1>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>s.resources = 'TUser/**/*.xib','TUser/**/*.plist','TUser/Resources/*','TUser/**/*.lproj'
+
+</code></pre></div></div>
+
+<h1 id="打印字典">打印字典</h1>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[[NSString alloc] initWithData:[NSJSONSerialization dataWithJSONObject:dict options:NSJSONWritingPrettyPrinted error:nil] encoding:NSUTF8StringEncoding]
+
+</code></pre></div></div>
+
+<h1 id="添加断点">添加断点</h1>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>watchpoint set variable str
+watchpoint command add -o 'bt' 1
+添加线程信息 1位id
+breakpoint set -n "[UIViewController viewDidLoad]"
+
+https://www.jianshu.com/p/67f08a4d8cf2
+
+https://www.jianshu.com/p/fd10bb8b89d6
+
+https://www.jianshu.com/p/63d1bd3fe36d
+
+https://www.jianshu.com/p/34021d7479d0
+
+</code></pre></div></div>
+
+<h1 id="ssl_connect-ssl_error_syscall-in-connection-to-githubcom443">SSL_connect: SSL_ERROR_SYSCALL in connection to github.com:443</h1>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://stackoverflow.com/questions/48987512/ssl-connect-ssl-error-syscall-in-connection-to-github-com443
+https://osxdaily.com/2014/04/18/disable-ipv6-mac-os-x/
+</code></pre></div></div>
+<h1 id="字符串匹配">字符串匹配</h1>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>NSMutableAttributedString *newString = [[NSMutableAttributedString alloc] initWithString:@"要匹配的字符"];
+    
+NSRegularExpression *regex = [[NSRegularExpression alloc]initWithPattern:@"匹配的字符" options:NSRegularExpressionCaseInsensitive error:nil];
+    
+[regex enumerateMatchesInString:self.model.showtitle options:NSMatchingReportProgress range:NSMakeRange(0, newString.length) usingBlock:^(NSTextCheckingResult *result, NSMatchingFlags flags, BOOL *stop) {
+    
+    [newString addAttribute:(NSString*)NSForegroundColorAttributeName
+                      value:[UIColor redColor]
+                      range:result.range];
+}];
+self.aTitle.attributedText = newString;
+
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git 切换到某个tag
+git checkout -b branch_name tag_name
+
+git config user.name
+git config user.email
+
+没有add 之前 回滚
+Git discard
+git checkout -- README.MD
+
+Add 之后回滚
+git reset HEAD README.MD
+
+撤销提交 已经commit 未push
+git reset --hard HEAD^
+
+
+查看远程分支
+git remote -v
+
+git pull &lt;远程主机名&gt; &lt;远程分支名&gt;:&lt;本地分支名&gt;
+比如，要取回origin主机的next分支，与本地的master分支合并，需要写成下面这样 -
+git pull origin next:master
+如果远程分支(next)要与当前分支合并，则冒号后面的部分可以省略。上面命令可以简写为：
+git pull origin next
+
+在某些场合，Git会自动在本地分支与远程分支之间，建立一种追踪关系(tracking)。比如，在git clone的时候，所有本地分支默认与远程主机的同名分支，建立追踪关系，也就是说，本地的master分支自动“追踪”origin/master分支。Git也允许手动建立追踪关系：
+git branch --set-upstream-to=远程主机名/&lt;远程分支名&gt;  &lt;本地分支名&gt;
+比如git branch --set-upstream-to=origin/next master，指定master分支追踪origin/next分支。
+
+Git 报错 (non-fast-forward)
+解决方法：git pull origin master --allow-unrelated-histories
+
+
+git error: failed to push some refs to
+
+git pull --rebase origin master
+git push origin master
+
+Git clone 指定tag版本
+
+git clone https://github.com/SDWebImage/SDWebImage.git
+     /var/folders/
+     --template= --single-branch --depth 1 --branch 5.0.2
+
+
+打印公钥
+ cat ~/.ssh/id_rsa.pub
+
+
+
+
+Git配置
+git config --global user.name "Jone doe"
+git config --global user.email 694292399@qq.com
+
+git config --list
+
+git config user.name
+
+查看状态
+
+git status -s
+git status --short
+
+比较
+git diff
+
+git diff --cached
+git diff --staged
+
+跳过暂存区
+git -a -m 'msg'
+
+
+移动文件
+
+git mv file_from file_to
+
+日志
+
+git log 
+git log -p 显示每次提交内容差异
+git log -p -2 显示最近两次提交
+
+
+
+取消暂存文件
+git reset HEAD &lt;file&gt;
+
+撤销对文件的修改
+
+git checkout -- &lt;file&gt;
+
+查看远程仓库
+
+git remote
+
+git remote -v 显示URL
+
+git添加远程仓库
+git remote add &lt;shortname&gt; &lt;url&gt;
+
+从远程仓库中抓取与拉取
+git fetch [remote-name]
+
+推送到远程仓库
+git push [remote-name] [origin-name]
+git push origin master
+
+查看远程仓库
+git remote show [remote -name]
+
+
+
+git 远程仓库重命名与移除
+
+重命名
+git remote rename origin bp
+
+git remote rm origin
+
+git 附注标签
+
+git tag -a 3.0.0 -m '3.0.0版本'
+
+查看标签信息
+ git show 3.0.0
+
+后期打标签
+
+git tag -a 3.0.0 9fceb02
+
+git push origin [tagname]
+
+一次推送多个标签
+git push origin --tags
+
+检出标签
+git checkout -b [branchname] [tagname]
+
+
+git log --oneline --decorate --graph --all
+
+git 创建分支
+
+git branch [branchname]
+
+git 切换分支
+git checkout [branchname]
+
+git checkout -b [branchname]  [origin]/[branchname]
+
+git 新建分支
+git checkout -b issu3
+相当于
+git branch issu3
+git checkout issu3
+
+从hotfix合并到master分支
+git checkout master
+git merge hotfix
+
+git 删除分支
+git branch -d [branchname]
+
+git 推送分支
+git push (remote) (branch)
+
+git branch命令的-r选项，可以用来查看远程分支，-a选项查看所有分支
+
+远程分支
+origin/master
+
+取回origin主机的master分支。
+$ git fetch origin master
+取回远程主机的更新以后，可以在它的基础上，使用git checkout命令创建一个新的分支。
+git checkout -b newBrach origin/master
+
+git checkout -b [branch]  [remotename]/[branch]
+        ||
+git checkout --track origin/develop
+删除远程分支
+git push origin --delete fix_1212
+
+新分支推送
+git push --set-upstream origin kunshan_develop
+
+git还原部分文件到指定版本
+git checkout 07ed0f4a1b9118124df26d62ffa8c253ec540207 E:/Workspaces/WebStormProject/mobile/resources/ios/splash/
+</code></pre></div></div>
+<h1 id="xcode快捷键">Xcode快捷键</h1>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>XCode快捷键
+Comand+Shift+O 搜索
+Comand+T 新建标签
+Shift+Comand+T 新建项目
+option + command + N ： 新建Group
+
+
+command + W ： 关闭标签
+option + command + W ： 关闭项目
+
+
+shift + command + C ： 开启控制台？
+shift + command + Y ： 隐藏/显示 Debug
+command+k 清除日志
+
+Command+Shift+F 搜索
+
+标签切换
+control + t 
+
+option + commamd + D 显示隐藏Dock
+
+Cmd + Opt + J         跳转到文件过滤区
+Cmd + Opt +Left/Right   收起展示代码
+
+
+command + ~ 两个项目之间快速切换 
+
+</code></pre></div></div>
+
+<h1 id="pods">Pods</h1>
+<h2 id="清楚pod缓存">清楚pod缓存</h2>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pod cache clean --all
+</code></pre></div></div>
+<h2 id="pods-库-file-not-found">Pods 库 file not found</h2>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>在 User header search path 
+${SRCROOT}/..
+</code></pre></div></div>
+<h2 id="pod不升级库安装">Pod不升级库安装</h2>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pod install --verbose --no-repo-update
+pod update --verbose --no-repo-update
+</code></pre></div></div>
+<h2 id="unknown-encountered-an-unknown-error-unable-to-find-a-specification-for-router-depended-upon-by-homepage-during-validation">unknown: Encountered an unknown error (Unable to find a specification for <code class="highlighter-rouge">Router</code> depended upon by <code class="highlighter-rouge">Homepage</code>) during validation.</h2>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pod lib lint --sources='http://172.28.6.24/ios_phenix/toon_pod_spec.git'
+</code></pre></div></div>
+
+<h2 id="pod-lib-lint-验证常见参数">Pod lib lint 验证常见参数</h2>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>去除警告
+pod lib lint --allow-warnings
+</code></pre></div></div>
+<h2 id="打印详细日志">打印详细日志</h2>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pod lib lint --verbose --no-clean
+</code></pre></div></div>
+<h2 id="添加私有源">添加私有源</h2>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pod lib lint --sources='http://192.28.6.24/ios_phenix/toon_pod_spec.git'
+</code></pre></div></div>
+<h2 id="error-include-of-non-modular-header-inside-framework-module">error: include of non-modular header inside framework module</h2>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pod lib lint --use-libraries
+#或者
+pod spec lint --use-libraries
+#当然，在提交的时候也要加上
+pod repo push &lt;repoName&gt; &lt;podspec&gt; --use-libraries
+#此方法好像能一并解决xxx.h找不到的问题
+</code></pre></div></div>
+
+<h2 id="添加podspec到你的repo">添加 Podspec 到你的 repo</h2>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pod repo push O2Specs O2View.podspec
+
+git tag '0.0.1'
+git push --tags
+git push origin master
+
+
+私有库有引用私有库的情况，在验证已经推送podspec的时候都需要加上所有的资源地址，不然，pod会默认从cocoapods官方查询的。
+　　如，私有库a要引用私有库b，在验证与推送私有库a的时候，要加上私有库b的远程仓库地址，如下
+　　注意：要在pod lib lint 或者 pod spec lint 以及 pod repo push ....时候加上被引用的私有库地址　　
+pod spec lint --sources='#私有库b的远程仓库地址(如：http://xxxxxx.git)#,https://github.com/CocoaPods/Specs'
+　pod repo push #本地Repo名字# #.podspec名# --sources='[私有库b的远程仓库地址(如：http://xxxxxx.git)],https://github.com/CocoaPods/Specs'
+
+#demo：
+　pod spec lint --sources='http://xxxxxx/iOSRepos.git,https://github.com/CocoaPods/Specs'
+
+　pod repo push iOSTest iOSTest.podspec --sources='http://git.yinqiyun.com/xfx/iOSRepos.git,https://github.com/CocoaPods/Specs'
+</code></pre></div></div>
+<p>　</p>
+<h2 id="pod私有库报错">pod私有库报错</h2>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>http://www.cnblogs.com/tufeibo/p/5654268.html
+https://www.jianshu.com/p/283584683b0b
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pod lib lint --sources=http://toongitlab.syswin.com/ios_phenix/zhengtong_ios_phenix_pod_spec,https://github.com/CocoaPods/Specs.git --allow-warnings  
+
+pod lib lint --sources='http://172.28.6.24/ios_phenix/toon_pod_spec.git' 
+
+pod lib lint --sources=http://toongitlab.syswin.com/ios_phenix/zhengtong_ios_phenix_pod_spec,https://github.com/CocoaPods/Specs.git --allow-warnings --skip-import-validation
+
+pod lib lint --verbose （加--verbose可以显示详细的检测过程，出错时会显示详细的错误信息）
+pod lib lint --allow-warnings (允许警告，用来解决由于代码中存在警告导致不能通过校验的问题)
+pod lib lint --help （查看所有可选参数，可选参数可以加多个）
+--skip-import-validation 参数，lint 将跳过验证 pod 是否可以导入。
+</code></pre></div></div>
+<h2 id="cocoapods卸载">CocoaPods卸载</h2>
+<h3 id="1查看cocoapods组件安装位置">1、查看CocoaPods组件安装位置：</h3>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>which pod
+结果：
+/usr/bin/pod
+</code></pre></div></div>
+<h3 id="2手动移除这个组件">2、手动移除这个组件：</h3>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo rm -rf /usr/bin/pod
+</code></pre></div></div>
+<h2 id="2移除rubygems中的cocoapods程序包">2、移除RubyGems中的CocoaPods程序包</h2>
+<h3 id="21查看gems中本地程序包">2.1、查看gems中本地程序包</h3>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gem list
+</code></pre></div></div>
+<h3 id="22移除程序包">2.2、移除程序包</h3>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>有了版本号，就可以根据当前版本号移除CocoaPods了：
+sudo gem uninstall cocoapods -v 1.5.3
+sudo gem uninstall cocoapods-core
+sudo gem uninstall fourflusher
+</code></pre></div></div>
+<h3 id="23安装指定版本">2.3安装指定版本</h3>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$sudo gem install -n /usr/local/bin cocoapods -v 1.5.3
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://gems.ruby-china.com/
+</code></pre></div></div>
+
+<h2 id="podspec设置buildsetting">podspec设置buildsetting</h2>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>s.xcconfig = {
+  'ENABLE_INCREMENTAL_DISTILL' =&gt; 'YES'
+  }
+
+</code></pre></div></div>
+<h2 id="验证pods">验证pods</h2>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pod lib lint --sources=http://toongitlab.syswin.com/ios_phenix/zhengtong_ios_phenix_pod_spec,https://github.com/CocoaPods/Specs.git --allow-warnings  
+</code></pre></div></div>
+<h2 id="解决pod-lib-lintrepo-push不支持i386编译只能真机运行的库">解决pod lib lint/repo push不支持i386编译&amp;只能真机运行的库</h2>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://www.jianshu.com/p/88180b4d2ab7
+</code></pre></div></div>
+
+<h2 id="pod-打包">Pod 打包</h2>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pod package Homepage.podspec --force --spec-sources=http://gitlab.sfyfwin.com/ios_pnix/zheng_ios_pod_spec,https://github.com/CocoaPods/Specs.git --no-mangle
+
+
+pod package ToKit.podspec --force --embedded --no-mangle --spec-sources=http://192.28.6.24/iOSTon/swin_pod_spec,https://github.com/CocoaPods/Specs.git
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://yangjie2.github.io/2018/08/07/%E4%BD%BF%E7%94%A8cocoapods%E6%8F%92%E4%BB%B6%E6%89%93%E5%8C%85%E9%9D%99%E6%80%81%E5%BA%93%E2%80%94%E2%80%94%E9%80%82%E7%94%A8%E4%BA%8E%E9%A1%B9%E7%9B%AE%E4%BE%9D%E8%B5%96%E7%A7%81%E6%9C%89%E5%BA%93%E3%80%81%E5%BC%80%E6%BA%90%E5%BA%93%EF%BC%8C%E7%A7%81%E6%9C%89%E5%BA%93%E5%8F%88%E4%BE%9D%E8%B5%96%E9%9D%99%E6%80%81%E5%BA%93%E7%AD%89%E5%A4%8D%E6%9D%82%E5%9C%BA%E6%99%AF/
+</code></pre></div></div>
+
+<h2 id="pod-package-参数">pod package 参数</h2>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>--force
+# 强制覆盖之前已经生成过的二进制库
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>--embedded
+# 生成静态.framework
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>--library
+# 生成静态.a
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>--dynamic
+# 生成动态.framework
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>--bundle-identifier
+# 动态.framework是需要签名的，所以只有生成动态库的时候需要这个BundleId
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>--exclude-deps
+# 不包含依赖的pod库的符号表/依赖的pod库不打包进去。生成动态库的时候不能使用这个命令，动态库一定需要包含依赖的符号表。 
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>--configuration
+# 表示生成的库是debug还是release，默认是release 。
+例如：--configuration=Debug,ONLY_ACTIVE_ARCH=NO
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>--no-mangle
+# 表示 Do not mangle symbols of depedendant Pods，当你的项目依赖包含静态库时，
+不加上这句，就会打包失败：
+[!] podspec has binary-only depedencies,mangling not possible.
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>--subspecs
+# 如果你的pod库有subspec，那么加上这个命名表示只给某个或几个subspec生成二进制库，
+# --subspecs=subspec1,subspec2。生成的库的名字就是你podspec的名字，
+# 如果你想生成的库的名字跟subspec的名字一样，那么就需要修改podspec的名字。 
+# 这个脚本就是批量生成subspec的二进制库，每一个subspec的库名就是podspecName+subspecName。
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>--spec-sources
+# 一些依赖的source，如果你有依赖是来自于私有库的，
+# 那就需要加上那个私有库的source，默认是cocoapods的Specs仓库。
+# --spec-sources=private,https://github.com/CocoaPods/Specs.git。
+</code></pre></div></div>
+
+<h2 id="cocoapods-cant-find-simulators-pod-repo-push-fails">cocoapods can’t find simulators, pod repo push fails</h2>
+<p>https://stackoverflow.com/questions/52742003/cocoapods-cant-find-simulators-pod-repo-push-fails</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>s.dependency 'PromiseKit','1.7.6'
+
+#valid_archs = ['arm64']
+  #s.xcconfig = { 'VALID_ARCHS'=&gt; valid_archs.join(' '),}
+  s.xcconfig = {
+    'VALID_ARCHS' =&gt;  'arm64',
+  }
+</code></pre></div></div>
+<h1 id="雷达">雷达</h1>
+<p><a href="https://github.com/waynezxcv/Gallop">雷达</a></p>
+
+<h1 id="library-not-found-for--libstdc609">library not found for -libstdc++.6.0.9</h1>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>将 libstdc++、libstdc++.6、libstdc++6.0.9拷贝到Xcode的如下目录：
+1.真机环境：/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/usr/lib/
+2.模拟器环境：/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk/usr/lib/
+</code></pre></div></div>
+
+<h1 id="reveal-安装方法">Reveal 安装方法</h1>
+<p>1、选中项目target — 》Build Settings—-》搜索Framework Search Paths—》将$(inherited) $(SRCROOT)填进去
+2、-Build Settings—-&gt;Other Linker Flags—&gt;填入-ObjC -weak_framework RevealServer
+3、-Build Phases –》点击+添加Run Script phase</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export REVEAL_SERVER_FILENAME="RevealServer.framework"
+
+ # Update this path to point to the location of RevealServer.framework in your project.
+ export REVEAL_SERVER_PATH="${SRCROOT}/${REVEAL_SERVER_FILENAME}"
+
+ # If configuration is not Debug, skip this script.
+ [ "${CONFIGURATION}" != "Debug" ] &amp;&amp; exit 0
+
+ # If RevealServer.framework exists at the specified path, run code signing script.
+ if [ -d "${REVEAL_SERVER_PATH}" ]; then
+   "${REVEAL_SERVER_PATH}/Scripts/copy_and_codesign_revealserver.sh"
+ else
+   echo "Cannot find RevealServer.framework, so Reveal Server will not be started for your app."
+ fi
+
+https://www.cnblogs.com/somethingWithiOS/p/6594496.html
+</code></pre></div></div>
+
+<h1 id="创建模板">创建模板</h1>
+
+<p>系统模板地址</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Templates
+</code></pre></div></div>
+<p>用户自定义模板地址</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>~/Library/Developer/Xcode/Templates/
+https://www.jianshu.com/p/25387283d469
+</code></pre></div></div>
+
+<h1 id="修改app版本build-版本号">修改APP版本build 版本号</h1>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>build_version=$(date +%y%m%d%H%M)
+echo "build_version${build_version}"
+/usr/libexec/PlistBuddy -c "Set CFBundleVersion ${build_version}" ${INFOPLIST_FILE}
+</code></pre></div></div>
+<h1 id="flutter">flutter</h1>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1、访问父类Widget
+context.ancestorWidgetOfExactType(MyExposingWidget);
+2、获取State
+final GlobalKey&lt;ScaffoldState&gt; _scaffoldKey = new GlobalKey&lt;ScaffoldState&gt;();
+
+myWidgetStateKey.currentState
+
+class MyInheritedWidget extends InheritedWidget {
+   MyInheritedWidget({
+      Key key,
+      @required Widget child,
+      this.data,
+   }): super(key: key, child: child);
+    
+   final data;
+    
+   static MyInheritedWidget of(BuildContext context) {
+      return context.inheritFromWidgetOfExactType(MyInheritedWidget);
+   }
+
+   @override
+   bool updateShouldNotify(MyInheritedWidget oldWidget) =&gt; data != oldWidget.data;
+}
+</code></pre></div></div>
+
+<h1 id="flutter安装">flutter安装</h1>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>flutter安装
+设置环境变量
+sudo vi ~/.bash_profile
+
+export PUB_HOSTED_URL=https://pub.flutter-io.cn
+export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
+
+
+:wq
+
+下载flutter 放到 ~/flutter
+在~/.bash_profile设置环境变量
+export PATH=~/flutter/bin:$PATH
+运行 source $HOME/.bash_profile 刷新当前终端窗口。
+验证“flutter/bin”是否已在PATH中：
+echo $PATH
+
+flutter doctor
+
+
+flutter 日期比较
+DateTime.now().difference(_lastPressedAt) &gt; Duration(seconds: 1)
+
+</code></pre></div></div>
+<h1 id="bash_profile">.bash_profile</h1>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export PUB_HOSTED_URL=https://pub.flutter-io.cn
+export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
+# export PATH=~/flutter/bin:$PATH
+export PATH="/Users/syswin/Library/Application Support/fvm/current/bin:$PATH"
+
+export PATH=/usr/local/opt/openssl@1.1/bin:$PATH
+export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib"
+export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include"
+
+export NVM_DIR="$HOME/.nvm"
+export BASH_SILENCE_DEPRECATION_WARNING=1
+[ -s "$NVM_DIR/nvm.sh" ] &amp;&amp; \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] &amp;&amp; \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+
+export MonkeyDevPath=/opt/MonkeyDev
+export MonkeyDevDeviceIP=
+export PATH=/opt/MonkeyDev/bin:$PATH
+
+export THEOS=/opt/theos
+export PATH=$THEOS/bin/:$PATH
+
+export  THEOS_DEVICE_IP=127.0.0.1
+export  THEOS_DEVICE_PORT=10010
+
+
+export HOMEBREW_NO_AUTO_UPDATE=true
+
+alias grep='grep --color=auto'
+alias ll='ls -l'
+alias lla='ls -l -a'
+alias god='cd ~/Desktop/ &amp;&amp; echo "当前目录:桌面"'
+alias opro='open /Users/syswin/Desktop/项目'
+alias rbs='sleep 7 &amp;&amp; open http://127.0.0.1:4000 &amp; cd /Users/syswin/Desktop/MySite &amp;&amp; bundle exec jekyll serve'
+
+
+
+# alias pod1='podcmd() { echo $1; awk -v rst=$1 -v cmd="$*" "/^TN/{ gsub(/update/,\"\", \$0);print \$0 cmd}" ../README.MD;}; podcmd install'
+
+alias pod1='podcmd() { pod repo update 6-ios_phenix-toon_pod_spec; awk -v rst=$1 -v cmd="$*" "/^TN/{ gsub(/update/,cmd, \$0);print \$0; system("\$0")}" ../README.MD;}; podcmd install'
+
+alias pod2='podcmd() { pod repo update 6-ios_phenix-toon_pod_spec; awk -v rst=$1 -v cmd="$*" "/^TN/{ gsub(/install/,cmd, \$0);print \$0; system("\$0")}" ../README.MD;}; podcmd update'
+
+</code></pre></div></div>
+
+  </section>
+
+</article>
+
+<section>
+
+            <div class="content-play">
+              <p><a href="javascript:void(0)" onclick="dashangToggle()" class="dashang" title="打赏，支持一下">打赏一个呗</a></p>
+              <div class="hide_box-play"></div>
+              <div class="shang_box-play">
+                <a class="shang_close-play" href="javascript:void(0)" onclick="dashangToggle()" title="关闭"><img src="/images/payimg/close.jpg" alt="取消" /></a>
+                <div class="shang_tit-play">
+                  <p>感谢您的支持，我会继续努力的!</p>
+                </div>
+                <div class="shang_payimg">
+                    <img src="/images/payimg/alipayimg.jpg" alt="扫码支持" title="扫一扫" />
+                </div>
+              <div class="shang_payimg">    
+                    <img src="/images/payimg/weipayimg.jpg" alt="扫码支持" title="扫一扫" />
+                </div>
+                <div class="pay_explain">扫码打赏，你说多少就多少</div>
+                <div class="shang_payselect">
+                  <div class="pay_item checked" data-id="alipay">
+                    <span class="pay_logo"><img src="/images/payimg/alipay.jpg" alt="支付宝" /></span>
+                  </div>
+                  <div class="pay_item" data-id="weipay">
+                    <span class="pay_logo"><img src="/images/payimg/wechat.jpg" alt="微信" /></span>
+                  </div>
+                </div>
+                <div class="shang_info-play">
+                  <p>打开<span id="shang_pay_txt">支付宝</span>扫一扫，即可进行扫码打赏哦</p>
+                </div>
+              </div>
+            </div>
+            <script type="text/javascript">
+            function dashangToggle(){
+              $(".hide_box-play").fadeToggle();
+              $(".shang_box-play").fadeToggle();
+            }
+            </script>
+
+            <div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';"></div>
+
+            <style type="text/css">
+              .content-play{width:80%;margin-top: 20px;margin-bottom: 10px;height:40px;}
+              .hide_box-play{z-index:999;filter:alpha(opacity=50);background:#666;opacity: 0.5;-moz-opacity: 0.5;left:0;top:0;height:99%;width:100%;position:fixed;display:none;}
+              .shang_box-play{width:540px;height:540px;padding:10px;background-color:#fff;border-radius:10px;position:fixed;z-index:1000;left:50%;top:50%;margin-left:-280px;margin-top:-280px;border:1px dotted #dedede;display:none;}
+              .shang_box-play img{border:none;border-width:0;}
+              .dashang{display:block;width:100px;margin:5px auto;height:25px;line-height:25px;padding:10px;background-color:#E74851;color:#fff;text-align:center;text-decoration:none;border-radius:10px;font-weight:bold;font-size:16px;transition: all 0.3s;}
+              .dashang:hover{opacity:0.8;padding:15px;font-size:18px;}
+              .shang_close-play{float:right;display:inline-block;
+                margin-right: 10px;margin-top: 20px;
+              }
+              .shang_logo{display:block;text-align:center;margin:20px auto;}
+              .shang_tit-play{width: 100%;height: 75px;text-align: center;line-height: 66px;color: #a3a3a3;font-size: 16px;background: url('/images/payimg/cy-reward-title-bg.jpg');font-family: 'Microsoft YaHei';margin-top: 7px;margin-right:2px;}
+              .shang_tit-play p{color:#a3a3a3;text-align:center;font-size:16px;}
+              .shang_payimg{width:140px;padding:10px;padding-left: 80px; /*border:6px solid #EA5F00;**/margin:0 auto;border-radius:3px;height:140px;display:inline-block;}
+              .shang_payimg img{display:inline-block;margin-right:10px;float:left;text-align:center;width:140px;height:140px; }
+              .pay_explain{text-align:center;margin:10px auto;font-size:12px;color:#545454;}
+              .shang_payselect{text-align:center;margin:0 auto;margin-top:40px;cursor:pointer;height:60px;width:500px;margin-left:110px;}
+              .shang_payselect .pay_item{display:inline-block;margin-right:140px;float:left;}
+              .shang_info-play{clear:both;}
+              .shang_info-play p,.shang_info-play a{color:#C3C3C3;text-align:center;font-size:12px;text-decoration:none;line-height:2em;}
+            </style>
+
+       <ul class="pager">
+        
+        <li class="previous">
+            <a href="/2022/04/ding-ying-url/" data-toggle="tooltip" data-placement="top" title="电影网站">上一篇：  <span>电影网站</span>
+            </a>
+        </li>
+        
+        
+    </ul>
+</section>
+
+<section class="post-comments">
+
+  
+
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMDUwNi83MDYw">
+      <script type="text/javascript">
+         (function(d, s) {
+             var j, e = d.getElementsByTagName(s)[0];
+
+             if (typeof LivereTower === 'function') { return; }
+             j = d.createElement(s);
+             j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+             j.async = true;
+             e.parentNode.insertBefore(j, e);
+         })(document, 'script');
+      </script>
+      <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+      </div>
+
+  
+
+</section>
+
+
+            <section class="footer">
+    <footer>
+        <div class = "footer_div">  
+        <nav class="cover-navigation navigation--social">
+          <ul class="navigation">
+
+          
+          <!-- Github -->
+          <li class="navigation__item_social">
+            <a href="https://github.com/lijingbiao" title="@lijingbiao 的 Github" target="_blank">
+              <div class="footer-social-icon" style="background:url(/images/github.png);"></div>
+            </a>
+          </li>
+          
+
+          
+
+          
+
+          
+          <!-- Zhihu -->
+          <li class="navigation__item_social">
+            <a href="https://www.jianshu.com/u/e66c74545d7e" title="@e66c74545d7e" target="_blank">
+              <div class="footer-social-icon" style="background:url(/images/jianshu.png);"></div>
+            </a>
+          </li>
+
+          
+
+          
+
+          
+          
+
+
+          
+          <!-- Email -->
+          <li class="navigation__item_social">
+            <a href="mailto:694292399@qq.com" title="Contact me">
+              <div class="footer-social-icon" style="background:url(/images/email.png);"></div>
+            </a>
+          </li>
+          
+          
+          <!-- RSS -->
+          <li class="navigation__item_social">
+            <a href="/feed.xml" rel="author" title="RSS" target="_blank">
+              <div class="footer-social-icon" style="background:url(/images/rss.png);"></div>
+              <span class="label">RSS</span>
+            </a>
+          </li>
+
+          </ul>
+        </nav>
+
+        </div>
+
+        <div class = "footer_div">  
+           <p class="copyright text-muted">
+            Copyright &copy; LiJingBiao 2022  |
+            <iframe
+                style="margin-left: 2px; margin-bottom:-5px;"
+                frameborder="0" scrolling="0" width="91px" height="20px"
+                src="https://ghbtns.com/github-btn.html?user=lijingbiao&repo=lijingbiao.github.io&type=star&count=true" >
+            </iframe>
+            </p>
+        	<div align="right">
+    			<link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+          <!-- 访问统计 -->
+          <span id="busuanzi_container_site_pv">
+            本站总访问量
+            <span id="busuanzi_value_site_pv"></span>次
+          </span>
+
+        </div>
+        <div>
+    </footer>
+</section>
+
+        </div>
+    </div>
+    
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="/js/main.js"></script>
+
+<script type="text/javascript" src="/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+    
+  </body>
+
+</html>

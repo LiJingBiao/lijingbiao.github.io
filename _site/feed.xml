@@ -5,9 +5,755 @@
     <description>欢迎来到我的个人博客~</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 24 Apr 2022 17:04:36 +0800</pubDate>
-    <lastBuildDate>Sun, 24 Apr 2022 17:04:36 +0800</lastBuildDate>
+    <pubDate>Wed, 27 Apr 2022 21:56:17 +0800</pubDate>
+    <lastBuildDate>Wed, 27 Apr 2022 21:56:17 +0800</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
+    
+      <item>
+        <title>工作笔记(1)</title>
+        <description>&lt;h1 id=&quot;全局文件中字符串替换&quot;&gt;全局文件中字符串替换&lt;/h1&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sed -i '' &quot;s/192.28.6.24/192.26.5.171/g&quot; `find -L ~/ -type f | grep .git/config`
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;终端只显示路径&quot;&gt;终端只显示路径&lt;/h1&gt;
+&lt;p&gt;在偏好设置-&amp;gt;描述文件-&amp;gt;Shell-&amp;gt;启动 shell命令添加&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;PS1=&quot;\W \$:&quot;; clear;
+PS1=&quot;\W 😊:&quot;; clear;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;允许安装任何来源&quot;&gt;允许安装任何来源&lt;/h1&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo spctl --master-disable
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;时间统计&quot;&gt;时间统计&lt;/h1&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;CFAbsoluteTime startTime =CFAbsoluteTimeGetCurrent();
+CFAbsoluteTime linkTime = (CFAbsoluteTimeGetCurrent() - startTime);
+NSLog(@&quot;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;time %f ms&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&quot;, linkTime *1000.0);
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h1 id=&quot;ios-遍历子视图&quot;&gt;iOS 遍历子视图&lt;/h1&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;po [0x7fcdce80f030 recursiveDescription]
+[[[UIApplication sharedApplication] keyWindow] recursiveDescription]
+
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h1 id=&quot;归档命令&quot;&gt;归档命令&lt;/h1&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;tar -cjf DSYM.tar.bz2 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h1 id=&quot;pod资源&quot;&gt;pod资源&lt;/h1&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;s.resources = 'TUser/**/*.xib','TUser/**/*.plist','TUser/Resources/*','TUser/**/*.lproj'
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;打印字典&quot;&gt;打印字典&lt;/h1&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[[NSString alloc] initWithData:[NSJSONSerialization dataWithJSONObject:dict options:NSJSONWritingPrettyPrinted error:nil] encoding:NSUTF8StringEncoding]
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;添加断点&quot;&gt;添加断点&lt;/h1&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;watchpoint set variable str
+watchpoint command add -o 'bt' 1
+添加线程信息 1位id
+breakpoint set -n &quot;[UIViewController viewDidLoad]&quot;
+
+https://www.jianshu.com/p/67f08a4d8cf2
+
+https://www.jianshu.com/p/fd10bb8b89d6
+
+https://www.jianshu.com/p/63d1bd3fe36d
+
+https://www.jianshu.com/p/34021d7479d0
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;ssl_connect-ssl_error_syscall-in-connection-to-githubcom443&quot;&gt;SSL_connect: SSL_ERROR_SYSCALL in connection to github.com:443&lt;/h1&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;https://stackoverflow.com/questions/48987512/ssl-connect-ssl-error-syscall-in-connection-to-github-com443
+https://osxdaily.com/2014/04/18/disable-ipv6-mac-os-x/
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h1 id=&quot;字符串匹配&quot;&gt;字符串匹配&lt;/h1&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;NSMutableAttributedString *newString = [[NSMutableAttributedString alloc] initWithString:@&quot;要匹配的字符&quot;];
+    
+NSRegularExpression *regex = [[NSRegularExpression alloc]initWithPattern:@&quot;匹配的字符&quot; options:NSRegularExpressionCaseInsensitive error:nil];
+    
+[regex enumerateMatchesInString:self.model.showtitle options:NSMatchingReportProgress range:NSMakeRange(0, newString.length) usingBlock:^(NSTextCheckingResult *result, NSMatchingFlags flags, BOOL *stop) {
+    
+    [newString addAttribute:(NSString*)NSForegroundColorAttributeName
+                      value:[UIColor redColor]
+                      range:result.range];
+}];
+self.aTitle.attributedText = newString;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git 切换到某个tag
+git checkout -b branch_name tag_name
+
+git config user.name
+git config user.email
+
+没有add 之前 回滚
+Git discard
+git checkout -- README.MD
+
+Add 之后回滚
+git reset HEAD README.MD
+
+撤销提交 已经commit 未push
+git reset --hard HEAD^
+
+
+查看远程分支
+git remote -v
+
+git pull &amp;lt;远程主机名&amp;gt; &amp;lt;远程分支名&amp;gt;:&amp;lt;本地分支名&amp;gt;
+比如，要取回origin主机的next分支，与本地的master分支合并，需要写成下面这样 -
+git pull origin next:master
+如果远程分支(next)要与当前分支合并，则冒号后面的部分可以省略。上面命令可以简写为：
+git pull origin next
+
+在某些场合，Git会自动在本地分支与远程分支之间，建立一种追踪关系(tracking)。比如，在git clone的时候，所有本地分支默认与远程主机的同名分支，建立追踪关系，也就是说，本地的master分支自动“追踪”origin/master分支。Git也允许手动建立追踪关系：
+git branch --set-upstream-to=远程主机名/&amp;lt;远程分支名&amp;gt;  &amp;lt;本地分支名&amp;gt;
+比如git branch --set-upstream-to=origin/next master，指定master分支追踪origin/next分支。
+
+Git 报错 (non-fast-forward)
+解决方法：git pull origin master --allow-unrelated-histories
+
+
+git error: failed to push some refs to
+
+git pull --rebase origin master
+git push origin master
+
+Git clone 指定tag版本
+
+git clone https://github.com/SDWebImage/SDWebImage.git
+     /var/folders/
+     --template= --single-branch --depth 1 --branch 5.0.2
+
+
+打印公钥
+ cat ~/.ssh/id_rsa.pub
+
+
+
+
+Git配置
+git config --global user.name &quot;Jone doe&quot;
+git config --global user.email 694292399@qq.com
+
+git config --list
+
+git config user.name
+
+查看状态
+
+git status -s
+git status --short
+
+比较
+git diff
+
+git diff --cached
+git diff --staged
+
+跳过暂存区
+git -a -m 'msg'
+
+
+移动文件
+
+git mv file_from file_to
+
+日志
+
+git log 
+git log -p 显示每次提交内容差异
+git log -p -2 显示最近两次提交
+
+
+
+取消暂存文件
+git reset HEAD &amp;lt;file&amp;gt;
+
+撤销对文件的修改
+
+git checkout -- &amp;lt;file&amp;gt;
+
+查看远程仓库
+
+git remote
+
+git remote -v 显示URL
+
+git添加远程仓库
+git remote add &amp;lt;shortname&amp;gt; &amp;lt;url&amp;gt;
+
+从远程仓库中抓取与拉取
+git fetch [remote-name]
+
+推送到远程仓库
+git push [remote-name] [origin-name]
+git push origin master
+
+查看远程仓库
+git remote show [remote -name]
+
+
+
+git 远程仓库重命名与移除
+
+重命名
+git remote rename origin bp
+
+git remote rm origin
+
+git 附注标签
+
+git tag -a 3.0.0 -m '3.0.0版本'
+
+查看标签信息
+ git show 3.0.0
+
+后期打标签
+
+git tag -a 3.0.0 9fceb02
+
+git push origin [tagname]
+
+一次推送多个标签
+git push origin --tags
+
+检出标签
+git checkout -b [branchname] [tagname]
+
+
+git log --oneline --decorate --graph --all
+
+git 创建分支
+
+git branch [branchname]
+
+git 切换分支
+git checkout [branchname]
+
+git checkout -b [branchname]  [origin]/[branchname]
+
+git 新建分支
+git checkout -b issu3
+相当于
+git branch issu3
+git checkout issu3
+
+从hotfix合并到master分支
+git checkout master
+git merge hotfix
+
+git 删除分支
+git branch -d [branchname]
+
+git 推送分支
+git push (remote) (branch)
+
+git branch命令的-r选项，可以用来查看远程分支，-a选项查看所有分支
+
+远程分支
+origin/master
+
+取回origin主机的master分支。
+$ git fetch origin master
+取回远程主机的更新以后，可以在它的基础上，使用git checkout命令创建一个新的分支。
+git checkout -b newBrach origin/master
+
+git checkout -b [branch]  [remotename]/[branch]
+        ||
+git checkout --track origin/develop
+删除远程分支
+git push origin --delete fix_1212
+
+新分支推送
+git push --set-upstream origin kunshan_develop
+
+git还原部分文件到指定版本
+git checkout 07ed0f4a1b9118124df26d62ffa8c253ec540207 E:/Workspaces/WebStormProject/mobile/resources/ios/splash/
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h1 id=&quot;xcode快捷键&quot;&gt;Xcode快捷键&lt;/h1&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;XCode快捷键
+Comand+Shift+O 搜索
+Comand+T 新建标签
+Shift+Comand+T 新建项目
+option + command + N ： 新建Group
+
+
+command + W ： 关闭标签
+option + command + W ： 关闭项目
+
+
+shift + command + C ： 开启控制台？
+shift + command + Y ： 隐藏/显示 Debug
+command+k 清除日志
+
+Command+Shift+F 搜索
+
+标签切换
+control + t 
+
+option + commamd + D 显示隐藏Dock
+
+Cmd + Opt + J         跳转到文件过滤区
+Cmd + Opt +Left/Right   收起展示代码
+
+
+command + ~ 两个项目之间快速切换 
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;pods&quot;&gt;Pods&lt;/h1&gt;
+&lt;h2 id=&quot;清楚pod缓存&quot;&gt;清楚pod缓存&lt;/h2&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pod cache clean --all
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h2 id=&quot;pods-库-file-not-found&quot;&gt;Pods 库 file not found&lt;/h2&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;在 User header search path 
+${SRCROOT}/..
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h2 id=&quot;pod不升级库安装&quot;&gt;Pod不升级库安装&lt;/h2&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pod install --verbose --no-repo-update
+pod update --verbose --no-repo-update
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h2 id=&quot;unknown-encountered-an-unknown-error-unable-to-find-a-specification-for-router-depended-upon-by-homepage-during-validation&quot;&gt;unknown: Encountered an unknown error (Unable to find a specification for &lt;code class=&quot;highlighter-rouge&quot;&gt;Router&lt;/code&gt; depended upon by &lt;code class=&quot;highlighter-rouge&quot;&gt;Homepage&lt;/code&gt;) during validation.&lt;/h2&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pod lib lint --sources='http://172.28.6.24/ios_phenix/toon_pod_spec.git'
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;pod-lib-lint-验证常见参数&quot;&gt;Pod lib lint 验证常见参数&lt;/h2&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;去除警告
+pod lib lint --allow-warnings
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h2 id=&quot;打印详细日志&quot;&gt;打印详细日志&lt;/h2&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pod lib lint --verbose --no-clean
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h2 id=&quot;添加私有源&quot;&gt;添加私有源&lt;/h2&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pod lib lint --sources='http://192.28.6.24/ios_phenix/toon_pod_spec.git'
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h2 id=&quot;error-include-of-non-modular-header-inside-framework-module&quot;&gt;error: include of non-modular header inside framework module&lt;/h2&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pod lib lint --use-libraries
+#或者
+pod spec lint --use-libraries
+#当然，在提交的时候也要加上
+pod repo push &amp;lt;repoName&amp;gt; &amp;lt;podspec&amp;gt; --use-libraries
+#此方法好像能一并解决xxx.h找不到的问题
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;添加podspec到你的repo&quot;&gt;添加 Podspec 到你的 repo&lt;/h2&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pod repo push O2Specs O2View.podspec
+
+git tag '0.0.1'
+git push --tags
+git push origin master
+
+
+私有库有引用私有库的情况，在验证已经推送podspec的时候都需要加上所有的资源地址，不然，pod会默认从cocoapods官方查询的。
+　　如，私有库a要引用私有库b，在验证与推送私有库a的时候，要加上私有库b的远程仓库地址，如下
+　　注意：要在pod lib lint 或者 pod spec lint 以及 pod repo push ....时候加上被引用的私有库地址　　
+pod spec lint --sources='#私有库b的远程仓库地址(如：http://xxxxxx.git)#,https://github.com/CocoaPods/Specs'
+　pod repo push #本地Repo名字# #.podspec名# --sources='[私有库b的远程仓库地址(如：http://xxxxxx.git)],https://github.com/CocoaPods/Specs'
+
+#demo：
+　pod spec lint --sources='http://xxxxxx/iOSRepos.git,https://github.com/CocoaPods/Specs'
+
+　pod repo push iOSTest iOSTest.podspec --sources='http://git.yinqiyun.com/xfx/iOSRepos.git,https://github.com/CocoaPods/Specs'
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;　&lt;/p&gt;
+&lt;h2 id=&quot;pod私有库报错&quot;&gt;pod私有库报错&lt;/h2&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;http://www.cnblogs.com/tufeibo/p/5654268.html
+https://www.jianshu.com/p/283584683b0b
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pod lib lint --sources=http://toongitlab.syswin.com/ios_phenix/zhengtong_ios_phenix_pod_spec,https://github.com/CocoaPods/Specs.git --allow-warnings  
+
+pod lib lint --sources='http://172.28.6.24/ios_phenix/toon_pod_spec.git' 
+
+pod lib lint --sources=http://toongitlab.syswin.com/ios_phenix/zhengtong_ios_phenix_pod_spec,https://github.com/CocoaPods/Specs.git --allow-warnings --skip-import-validation
+
+pod lib lint --verbose （加--verbose可以显示详细的检测过程，出错时会显示详细的错误信息）
+pod lib lint --allow-warnings (允许警告，用来解决由于代码中存在警告导致不能通过校验的问题)
+pod lib lint --help （查看所有可选参数，可选参数可以加多个）
+--skip-import-validation 参数，lint 将跳过验证 pod 是否可以导入。
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h2 id=&quot;cocoapods卸载&quot;&gt;CocoaPods卸载&lt;/h2&gt;
+&lt;h3 id=&quot;1查看cocoapods组件安装位置&quot;&gt;1、查看CocoaPods组件安装位置：&lt;/h3&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;which pod
+结果：
+/usr/bin/pod
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h3 id=&quot;2手动移除这个组件&quot;&gt;2、手动移除这个组件：&lt;/h3&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo rm -rf /usr/bin/pod
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h2 id=&quot;2移除rubygems中的cocoapods程序包&quot;&gt;2、移除RubyGems中的CocoaPods程序包&lt;/h2&gt;
+&lt;h3 id=&quot;21查看gems中本地程序包&quot;&gt;2.1、查看gems中本地程序包&lt;/h3&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gem list
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h3 id=&quot;22移除程序包&quot;&gt;2.2、移除程序包&lt;/h3&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;有了版本号，就可以根据当前版本号移除CocoaPods了：
+sudo gem uninstall cocoapods -v 1.5.3
+sudo gem uninstall cocoapods-core
+sudo gem uninstall fourflusher
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h3 id=&quot;23安装指定版本&quot;&gt;2.3安装指定版本&lt;/h3&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$sudo gem install -n /usr/local/bin cocoapods -v 1.5.3
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;https://gems.ruby-china.com/
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;podspec设置buildsetting&quot;&gt;podspec设置buildsetting&lt;/h2&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;s.xcconfig = {
+  'ENABLE_INCREMENTAL_DISTILL' =&amp;gt; 'YES'
+  }
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h2 id=&quot;验证pods&quot;&gt;验证pods&lt;/h2&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pod lib lint --sources=http://toongitlab.syswin.com/ios_phenix/zhengtong_ios_phenix_pod_spec,https://github.com/CocoaPods/Specs.git --allow-warnings  
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h2 id=&quot;解决pod-lib-lintrepo-push不支持i386编译只能真机运行的库&quot;&gt;解决pod lib lint/repo push不支持i386编译&amp;amp;只能真机运行的库&lt;/h2&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;https://www.jianshu.com/p/88180b4d2ab7
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;pod-打包&quot;&gt;Pod 打包&lt;/h2&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pod package Homepage.podspec --force --spec-sources=http://gitlab.sfyfwin.com/ios_pnix/zheng_ios_pod_spec,https://github.com/CocoaPods/Specs.git --no-mangle
+
+
+pod package ToKit.podspec --force --embedded --no-mangle --spec-sources=http://192.28.6.24/iOSTon/swin_pod_spec,https://github.com/CocoaPods/Specs.git
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;https://yangjie2.github.io/2018/08/07/%E4%BD%BF%E7%94%A8cocoapods%E6%8F%92%E4%BB%B6%E6%89%93%E5%8C%85%E9%9D%99%E6%80%81%E5%BA%93%E2%80%94%E2%80%94%E9%80%82%E7%94%A8%E4%BA%8E%E9%A1%B9%E7%9B%AE%E4%BE%9D%E8%B5%96%E7%A7%81%E6%9C%89%E5%BA%93%E3%80%81%E5%BC%80%E6%BA%90%E5%BA%93%EF%BC%8C%E7%A7%81%E6%9C%89%E5%BA%93%E5%8F%88%E4%BE%9D%E8%B5%96%E9%9D%99%E6%80%81%E5%BA%93%E7%AD%89%E5%A4%8D%E6%9D%82%E5%9C%BA%E6%99%AF/
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;pod-package-参数&quot;&gt;pod package 参数&lt;/h2&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;--force
+# 强制覆盖之前已经生成过的二进制库
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;--embedded
+# 生成静态.framework
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;--library
+# 生成静态.a
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;--dynamic
+# 生成动态.framework
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;--bundle-identifier
+# 动态.framework是需要签名的，所以只有生成动态库的时候需要这个BundleId
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;--exclude-deps
+# 不包含依赖的pod库的符号表/依赖的pod库不打包进去。生成动态库的时候不能使用这个命令，动态库一定需要包含依赖的符号表。 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;--configuration
+# 表示生成的库是debug还是release，默认是release 。
+例如：--configuration=Debug,ONLY_ACTIVE_ARCH=NO
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;--no-mangle
+# 表示 Do not mangle symbols of depedendant Pods，当你的项目依赖包含静态库时，
+不加上这句，就会打包失败：
+[!] podspec has binary-only depedencies,mangling not possible.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;--subspecs
+# 如果你的pod库有subspec，那么加上这个命名表示只给某个或几个subspec生成二进制库，
+# --subspecs=subspec1,subspec2。生成的库的名字就是你podspec的名字，
+# 如果你想生成的库的名字跟subspec的名字一样，那么就需要修改podspec的名字。 
+# 这个脚本就是批量生成subspec的二进制库，每一个subspec的库名就是podspecName+subspecName。
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;--spec-sources
+# 一些依赖的source，如果你有依赖是来自于私有库的，
+# 那就需要加上那个私有库的source，默认是cocoapods的Specs仓库。
+# --spec-sources=private,https://github.com/CocoaPods/Specs.git。
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;cocoapods-cant-find-simulators-pod-repo-push-fails&quot;&gt;cocoapods can’t find simulators, pod repo push fails&lt;/h2&gt;
+&lt;p&gt;https://stackoverflow.com/questions/52742003/cocoapods-cant-find-simulators-pod-repo-push-fails&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;s.dependency 'PromiseKit','1.7.6'
+
+#valid_archs = ['arm64']
+  #s.xcconfig = { 'VALID_ARCHS'=&amp;gt; valid_archs.join(' '),}
+  s.xcconfig = {
+    'VALID_ARCHS' =&amp;gt;  'arm64',
+  }
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h1 id=&quot;雷达&quot;&gt;雷达&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/waynezxcv/Gallop&quot;&gt;雷达&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;library-not-found-for--libstdc609&quot;&gt;library not found for -libstdc++.6.0.9&lt;/h1&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;将 libstdc++、libstdc++.6、libstdc++6.0.9拷贝到Xcode的如下目录：
+1.真机环境：/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/usr/lib/
+2.模拟器环境：/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk/usr/lib/
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;reveal-安装方法&quot;&gt;Reveal 安装方法&lt;/h1&gt;
+&lt;p&gt;1、选中项目target — 》Build Settings—-》搜索Framework Search Paths—》将$(inherited) $(SRCROOT)填进去
+2、-Build Settings—-&amp;gt;Other Linker Flags—&amp;gt;填入-ObjC -weak_framework RevealServer
+3、-Build Phases –》点击+添加Run Script phase&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;export REVEAL_SERVER_FILENAME=&quot;RevealServer.framework&quot;
+
+ # Update this path to point to the location of RevealServer.framework in your project.
+ export REVEAL_SERVER_PATH=&quot;${SRCROOT}/${REVEAL_SERVER_FILENAME}&quot;
+
+ # If configuration is not Debug, skip this script.
+ [ &quot;${CONFIGURATION}&quot; != &quot;Debug&quot; ] &amp;amp;&amp;amp; exit 0
+
+ # If RevealServer.framework exists at the specified path, run code signing script.
+ if [ -d &quot;${REVEAL_SERVER_PATH}&quot; ]; then
+   &quot;${REVEAL_SERVER_PATH}/Scripts/copy_and_codesign_revealserver.sh&quot;
+ else
+   echo &quot;Cannot find RevealServer.framework, so Reveal Server will not be started for your app.&quot;
+ fi
+
+https://www.cnblogs.com/somethingWithiOS/p/6594496.html
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;创建模板&quot;&gt;创建模板&lt;/h1&gt;
+
+&lt;p&gt;系统模板地址&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Templates
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;用户自定义模板地址&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;~/Library/Developer/Xcode/Templates/
+https://www.jianshu.com/p/25387283d469
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;修改app版本build-版本号&quot;&gt;修改APP版本build 版本号&lt;/h1&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;build_version=$(date +%y%m%d%H%M)
+echo &quot;build_version${build_version}&quot;
+/usr/libexec/PlistBuddy -c &quot;Set CFBundleVersion ${build_version}&quot; ${INFOPLIST_FILE}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h1 id=&quot;flutter&quot;&gt;flutter&lt;/h1&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;1、访问父类Widget
+context.ancestorWidgetOfExactType(MyExposingWidget);
+2、获取State
+final GlobalKey&amp;lt;ScaffoldState&amp;gt; _scaffoldKey = new GlobalKey&amp;lt;ScaffoldState&amp;gt;();
+
+myWidgetStateKey.currentState
+
+class MyInheritedWidget extends InheritedWidget {
+   MyInheritedWidget({
+      Key key,
+      @required Widget child,
+      this.data,
+   }): super(key: key, child: child);
+    
+   final data;
+    
+   static MyInheritedWidget of(BuildContext context) {
+      return context.inheritFromWidgetOfExactType(MyInheritedWidget);
+   }
+
+   @override
+   bool updateShouldNotify(MyInheritedWidget oldWidget) =&amp;gt; data != oldWidget.data;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;flutter安装&quot;&gt;flutter安装&lt;/h1&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;flutter安装
+设置环境变量
+sudo vi ~/.bash_profile
+
+export PUB_HOSTED_URL=https://pub.flutter-io.cn
+export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
+
+
+:wq
+
+下载flutter 放到 ~/flutter
+在~/.bash_profile设置环境变量
+export PATH=~/flutter/bin:$PATH
+运行 source $HOME/.bash_profile 刷新当前终端窗口。
+验证“flutter/bin”是否已在PATH中：
+echo $PATH
+
+flutter doctor
+
+
+flutter 日期比较
+DateTime.now().difference(_lastPressedAt) &amp;gt; Duration(seconds: 1)
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h1 id=&quot;bash_profile&quot;&gt;.bash_profile&lt;/h1&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;export PUB_HOSTED_URL=https://pub.flutter-io.cn
+export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
+# export PATH=~/flutter/bin:$PATH
+export PATH=&quot;/Users/syswin/Library/Application Support/fvm/current/bin:$PATH&quot;
+
+export PATH=/usr/local/opt/openssl@1.1/bin:$PATH
+export LDFLAGS=&quot;-L/usr/local/opt/openssl@1.1/lib&quot;
+export CPPFLAGS=&quot;-I/usr/local/opt/openssl@1.1/include&quot;
+
+export NVM_DIR=&quot;$HOME/.nvm&quot;
+export BASH_SILENCE_DEPRECATION_WARNING=1
+[ -s &quot;$NVM_DIR/nvm.sh&quot; ] &amp;amp;&amp;amp; \. &quot;$NVM_DIR/nvm.sh&quot;  # This loads nvm
+[ -s &quot;$NVM_DIR/bash_completion&quot; ] &amp;amp;&amp;amp; \. &quot;$NVM_DIR/bash_completion&quot;  # This loads nvm bash_completion
+
+
+export MonkeyDevPath=/opt/MonkeyDev
+export MonkeyDevDeviceIP=
+export PATH=/opt/MonkeyDev/bin:$PATH
+
+export THEOS=/opt/theos
+export PATH=$THEOS/bin/:$PATH
+
+export  THEOS_DEVICE_IP=127.0.0.1
+export  THEOS_DEVICE_PORT=10010
+
+
+export HOMEBREW_NO_AUTO_UPDATE=true
+
+alias grep='grep --color=auto'
+alias ll='ls -l'
+alias lla='ls -l -a'
+alias god='cd ~/Desktop/ &amp;amp;&amp;amp; echo &quot;当前目录:桌面&quot;'
+alias opro='open /Users/syswin/Desktop/项目'
+alias rbs='sleep 7 &amp;amp;&amp;amp; open http://127.0.0.1:4000 &amp;amp; cd /Users/syswin/Desktop/MySite &amp;amp;&amp;amp; bundle exec jekyll serve'
+
+
+
+# alias pod1='podcmd() { echo $1; awk -v rst=$1 -v cmd=&quot;$*&quot; &quot;/^TN/{ gsub(/update/,\&quot;\&quot;, \$0);print \$0 cmd}&quot; ../README.MD;}; podcmd install'
+
+alias pod1='podcmd() { pod repo update 6-ios_phenix-toon_pod_spec; awk -v rst=$1 -v cmd=&quot;$*&quot; &quot;/^TN/{ gsub(/update/,cmd, \$0);print \$0; system(&quot;\$0&quot;)}&quot; ../README.MD;}; podcmd install'
+
+alias pod2='podcmd() { pod repo update 6-ios_phenix-toon_pod_spec; awk -v rst=$1 -v cmd=&quot;$*&quot; &quot;/^TN/{ gsub(/install/,cmd, \$0);print \$0; system(&quot;\$0&quot;)}&quot; ../README.MD;}; podcmd update'
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+</description>
+        <pubDate>Wed, 27 Apr 2022 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2022/04/work_note1/</link>
+        <guid isPermaLink="true">http://localhost:4000/2022/04/work_note1/</guid>
+        
+        <category>iOS</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>电影网站</title>
+        <description>&lt;p&gt;最全影视资料库&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://ddrk.me&quot;&gt;1.低端影视&lt;/a&gt;
+&lt;a href=&quot;http://www.wuhaozhan.net&quot;&gt;2.五号站&lt;/a&gt;
+&lt;a href=&quot;http://www.haitudy.com&quot;&gt;3.海免影院&lt;/a&gt;
+&lt;a href=&quot;http://www.btbtdy.me&quot;&gt;4.BT电影天堂&lt;/a&gt;
+&lt;a href=&quot;https://www.zxzjs.com&quot;&gt;5.在线之家&lt;/a&gt;
+&lt;a href=&quot;http://www.bttwo.com&quot;&gt;6.两个BT&lt;/a&gt;
+&lt;a href=&quot;https://www.dybee.tv&quot;&gt;7.电影蜜蜂&lt;/a&gt;
+&lt;a href=&quot;https://www.66s.cc&quot;&gt;8.新版6v影院&lt;/a&gt;
+&lt;a href=&quot;http://www.qsptv.com&quot;&gt;9.全视频TV&lt;/a&gt;
+&lt;a href=&quot;https://www.duboku.net&quot;&gt;10.独播库&lt;/a&gt;
+&lt;a href=&quot;https://www.bde4.com&quot;&gt;11.哗嘀影视&lt;/a&gt;
+&lt;a href=&quot;http://www.vodxc.tv&quot;&gt;12.星辰影院&lt;/a&gt;
+&lt;a href=&quot;https://www.wandouys.com&quot;&gt;13.豌豆影视&lt;/a&gt;
+&lt;a href=&quot;https://www.suanzao.tv&quot;&gt;14.酸枣电影网（66影视）&lt;/a&gt;
+&lt;a href=&quot;http://www.kkkkmao.com&quot;&gt;15.4K屋&lt;/a&gt;
+&lt;a href=&quot;https://www.kankanwu.com&quot;&gt;16.看看屋&lt;/a&gt;
+&lt;a href=&quot;https://www.dandanzan.com&quot;&gt;17.蛋蛋赞影院&lt;/a&gt;
+&lt;a href=&quot;http://www.22tu.cc&quot;&gt;18.迅播影院&lt;/a&gt;
+&lt;a href=&quot;http://www.kuhuiv.com&quot;&gt;19.酷绘视频&lt;/a&gt;
+&lt;a href=&quot;http://www.wodedy.net&quot;&gt;20.我的电影网&lt;/a&gt;
+&lt;a href=&quot;https://www.77evd.cc/&quot;&gt;21.琪琪影院&lt;/a&gt;
+&lt;a href=&quot;https://www.77kpp.com/&quot;&gt;22.七七看片&lt;/a&gt;
+&lt;a href=&quot;https://www.cmdy5.com/&quot;&gt;23.草民电影&lt;/a&gt;
+&lt;a href=&quot;http://www.aishang118.cn/&quot;&gt;24.私人官网&lt;/a&gt;
+&lt;a href=&quot;http://www.tv5box.com/&quot;&gt;25.电影盒子&lt;/a&gt;
+&lt;a href=&quot;http://www.qnvod.net/&quot;&gt;26.全能影视&lt;/a&gt;
+&lt;a href=&quot;https://www.ysshare.com/&quot;&gt;27.影视分享&lt;/a&gt;
+&lt;a href=&quot;http://www.9rmb.com/&quot;&gt;28.94神马电影网&lt;/a&gt;
+&lt;a href=&quot;http://www.hkb123.com/&quot;&gt;29.好恐怖&lt;/a&gt;
+&lt;a href=&quot;http://www.paojiaoys.com/&quot;&gt;30.慢头影视&lt;/a&gt;
+&lt;a href=&quot;http://www.mvcat.com/&quot;&gt;31.影猫&lt;/a&gt;
+&lt;a href=&quot;https://www.btmao.cc/&quot;&gt;32.BT猫&lt;/a&gt;
+&lt;a href=&quot;https://www.jlszyy.cc/&quot;&gt;33.神马电影网&lt;/a&gt;
+&lt;a href=&quot;https://www.dadatutu.com/&quot;&gt;34.达达兔电影院&lt;/a&gt;
+&lt;a href=&quot;https://www.xigua2222.com/&quot;&gt;35.西瓜影院&lt;/a&gt;
+&lt;a href=&quot;http://www.pianba.tv/&quot;&gt;36.片吧&lt;/a&gt;
+&lt;a href=&quot;https://www.pianku.tv/&quot;&gt;37.片库网&lt;/a&gt;
+&lt;a href=&quot;https://53ys.cc/&quot;&gt;38.无双影视&lt;/a&gt;
+&lt;a href=&quot;http://www.8080s.net/&quot;&gt;39.80s手机电影网&lt;/a&gt;
+&lt;a href=&quot;https://www.xigua110.com/&quot;&gt;40.西瓜电影&lt;/a&gt;
+&lt;a href=&quot;http://www.yyetss.com/&quot;&gt;41.人人影视&lt;/a&gt;
+&lt;a href=&quot;http://www.gaoqingzy.com/&quot;&gt;42.高清资源网&lt;/a&gt;
+&lt;a href=&quot;http://www.kk2w.cc/&quot;&gt;43.OK电影网&lt;/a&gt;
+&lt;a href=&quot;http://www.douban666.com/&quot;&gt;44.豆瓣电影资源采集网&lt;/a&gt;
+&lt;a href=&quot;https://www.87kk.tv/&quot;&gt;45.87影院&lt;/a&gt;
+&lt;a href=&quot;https://www.t90dyy.tv/&quot;&gt;46.放映影院&lt;/a&gt;
+&lt;a href=&quot;https://suyingtv.com/&quot;&gt;47.速影TV&lt;/a&gt;
+&lt;a href=&quot;https://www.haiduomi.cc/&quot;&gt;48.嘀哆咪影视&lt;/a&gt;
+&lt;a href=&quot;http://www.iupian.com/&quot;&gt;49.优片网&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.tv432.com/&quot;&gt;50.黑米影院&lt;/a&gt;
+&lt;a href=&quot;http://www.qtfy7.com/&quot;&gt;51.且听风吟&lt;/a&gt;
+&lt;a href=&quot;https://www.88ys.com/&quot;&gt;52.88影视网&lt;/a&gt;
+&lt;a href=&quot;http://www.dililitv.com/&quot;&gt;53.嘀哩哩&lt;/a&gt;
+&lt;a href=&quot;https://www.yunbtv.com/&quot;&gt;54.云播TV&lt;/a&gt;
+&lt;a href=&quot;http://www.tianjiyy123.com/&quot;&gt;55.田鸡影院&lt;/a&gt;
+&lt;a href=&quot;https://www.nfmovies.com/&quot;&gt;56.奈非影视&lt;/a&gt;
+&lt;a href=&quot;https://www.quanji789.com/&quot;&gt;57.全集网&lt;/a&gt;
+&lt;a href=&quot;http://quanji456.com/&quot;&gt;58.全集网&lt;/a&gt;
+&lt;a href=&quot;http://www.goudaitv1.com/&quot;&gt;59.狗带TV&lt;/a&gt;
+&lt;a href=&quot;https://www.lol5s.com/&quot;&gt;60.五杀电影院&lt;/a&gt;
+&lt;a href=&quot;https://www.lanmays.com/&quot;&gt;61.蓝马影视&lt;/a&gt;
+&lt;a href=&quot;https://www.qpvod.com/&quot;&gt;62.奇葩影视&lt;/a&gt;
+&lt;a href=&quot;https://www.4142.cc/&quot;&gt;63.迅雷哥&lt;/a&gt;
+&lt;a href=&quot;https://www.ysshare.com/&quot;&gt;64.影视分享&lt;/a&gt;
+&lt;a href=&quot;http://www.yy6080.cn/&quot;&gt;65.新视觉影院&lt;/a&gt;
+&lt;a href=&quot;http://www.vbuluo99.com/&quot;&gt;66.v部落&lt;/a&gt;
+&lt;a href=&quot;http://www.shenlvyy.com/&quot;&gt;67.神驴影院&lt;/a&gt;
+&lt;a href=&quot;http://www.hailiys.com/&quot;&gt;68.美鱼剧场&lt;/a&gt;
+&lt;a href=&quot;http://hoho.tv/&quot;&gt;69.吼吼&lt;/a&gt;
+&lt;a href=&quot;https://kuyun.tv/&quot;&gt;70.酷云影视&lt;/a&gt;
+&lt;a href=&quot;https://www.xiangkanju.cc/&quot;&gt;71.想看剧&lt;/a&gt;
+&lt;a href=&quot;http://www.qukantv.net/&quot;&gt;72.去看TV&lt;/a&gt;
+&lt;a href=&quot;http://www.pangzi.ca/&quot;&gt;73.胖子视频&lt;/a&gt;
+&lt;a href=&quot;https://www.haiwaiyy.com/&quot;&gt;74.海外影院&lt;/a&gt;
+&lt;a href=&quot;http://hao8tv.com/&quot;&gt;75.好吧&lt;/a&gt;
+&lt;a href=&quot;http://www.jp2468.com/&quot;&gt;76.日本影视&lt;/a&gt;
+&lt;a href=&quot;http://www.tntdy2.vip/&quot;&gt;77.TNT影视&lt;/a&gt;
+&lt;a href=&quot;http://www.youlebe.com/&quot;&gt;78.优乐电影网&lt;/a&gt;
+&lt;a href=&quot;https://www.mianbao99.com/&quot;&gt;79.面包网&lt;/a&gt;
+&lt;a href=&quot;http://www.maohaha.com/&quot;&gt;80.猫哈哈&lt;/a&gt;
+&lt;a href=&quot;https://www.77ds.vip/&quot;&gt;81.七七电视&lt;/a&gt;
+&lt;a href=&quot;http://www.56dy.com/&quot;&gt;82.我乐电影&lt;/a&gt;
+&lt;a href=&quot;http://www.dingziyc.com/&quot;&gt;83.钉子电影&lt;/a&gt;
+&lt;a href=&quot;https://www.ljmovie.com/&quot;&gt;84.蓝鲸电影&lt;/a&gt;
+&lt;a href=&quot;https://www.putaoys.com/&quot;&gt;85.葡萄影视&lt;/a&gt;
+&lt;a href=&quot;https://www.tcmove.com/&quot;&gt;86.太初电影&lt;/a&gt;
+&lt;a href=&quot;https://www.wanmeikk.me/&quot;&gt;87.完美看看&lt;/a&gt;
+&lt;a href=&quot;http://www.5aikp.com/&quot;&gt;88.吾爱看影视&lt;/a&gt;
+&lt;a href=&quot;https://bowan.su/&quot;&gt;89播王&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://gimy.tv/&quot;&gt;90.Gimy TV剧迷&lt;/a&gt;
+&lt;a href=&quot;http://www.novipnoad.com/&quot;&gt;91.NO视频&lt;/a&gt;
+&lt;a href=&quot;http://8maple.ru/&quot;&gt;92.枫林网&lt;/a&gt;
+&lt;a href=&quot;https://91mjw.com/&quot;&gt;93.91美剧&lt;/a&gt;
+&lt;a href=&quot;http://www.meijuniao.com/&quot;&gt;94.美剧鸟&lt;/a&gt;
+&lt;a href=&quot;https://www.meiju.net/&quot;&gt;95.爱美剧&lt;/a&gt;
+&lt;a href=&quot;http://www.ttkmj.tv/&quot;&gt;96.天天看美剧&lt;/a&gt;
+&lt;a href=&quot;https://www.rijutv.com/&quot;&gt;97.日剧TV&lt;/a&gt;
+&lt;a href=&quot;https://www.juji.tv/&quot;&gt;98.韩剧集网&lt;/a&gt;
+&lt;a href=&quot;http://www.hanju.cc/&quot;&gt;99.韩剧网&lt;/a&gt;
+&lt;a href=&quot;https://www.hanjutv.com/&quot;&gt;100.韩剧TV&lt;/a&gt;
+&lt;a href=&quot;http://www.zzzfun.com/&quot;&gt;101.Zzzfun&lt;/a&gt;
+&lt;a href=&quot;http://www.nicotv.me/&quot;&gt;102.妮可动漫&lt;/a&gt;
+&lt;a href=&quot;http://www.tucao.one/&quot;&gt;103.吐槽弹幕网&lt;/a&gt;
+&lt;a href=&quot;http://www.dmd8.com/&quot;&gt;104.动漫岛&lt;/a&gt;
+&lt;a href=&quot;http://www.952780.com/&quot;&gt;105.碟影视界&lt;/a&gt;
+&lt;a href=&quot;https://www.taiks.com/&quot;&gt;106.皮皮影视网&lt;/a&gt;
+&lt;a href=&quot;https://www.adcmove.com/&quot;&gt;107.ADC电影网&lt;/a&gt;
+&lt;a href=&quot;https://www.ouxi.me/&quot;&gt;108.欧西电影&lt;/a&gt;
+&lt;a href=&quot;https://www.qingniao.me/&quot;&gt;109.青鸟影视&lt;/a&gt;
+&lt;a href=&quot;https://www.ysuzy.com/&quot;&gt;110.盐酥鸡&lt;/a&gt;
+&lt;a href=&quot;https://www.idytt.com/&quot;&gt;111.爱电影天堂&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Wed, 27 Apr 2022 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2022/04/ding-ying-url/</link>
+        <guid isPermaLink="true">http://localhost:4000/2022/04/ding-ying-url/</guid>
+        
+        <category>dianying</category>
+        
+        
+      </item>
     
       <item>
         <title>批量删除过期描述文件</title>
@@ -553,94 +1299,6 @@ $：提示符。如果是 root 用户，则会显示提示符为”#”；如果
         <guid isPermaLink="true">http://localhost:4000/2021/10/git_clone_depth/</guid>
         
         <category>git</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>iOS打印符号断点参数</title>
-        <description>&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;//打印第一个参数
-po $arg3
-//打印第2个参数
-po $arg4
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-</description>
-        <pubDate>Mon, 13 Sep 2021 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2021/09/iOS_print_arg/</link>
-        <guid isPermaLink="true">http://localhost:4000/2021/09/iOS_print_arg/</guid>
-        
-        <category>iOS</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>iOS AppHook</title>
-        <description>&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#import &amp;lt;objc/runtime.h&amp;gt;
-#import &amp;lt;Foundation/Foundation.h&amp;gt;
-
-NS_ASSUME_NONNULL_BEGIN
-
-@interface NSObject (AppHook)
-
-void ct_hookMethod(Class originalClass, SEL originalSelector, Class swizzledClass, SEL swizzledSelector);
-void ct_hookClassMethod(Class originalClass, SEL originalSelector, Class swizzledClass, SEL swizzledSelector);
-void ct_addMethod(Class originalClass,Class swizzledClass, SEL swizzledSelector);
-
-@end
-
-NS_ASSUME_NONNULL_END
-
-@implementation NSObject (AppHook)
-
-void ct_hookMethod(Class originalClass, SEL originalSelector, Class swizzledClass, SEL swizzledSelector) {
-    Method originalMethod = class_getInstanceMethod(originalClass, originalSelector);
-    Method swizzledMethod = class_getInstanceMethod(swizzledClass, swizzledSelector);
-    if(originalMethod &amp;amp;&amp;amp; swizzledMethod) {
-        method_exchangeImplementations(originalMethod, swizzledMethod);
-    }
-}
-
-void ct_hookClassMethod(Class originalClass, SEL originalSelector, Class swizzledClass, SEL swizzledSelector) {
-    Method originalMethod = class_getClassMethod(originalClass, originalSelector);
-    Method swizzledMethod = class_getClassMethod(swizzledClass, swizzledSelector);
-    if(originalMethod &amp;amp;&amp;amp; swizzledMethod) {
-        method_exchangeImplementations(originalMethod, swizzledMethod);
-    }
-}
-
-void ct_addMethod(Class originalClass,Class swizzledClass, SEL swizzledSelector)
-{
-    Method swizzledMethod = class_getInstanceMethod(swizzledClass, swizzledSelector);
-    class_addMethod(originalClass,swizzledSelector,method_getImplementation(swizzledMethod),method_getTypeEncoding(swizzledMethod));
-}
-
-+ (void)load
-{
-    static dispatch_once_t onceToken;
-    dispatch_once(&amp;amp;onceToken, ^{
-        Class card_class = objc_getClass(&quot;HookClass&quot;);
-        if (card_class) {
-            ct_hookMethod(card_class, @selector(originSelector:), [self class], @selector(hookSelector:));
-        }
-    });
-}
-
-- (void)hookSelector:(id)arg
-{
-   [self hookeSelector:arg];
-}
-
-@end
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-</description>
-        <pubDate>Mon, 13 Sep 2021 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2021/09/iOSAppHook/</link>
-        <guid isPermaLink="true">http://localhost:4000/2021/09/iOSAppHook/</guid>
-        
-        <category>iOS</category>
         
         
       </item>
