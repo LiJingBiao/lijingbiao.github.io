@@ -178,6 +178,27 @@
   <ol class="post-list">
     
     <li>
+      <h2 class="post-list__post-title post-title"><a href="/2022/05/solve-git-443/" title="访问 解决github.com:443 错误">解决github.com:443 错误</a></h2>
+      <p class="excerpt">fatal: unable to access 'https://github.com/Tencent/mars.git/': LibreSSL SSL_connect: SSL_ERROR_SYSCALL in connection to github.com:443产生原因：一般是这是因为服务器的SSL证书没有经过第三方机构的签署，所以才报错参考网上解决办法：解除ssl验证后，再次git即可git config --global http.sslVerify "false"&hellip;</p>
+      <div class="post-list__meta">        
+        <time datetime="2022-05-02 00:00:00 +0800" class="post-list__meta--date date">
+          <img src="/images/calendar.png" width="20px" /> 
+          2022-05-02</time> 
+        <div class = "tag-img-icon">
+          <img src="/images/tag-icon.svg" width="20px" /> 
+        </div>
+        <a href="/tags">
+          <div class = "post-list-icon-mate">
+            <span class="post-list__meta--tags-right">git</span>
+          </div>
+          <div class = "post-list-small-mate">
+          <a class="btn-border-small" href=/2022/05/solve-git-443/>阅读全文 » </a>
+          </div>
+      </div>
+      <hr class="post-list__divider" />
+    </li>
+    
+    <li>
       <h2 class="post-list__post-title post-title"><a href="/2022/04/work_note1/" title="访问 工作笔记(1)">工作笔记(1)</a></h2>
       <p class="excerpt">全局文件中字符串替换sed -i '' "s/192.28.6.24/192.26.5.171/g" `find -L ~/ -type f | grep .git/config`终端只显示路径在偏好设置-&gt;描述文件-&gt;Shell-&gt;启动 shell命令添加PS1="\W \$:"; clear;PS1="\W 😊:"; clear;允许安装任何来源sudo spctl --master-disable时间统计CFAbsoluteTime startTime =CFAbs...&hellip;</p>
       <div class="post-list__meta">        
@@ -571,27 +592,6 @@
           </div>
           <div class = "post-list-small-mate">
           <a class="btn-border-small" href=/2021/06/Mac%E4%B8%8A%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8Sed/>阅读全文 » </a>
-          </div>
-      </div>
-      <hr class="post-list__divider" />
-    </li>
-    
-    <li>
-      <h2 class="post-list__post-title post-title"><a href="/2021/05/iOS%E5%9B%BD%E9%99%85%E5%8C%96%E6%9F%A5%E6%89%BE%E4%B8%AD%E6%96%87%E6%9B%BF%E6%8D%A2/" title="访问 iOS国际化查找中文替换">iOS国际化查找中文替换</a></h2>
-      <p class="excerpt"># coding=utf-8import osimport reimport sysreload(sys)sys.setdefaultencoding('utf-8')DESPATH = os.getcwd()AllText = []WDESPATH = os.getcwd()+"/unlocalized.strings"BLACKDIRLIST = [    DESPATH + '/Frameworks',    DESPATH + '/Example',    '_Pods.xcode...&hellip;</p>
-      <div class="post-list__meta">        
-        <time datetime="2021-05-31 00:00:00 +0800" class="post-list__meta--date date">
-          <img src="/images/calendar.png" width="20px" /> 
-          2021-05-31</time> 
-        <div class = "tag-img-icon">
-          <img src="/images/tag-icon.svg" width="20px" /> 
-        </div>
-        <a href="/tags">
-          <div class = "post-list-icon-mate">
-            <span class="post-list__meta--tags-right">iOS</span>
-          </div>
-          <div class = "post-list-small-mate">
-          <a class="btn-border-small" href=/2021/05/iOS%E5%9B%BD%E9%99%85%E5%8C%96%E6%9F%A5%E6%89%BE%E4%B8%AD%E6%96%87%E6%9B%BF%E6%8D%A2/>阅读全文 » </a>
           </div>
       </div>
       <hr class="post-list__divider" />

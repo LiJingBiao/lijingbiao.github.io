@@ -5,9 +5,29 @@
     <description>欢迎来到我的个人博客~</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 27 Apr 2022 21:56:17 +0800</pubDate>
-    <lastBuildDate>Wed, 27 Apr 2022 21:56:17 +0800</lastBuildDate>
+    <pubDate>Mon, 02 May 2022 17:08:22 +0800</pubDate>
+    <lastBuildDate>Mon, 02 May 2022 17:08:22 +0800</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
+    
+      <item>
+        <title>解决github.com:443 错误</title>
+        <description>&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;fatal: unable to access 'https://github.com/Tencent/mars.git/': LibreSSL SSL_connect: SSL_ERROR_SYSCALL in connection to github.com:443&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;产生原因：一般是这是因为服务器的SSL证书没有经过第三方机构的签署，所以才报错&lt;/p&gt;
+
+&lt;p&gt;参考网上解决办法：解除ssl验证后，再次git即可&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git config --global http.sslVerify &quot;false&quot;&lt;/code&gt;&lt;/p&gt;
+
+</description>
+        <pubDate>Mon, 02 May 2022 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2022/05/solve-git-443/</link>
+        <guid isPermaLink="true">http://localhost:4000/2022/05/solve-git-443/</guid>
+        
+        <category>git</category>
+        
+        
+      </item>
     
       <item>
         <title>工作笔记(1)</title>
@@ -1285,20 +1305,6 @@ $：提示符。如果是 root 用户，则会显示提示符为”#”；如果
         <guid isPermaLink="true">http://localhost:4000/2021/11/MacOS%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%BB%88%E7%AB%AF%E9%9A%90%E8%97%8F%E7%94%B5%E8%84%91%E5%90%8D%E5%92%8C%E7%94%A8%E6%88%B7%E5%90%8D%E7%9A%84%E6%96%B9%E6%B3%95/</guid>
         
         <category>iOS</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>git clone深度</title>
-        <description>&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;对于巨大的项目git clone的时候用 git clone -b '目标分支' --depth 1  'git@xxxxx.git'  或  git clone  --single-branch --depth 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-</description>
-        <pubDate>Tue, 26 Oct 2021 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2021/10/git_clone_depth/</link>
-        <guid isPermaLink="true">http://localhost:4000/2021/10/git_clone_depth/</guid>
-        
-        <category>git</category>
         
         
       </item>

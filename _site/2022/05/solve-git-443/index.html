@@ -6,17 +6,17 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <title>LiJingBiao</title>
-  <meta name="description" content="欢迎来到我的个人博客~">
+  <title>解决github.com:443 错误</title>
+  <meta name="description" content="fatal: unable to access 'https://github.com/Tencent/mars.git/': LibreSSL SSL_connect: SSL_ERROR_SYSCALL in connection to github.com:443">
   <meta name="author" content="leopardpan">
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="LiJingBiao">
-  <meta name="twitter:description" content="欢迎来到我的个人博客~">
+  <meta name="twitter:title" content="解决github.com:443 错误">
+  <meta name="twitter:description" content="fatal: unable to access 'https://github.com/Tencent/mars.git/': LibreSSL SSL_connect: SSL_ERROR_SYSCALL in connection to github.com:443">
   
   <meta property="og:type" content="article">
-  <meta property="og:title" content="LiJingBiao">
-  <meta property="og:description" content="欢迎来到我的个人博客~">
+  <meta property="og:title" content="解决github.com:443 错误">
+  <meta property="og:description" content="fatal: unable to access 'https://github.com/Tencent/mars.git/': LibreSSL SSL_connect: SSL_ERROR_SYSCALL in connection to github.com:443">
   
   <link rel="icon" type="image/png" href="/images/favicon.png" />
   <link href="/images/favicon.png" rel="shortcut icon" type="image/png">
@@ -24,7 +24,7 @@
   <link rel="stylesheet" href="/css/main.css">
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
-  <link rel="canonical" href="http://localhost:4000/page/4/">
+  <link rel="canonical" href="http://localhost:4000/2022/05/solve-git-443/">
   <link rel="alternate" type="application/rss+xml" title="LiJingBiao" href="http://localhost:4000/feed.xml">
   
   <meta name="google-site-verification" content="1-1ZlHoRvM0T2FqPbW2S-qLgYXN6rsn52kErlMPd_gw" />
@@ -105,7 +105,7 @@
       </div>
     </span>
     
-    <header class="panel-cover " style="background-image: url('/images/background-cover.jpg')">
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url('/images/background-cover.jpg')">
   <div class="panel-main">
 
     <div class="panel-main__inner panel-inverted">
@@ -173,92 +173,137 @@
 
     <div class="content-wrapper">
         <div class="content-wrapper__inner">
-            <div class="main-post-list hidden">
+            <head>
+  <link rel="stylesheet" href="/css/post.css">
+</head>
 
-  <ol class="post-list">
+<article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title">解决github.com:443 错误</h1>
+    <div class="post-meta">
+      <img src="/images/calendar.png" width="20px"/> 
+      <time datetime="2022-05-02 00:00:00 +0800" itemprop="datePublished" class="post-meta__date date">2022-05-02</time>  
+
+      <span id="busuanzi_container_page_pv"> | 阅读：<span id="busuanzi_value_page_pv"></span>次</span>
+    </p>
+    </div>
+  </header>
+
+  
+    <h2 class="post-title">目录</h2>
     
-    <li>
-      <h2 class="post-list__post-title post-title"><a href="/2016/10/jekyll_tutorials1/" title="访问 Jekyll搭建个人博客">Jekyll搭建个人博客</a></h2>
-      <p class="excerpt">介绍　Jekyll 是一个简单的博客形态的静态站点生产机器。它有一个模版目录，其中包含原始文本格式的文档，通过 Markdown （或者 Textile） 以及 Liquid 转化成一个完整的可发布的静态网站，你可以发布在任何你喜爱的服务器上。Jekyll 也可以运行在 GitHub Page 上，也就是说，你可以使用 GitHub 的服务来搭建你的项目页面、博客或者网站，而且是完全免费的　使用 Jekyll 搭建博客之前要确认下本机环境，Git 环境（用于部署到远端）、Ruby 环境（J...&hellip;</p>
-      <div class="post-list__meta">        
-        <time datetime="2016-10-14 00:00:00 +0800" class="post-list__meta--date date">
-          <img src="/images/calendar.png" width="20px" /> 
-          2016-10-14</time> 
-        <div class = "tag-img-icon">
-          <img src="/images/tag-icon.svg" width="20px" /> 
-        </div>
-        <a href="/tags">
-          <div class = "post-list-icon-mate">
-            <span class="post-list__meta--tags-right">jekyll</span>
-          </div>
-          <div class = "post-list-small-mate">
-          <a class="btn-border-small" href=/2016/10/jekyll_tutorials1/>阅读全文 » </a>
-          </div>
+
+  
+
+  <section class="post">
+    <p><code class="highlighter-rouge">fatal: unable to access 'https://github.com/Tencent/mars.git/': LibreSSL SSL_connect: SSL_ERROR_SYSCALL in connection to github.com:443</code></p>
+
+<p>产生原因：一般是这是因为服务器的SSL证书没有经过第三方机构的签署，所以才报错</p>
+
+<p>参考网上解决办法：解除ssl验证后，再次git即可</p>
+
+<p><code class="highlighter-rouge">git config --global http.sslVerify "false"</code></p>
+
+
+  </section>
+
+</article>
+
+<section>
+
+            <div class="content-play">
+              <p><a href="javascript:void(0)" onclick="dashangToggle()" class="dashang" title="打赏，支持一下">打赏一个呗</a></p>
+              <div class="hide_box-play"></div>
+              <div class="shang_box-play">
+                <a class="shang_close-play" href="javascript:void(0)" onclick="dashangToggle()" title="关闭"><img src="/images/payimg/close.jpg" alt="取消" /></a>
+                <div class="shang_tit-play">
+                  <p>感谢您的支持，我会继续努力的!</p>
+                </div>
+                <div class="shang_payimg">
+                    <img src="/images/payimg/alipayimg.jpg" alt="扫码支持" title="扫一扫" />
+                </div>
+              <div class="shang_payimg">    
+                    <img src="/images/payimg/weipayimg.jpg" alt="扫码支持" title="扫一扫" />
+                </div>
+                <div class="pay_explain">扫码打赏，你说多少就多少</div>
+                <div class="shang_payselect">
+                  <div class="pay_item checked" data-id="alipay">
+                    <span class="pay_logo"><img src="/images/payimg/alipay.jpg" alt="支付宝" /></span>
+                  </div>
+                  <div class="pay_item" data-id="weipay">
+                    <span class="pay_logo"><img src="/images/payimg/wechat.jpg" alt="微信" /></span>
+                  </div>
+                </div>
+                <div class="shang_info-play">
+                  <p>打开<span id="shang_pay_txt">支付宝</span>扫一扫，即可进行扫码打赏哦</p>
+                </div>
+              </div>
+            </div>
+            <script type="text/javascript">
+            function dashangToggle(){
+              $(".hide_box-play").fadeToggle();
+              $(".shang_box-play").fadeToggle();
+            }
+            </script>
+
+            <div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';"></div>
+
+            <style type="text/css">
+              .content-play{width:80%;margin-top: 20px;margin-bottom: 10px;height:40px;}
+              .hide_box-play{z-index:999;filter:alpha(opacity=50);background:#666;opacity: 0.5;-moz-opacity: 0.5;left:0;top:0;height:99%;width:100%;position:fixed;display:none;}
+              .shang_box-play{width:540px;height:540px;padding:10px;background-color:#fff;border-radius:10px;position:fixed;z-index:1000;left:50%;top:50%;margin-left:-280px;margin-top:-280px;border:1px dotted #dedede;display:none;}
+              .shang_box-play img{border:none;border-width:0;}
+              .dashang{display:block;width:100px;margin:5px auto;height:25px;line-height:25px;padding:10px;background-color:#E74851;color:#fff;text-align:center;text-decoration:none;border-radius:10px;font-weight:bold;font-size:16px;transition: all 0.3s;}
+              .dashang:hover{opacity:0.8;padding:15px;font-size:18px;}
+              .shang_close-play{float:right;display:inline-block;
+                margin-right: 10px;margin-top: 20px;
+              }
+              .shang_logo{display:block;text-align:center;margin:20px auto;}
+              .shang_tit-play{width: 100%;height: 75px;text-align: center;line-height: 66px;color: #a3a3a3;font-size: 16px;background: url('/images/payimg/cy-reward-title-bg.jpg');font-family: 'Microsoft YaHei';margin-top: 7px;margin-right:2px;}
+              .shang_tit-play p{color:#a3a3a3;text-align:center;font-size:16px;}
+              .shang_payimg{width:140px;padding:10px;padding-left: 80px; /*border:6px solid #EA5F00;**/margin:0 auto;border-radius:3px;height:140px;display:inline-block;}
+              .shang_payimg img{display:inline-block;margin-right:10px;float:left;text-align:center;width:140px;height:140px; }
+              .pay_explain{text-align:center;margin:10px auto;font-size:12px;color:#545454;}
+              .shang_payselect{text-align:center;margin:0 auto;margin-top:40px;cursor:pointer;height:60px;width:500px;margin-left:110px;}
+              .shang_payselect .pay_item{display:inline-block;margin-right:140px;float:left;}
+              .shang_info-play{clear:both;}
+              .shang_info-play p,.shang_info-play a{color:#C3C3C3;text-align:center;font-size:12px;text-decoration:none;line-height:2em;}
+            </style>
+
+       <ul class="pager">
+        
+        <li class="previous">
+            <a href="/2022/04/work_note1/" data-toggle="tooltip" data-placement="top" title="工作笔记(1)">上一篇：  <span>工作笔记(1)</span>
+            </a>
+        </li>
+        
+        
+    </ul>
+</section>
+
+<section class="post-comments">
+
+  
+
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMDUwNi83MDYw">
+      <script type="text/javascript">
+         (function(d, s) {
+             var j, e = d.getElementsByTagName(s)[0];
+
+             if (typeof LivereTower === 'function') { return; }
+             j = d.createElement(s);
+             j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+             j.async = true;
+             e.parentNode.insertBefore(j, e);
+         })(document, 'script');
+      </script>
+      <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
       </div>
-      <hr class="post-list__divider" />
-    </li>
-    
-    <li>
-      <h2 class="post-list__post-title post-title"><a href="/2016/09/11_SHELL/" title="访问 Shell编程ls命令">Shell编程ls命令</a></h2>
-      <p class="excerpt">1、简介    ls 命令是 linux 下最常用的命令，是 list 的缩写    2、主要功能    查看 目录清单         ls 打印当目录的清单        ls 指定其他目录，显示指定目录里的文件及文件夹清单    查看 文件属性         查看文件权限(包括目录、文件夹、文件权限)查看目录信息等    3、用法/命令格式ls [选项] [目录名/文件名]ls 命令可以说是linux下最常用的命令之一。-a 列出目录下的所有文件，包括以 . 开头的隐含文件。-b ...&hellip;</p>
-      <div class="post-list__meta">        
-        <time datetime="2016-09-03 00:00:00 +0800" class="post-list__meta--date date">
-          <img src="/images/calendar.png" width="20px" /> 
-          2016-09-03</time> 
-        <div class = "tag-img-icon">
-          <img src="/images/tag-icon.svg" width="20px" /> 
-        </div>
-        <a href="/tags">
-          <div class = "post-list-icon-mate">
-            <span class="post-list__meta--tags-right">Shell</span>
-          </div>
-          <div class = "post-list-small-mate">
-          <a class="btn-border-small" href=/2016/09/11_SHELL/>阅读全文 » </a>
-          </div>
-      </div>
-      <hr class="post-list__divider" />
-    </li>
-    
-    <li>
-      <h2 class="post-list__post-title post-title"><a href="/2015/12/iOS_net_state/" title="访问 iOS获取设备的网络状态(已适配iOS13,iOS14无变化)">iOS获取设备的网络状态(已适配iOS13,iOS14无变化)</a></h2>
-      <p class="excerpt">登录注册写文章首页下载APPiOS获取设备的网络状态(已适配iOS13,iOS14无变化)神SKY关注赞赏支持iOS获取设备的网络状态(已适配iOS13,iOS14无变化)前言小编最近在项目中遇到了一个问题，除刘海屏以外的iOS设备可以正常的搜索到硬件设备，但是刘海屏就不行。因此，小编花了一点时间研究了一下iOS设备获取当前设备的网络状态。实现因为iOS的系统是封闭的，所以是没有直接的APi去获取当前的网络状态。但是道高一尺，魔高一尺。开发者总会有办法获取自己想要的东西。1.网络状态获取获...&hellip;</p>
-      <div class="post-list__meta">        
-        <time datetime="2015-12-22 00:00:00 +0800" class="post-list__meta--date date">
-          <img src="/images/calendar.png" width="20px" /> 
-          2015-12-22</time> 
-        <div class = "tag-img-icon">
-          <img src="/images/tag-icon.svg" width="20px" /> 
-        </div>
-        <a href="/tags">
-          <div class = "post-list-icon-mate">
-            <span class="post-list__meta--tags-right">iOS</span>
-          </div>
-          <div class = "post-list-small-mate">
-          <a class="btn-border-small" href=/2015/12/iOS_net_state/>阅读全文 » </a>
-          </div>
-      </div>
-      <hr class="post-list__divider" />
-    </li>
-    
-  </ol>
 
-  <hr class="post-list__divider " />
+  
 
-<nav class="pagination" role="navigation">
+</section>
 
-	<!-- 百度搜索 -->
-	<script type="text/javascript">(function(){document.write(unescape('%3Cdiv id="bdcs"%3E%3C/div%3E'));var bdcs = document.createElement('script');bdcs.type = 'text/javascript';bdcs.async = true;bdcs.src = 'http://znsv.baidu.com/customer_search/api/js?sid=12441349038163667913' + '&plate_url=' + encodeURIComponent(window.location.href) + '&t=' + Math.ceil(new Date()/3600000);var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(bdcs, s);})();
-	</script>
-	
-    
-        <a class="newer-posts pagination__newer btn btn-small btn-tertiary" href="/page/3/#blog">&larr; 最近</a>
-    
-    <span class="pagination__page-number">4 / 4</span>
-    
-</nav>
-
-
-</div>
 
             <section class="footer">
     <footer>
