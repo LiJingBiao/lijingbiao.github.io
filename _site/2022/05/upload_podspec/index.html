@@ -6,17 +6,17 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <title>解决github.com:443 错误</title>
-  <meta name="description" content="fatal: unable to access 'https://github.com/Tencent/mars.git/': LibreSSL SSL_connect: SSL_ERROR_SYSCALL in connection to github.com:443">
+  <title>上传PodSpec脚本</title>
+  <meta name="description" content="```#!/bin/bash">
   <meta name="author" content="leopardpan">
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="解决github.com:443 错误">
-  <meta name="twitter:description" content="fatal: unable to access 'https://github.com/Tencent/mars.git/': LibreSSL SSL_connect: SSL_ERROR_SYSCALL in connection to github.com:443">
+  <meta name="twitter:title" content="上传PodSpec脚本">
+  <meta name="twitter:description" content="```#!/bin/bash">
   
   <meta property="og:type" content="article">
-  <meta property="og:title" content="解决github.com:443 错误">
-  <meta property="og:description" content="fatal: unable to access 'https://github.com/Tencent/mars.git/': LibreSSL SSL_connect: SSL_ERROR_SYSCALL in connection to github.com:443">
+  <meta property="og:title" content="上传PodSpec脚本">
+  <meta property="og:description" content="```#!/bin/bash">
   
   <link rel="icon" type="image/png" href="/images/favicon.png" />
   <link href="/images/favicon.png" rel="shortcut icon" type="image/png">
@@ -24,7 +24,7 @@
   <link rel="stylesheet" href="/css/main.css">
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
-  <link rel="canonical" href="http://localhost:4000/2022/05/solve-git-443/">
+  <link rel="canonical" href="http://localhost:4000/2022/05/upload_podspec/">
   <link rel="alternate" type="application/rss+xml" title="LiJingBiao" href="http://localhost:4000/feed.xml">
   
   <meta name="google-site-verification" content="1-1ZlHoRvM0T2FqPbW2S-qLgYXN6rsn52kErlMPd_gw" />
@@ -179,10 +179,10 @@
 
 <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
-    <h1 class="post-title">解决github.com:443 错误</h1>
+    <h1 class="post-title">上传PodSpec脚本</h1>
     <div class="post-meta">
       <img src="/images/calendar.png" width="20px"/> 
-      <time datetime="2022-05-02 00:00:00 +0800" itemprop="datePublished" class="post-meta__date date">2022-05-02</time>  
+      <time datetime="2022-05-21 00:00:00 +0800" itemprop="datePublished" class="post-meta__date date">2022-05-21</time>  
 
       <span id="busuanzi_container_page_pv"> | 阅读：<span id="busuanzi_value_page_pv"></span>次</span>
     </p>
@@ -196,14 +196,31 @@
   
 
   <section class="post">
-    <p><code class="highlighter-rouge">fatal: unable to access 'https://github.com/Tencent/mars.git/': LibreSSL SSL_connect: SSL_ERROR_SYSCALL in connection to github.com:443</code></p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
 
-<p>产生原因：一般是这是因为服务器的SSL证书没有经过第三方机构的签署，所以才报错</p>
+git stash
+git pull origin master <span class="nt">--tags</span>
+git stash pop
 
-<p>参考网上解决办法：解除ssl验证后，再次git即可</p>
+<span class="nv">VersionString</span><span class="o">=</span><span class="sb">`</span><span class="nb">grep</span> <span class="nt">-E</span> <span class="s1">'s.version.*='</span> XXXX.podspec<span class="sb">`</span>
+<span class="nv">VersionNumber</span><span class="o">=</span><span class="sb">`</span><span class="nb">tr</span> <span class="nt">-cd</span> 0-9 <span class="o">&lt;&lt;&lt;</span><span class="s2">"</span><span class="nv">$VersionString</span><span class="s2">"</span><span class="sb">`</span>
+<span class="nv">NewVersionNumber</span><span class="o">=</span><span class="k">$((</span><span class="nv">$VersionNumber</span> <span class="o">+</span> <span class="m">1</span><span class="k">))</span>
+<span class="nv">LineNumber</span><span class="o">=</span><span class="sb">`</span><span class="nb">grep</span> <span class="nt">-nE</span> <span class="s1">'s.version.*='</span> XXXX.podspec | <span class="nb">cut</span> <span class="nt">-d</span> : <span class="nt">-f1</span><span class="sb">`</span>
 
-<p><code class="highlighter-rouge">git config --global http.sslVerify "false"</code></p>
+git add <span class="nb">.</span>
+git commit <span class="nt">-am</span> modification
+git pull origin master <span class="nt">--tags</span>
 
+<span class="nb">sed</span> <span class="nt">-i</span> <span class="s2">""</span> <span class="s2">"</span><span class="k">${</span><span class="nv">LineNumber</span><span class="k">}</span><span class="s2">s/</span><span class="k">${</span><span class="nv">VersionNumber</span><span class="k">}</span><span class="s2">/</span><span class="k">${</span><span class="nv">NewVersionNumber</span><span class="k">}</span><span class="s2">/g"</span> XXXX.podspec
+
+<span class="nb">echo</span> <span class="s2">"current version is </span><span class="k">${</span><span class="nv">VersionNumber</span><span class="k">}</span><span class="s2">, new version is </span><span class="k">${</span><span class="nv">NewVersionNumber</span><span class="k">}</span><span class="s2">"</span>
+
+git commit <span class="nt">-am</span> <span class="k">${</span><span class="nv">NewVersionNumber</span><span class="k">}</span>
+git tag <span class="k">${</span><span class="nv">NewVersionNumber</span><span class="k">}</span>
+git push origin master <span class="nt">--tags</span>
+pod trunk push ./XXXX.podspec <span class="nt">--verbose</span> <span class="nt">--use-libraries</span> <span class="nt">--allow-warnings</span>
+
+</code></pre></div></div>
 
   </section>
 
@@ -273,15 +290,10 @@
        <ul class="pager">
         
         <li class="previous">
-            <a href="/2022/04/work_note1/" data-toggle="tooltip" data-placement="top" title="工作笔记(1)">上一篇：  <span>工作笔记(1)</span>
+            <a href="/2022/05/solve-git-443/" data-toggle="tooltip" data-placement="top" title="解决github.com:443 错误">上一篇：  <span>解决github.com:443 错误</span>
             </a>
         </li>
         
-        
-        <li class="next">
-            <a href="/2022/05/upload_podspec/" data-toggle="tooltip" data-placement="top" title="上传PodSpec脚本">下一篇：  <span>上传PodSpec脚本</span>
-            </a>
-        </li>
         
     </ul>
 </section>

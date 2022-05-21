@@ -178,6 +178,27 @@
   <ol class="post-list">
     
     <li>
+      <h2 class="post-list__post-title post-title"><a href="/2021/06/Mac%E4%B8%8A%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8Sed/" title="访问 Mac 上简单使用 Sed">Mac 上简单使用 Sed</a></h2>
+      <p class="excerpt">Mac 上简单使用 Sed  有时我们需要通过脚本简单修改某个文件中的某个值时，可以用到 Sed 命令的。一、安装如果已安装请忽略，没有安装需要 install 下brew install gnu-sed二、简单使用注意： Linux Mac 下使用是略有不同的，此处以 Mac 使用的。  举例子，直接替换$ cat test.txt12345aaaCCC$ sed -i "" "s/12345/Hello/" test.txt$ cat test.txtHelloaaa分析命令 sed ...&hellip;</p>
+      <div class="post-list__meta">        
+        <time datetime="2021-06-02 00:00:00 +0800" class="post-list__meta--date date">
+          <img src="/images/calendar.png" width="20px" /> 
+          2021-06-02</time> 
+        <div class = "tag-img-icon">
+          <img src="/images/tag-icon.svg" width="20px" /> 
+        </div>
+        <a href="/tags">
+          <div class = "post-list-icon-mate">
+            <span class="post-list__meta--tags-right">shell</span>
+          </div>
+          <div class = "post-list-small-mate">
+          <a class="btn-border-small" href=/2021/06/Mac%E4%B8%8A%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8Sed/>阅读全文 » </a>
+          </div>
+      </div>
+      <hr class="post-list__divider" />
+    </li>
+    
+    <li>
       <h2 class="post-list__post-title post-title"><a href="/2021/05/iOS%E5%9B%BD%E9%99%85%E5%8C%96%E6%9F%A5%E6%89%BE%E4%B8%AD%E6%96%87%E6%9B%BF%E6%8D%A2/" title="访问 iOS国际化查找中文替换">iOS国际化查找中文替换</a></h2>
       <p class="excerpt"># coding=utf-8import osimport reimport sysreload(sys)sys.setdefaultencoding('utf-8')DESPATH = os.getcwd()AllText = []WDESPATH = os.getcwd()+"/unlocalized.strings"BLACKDIRLIST = [    DESPATH + '/Frameworks',    DESPATH + '/Example',    '_Pods.xcode...&hellip;</p>
       <div class="post-list__meta">        
@@ -571,27 +592,6 @@
           </div>
           <div class = "post-list-small-mate">
           <a class="btn-border-small" href=/2021/04/%E7%AB%AF%E5%8F%A3%E5%8D%A0%E7%94%A8/>阅读全文 » </a>
-          </div>
-      </div>
-      <hr class="post-list__divider" />
-    </li>
-    
-    <li>
-      <h2 class="post-list__post-title post-title"><a href="/2021/04/run_jekyll_error/" title="访问 Shell 批量实现iOS的懒加载">Shell 批量实现iOS的懒加载</a></h2>
-      <p class="excerpt">#!/bin/bashiosBatchLazyCode(){        if test $1 = "UIButton" ; then           str="[$1 buttonWithType:UIButtonTypeCustom];"       else           str="[[$1 alloc]init];"    fi  echo -e "- ($1 *)$2{    if (_$2 == nil) {        _$2 = $str    }    re...&hellip;</p>
-      <div class="post-list__meta">        
-        <time datetime="2021-04-19 00:00:00 +0800" class="post-list__meta--date date">
-          <img src="/images/calendar.png" width="20px" /> 
-          2021-04-19</time> 
-        <div class = "tag-img-icon">
-          <img src="/images/tag-icon.svg" width="20px" /> 
-        </div>
-        <a href="/tags">
-          <div class = "post-list-icon-mate">
-            <span class="post-list__meta--tags-right">shell</span>
-          </div>
-          <div class = "post-list-small-mate">
-          <a class="btn-border-small" href=/2021/04/run_jekyll_error/>阅读全文 » </a>
           </div>
       </div>
       <hr class="post-list__divider" />

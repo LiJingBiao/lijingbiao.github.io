@@ -178,6 +178,27 @@
   <ol class="post-list">
     
     <li>
+      <h2 class="post-list__post-title post-title"><a href="/2022/05/upload_podspec/" title="访问 上传PodSpec脚本">上传PodSpec脚本</a></h2>
+      <p class="excerpt">#!/bin/bashgit stashgit pull origin master --tagsgit stash popVersionString=`grep -E 's.version.*=' XXXX.podspec`VersionNumber=`tr -cd 0-9 &lt;&lt;&lt;"$VersionString"`NewVersionNumber=$(($VersionNumber + 1))LineNumber=`grep -nE 's.version.*=' XXX...&hellip;</p>
+      <div class="post-list__meta">        
+        <time datetime="2022-05-21 00:00:00 +0800" class="post-list__meta--date date">
+          <img src="/images/calendar.png" width="20px" /> 
+          2022-05-21</time> 
+        <div class = "tag-img-icon">
+          <img src="/images/tag-icon.svg" width="20px" /> 
+        </div>
+        <a href="/tags">
+          <div class = "post-list-icon-mate">
+            <span class="post-list__meta--tags-right">shell</span>
+          </div>
+          <div class = "post-list-small-mate">
+          <a class="btn-border-small" href=/2022/05/upload_podspec/>阅读全文 » </a>
+          </div>
+      </div>
+      <hr class="post-list__divider" />
+    </li>
+    
+    <li>
       <h2 class="post-list__post-title post-title"><a href="/2022/05/solve-git-443/" title="访问 解决github.com:443 错误">解决github.com:443 错误</a></h2>
       <p class="excerpt">fatal: unable to access 'https://github.com/Tencent/mars.git/': LibreSSL SSL_connect: SSL_ERROR_SYSCALL in connection to github.com:443产生原因：一般是这是因为服务器的SSL证书没有经过第三方机构的签署，所以才报错参考网上解决办法：解除ssl验证后，再次git即可git config --global http.sslVerify "false"&hellip;</p>
       <div class="post-list__meta">        
@@ -571,27 +592,6 @@
           </div>
           <div class = "post-list-small-mate">
           <a class="btn-border-small" href=/2021/06/Shell%E8%84%9A%E6%9C%AC%E4%B8%AD%E5%88%A4%E6%96%AD%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%98%AF%E5%90%A6%E8%A2%AB%E5%8C%85%E5%90%AB%E5%9C%A8%E5%86%85/>阅读全文 » </a>
-          </div>
-      </div>
-      <hr class="post-list__divider" />
-    </li>
-    
-    <li>
-      <h2 class="post-list__post-title post-title"><a href="/2021/06/Mac%E4%B8%8A%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8Sed/" title="访问 Mac 上简单使用 Sed">Mac 上简单使用 Sed</a></h2>
-      <p class="excerpt">Mac 上简单使用 Sed  有时我们需要通过脚本简单修改某个文件中的某个值时，可以用到 Sed 命令的。一、安装如果已安装请忽略，没有安装需要 install 下brew install gnu-sed二、简单使用注意： Linux Mac 下使用是略有不同的，此处以 Mac 使用的。  举例子，直接替换$ cat test.txt12345aaaCCC$ sed -i "" "s/12345/Hello/" test.txt$ cat test.txtHelloaaa分析命令 sed ...&hellip;</p>
-      <div class="post-list__meta">        
-        <time datetime="2021-06-02 00:00:00 +0800" class="post-list__meta--date date">
-          <img src="/images/calendar.png" width="20px" /> 
-          2021-06-02</time> 
-        <div class = "tag-img-icon">
-          <img src="/images/tag-icon.svg" width="20px" /> 
-        </div>
-        <a href="/tags">
-          <div class = "post-list-icon-mate">
-            <span class="post-list__meta--tags-right">shell</span>
-          </div>
-          <div class = "post-list-small-mate">
-          <a class="btn-border-small" href=/2021/06/Mac%E4%B8%8A%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8Sed/>阅读全文 » </a>
           </div>
       </div>
       <hr class="post-list__divider" />
