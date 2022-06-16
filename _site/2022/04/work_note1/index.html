@@ -7,16 +7,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   <title>工作笔记(1)</title>
-  <meta name="description" content="全局文件中字符串替换sed -i '' "s/192.28.6.24/192.26.5.171/g" `find -L ~/ -type f | grep .git/config`">
+  <meta name="description" content="拷贝SSH Keyspbcopy &lt; ~/.ssh/id_rsa.pubgit修改当前分支为maingit branch -M main">
   <meta name="author" content="leopardpan">
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="工作笔记(1)">
-  <meta name="twitter:description" content="全局文件中字符串替换sed -i '' "s/192.28.6.24/192.26.5.171/g" `find -L ~/ -type f | grep .git/config`">
+  <meta name="twitter:description" content="拷贝SSH Keyspbcopy &lt; ~/.ssh/id_rsa.pubgit修改当前分支为maingit branch -M main">
   
   <meta property="og:type" content="article">
   <meta property="og:title" content="工作笔记(1)">
-  <meta property="og:description" content="全局文件中字符串替换sed -i '' "s/192.28.6.24/192.26.5.171/g" `find -L ~/ -type f | grep .git/config`">
+  <meta property="og:description" content="拷贝SSH Keyspbcopy &lt; ~/.ssh/id_rsa.pubgit修改当前分支为maingit branch -M main">
   
   <link rel="icon" type="image/png" href="/images/favicon.png" />
   <link href="/images/favicon.png" rel="shortcut icon" type="image/png">
@@ -192,6 +192,9 @@
   
     <h2 class="post-title">目录</h2>
     <ul>
+  <li><a href="#拷贝ssh-keys">拷贝SSH Keys</a></li>
+  <li><a href="#git修改当前分支为main">git修改当前分支为main</a></li>
+  <li><a href="#终端git设置代理">终端、git设置代理</a></li>
   <li><a href="#全局文件中字符串替换">全局文件中字符串替换</a></li>
   <li><a href="#终端只显示路径">终端只显示路径</a></li>
   <li><a href="#允许安装任何来源">允许安装任何来源</a></li>
@@ -250,7 +253,24 @@
   
 
   <section class="post">
-    <h1 id="全局文件中字符串替换">全局文件中字符串替换</h1>
+    <h1 id="拷贝ssh-keys">拷贝SSH Keys</h1>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pbcopy &lt; ~/.ssh/id_rsa.pub
+</code></pre></div></div>
+<h1 id="git修改当前分支为main">git修改当前分支为main</h1>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git branch -M main
+</code></pre></div></div>
+
+<h1 id="终端git设置代理">终端、git设置代理</h1>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>alias proxy='export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890'
+
+alias unproxy="unset all_proxy"
+
+alias gitproxy='git config --global http.proxy http://127.0.0.1:7890 &amp;&amp; git config --global https.proxy https://127.0.0.1:7890'
+
+alias ungitproxy='git config --global --unset http.proxy &amp;&amp; git config --global --unset https.proxy'
+</code></pre></div></div>
+
+<h1 id="全局文件中字符串替换">全局文件中字符串替换</h1>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sed -i '' "s/192.28.6.24/192.26.5.171/g" `find -L ~/ -type f | grep .git/config`
 </code></pre></div></div>
 
