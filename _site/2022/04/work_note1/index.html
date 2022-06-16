@@ -194,6 +194,7 @@
     <ul>
   <li><a href="#拷贝ssh-keys">拷贝SSH Keys</a></li>
   <li><a href="#git修改当前分支为main">git修改当前分支为main</a></li>
+  <li><a href="#ruby获取当前文件路径">Ruby获取当前文件路径</a></li>
   <li><a href="#终端git设置代理">终端、git设置代理</a></li>
   <li><a href="#全局文件中字符串替换">全局文件中字符串替换</a></li>
   <li><a href="#终端只显示路径">终端只显示路径</a></li>
@@ -258,6 +259,10 @@
 </code></pre></div></div>
 <h1 id="git修改当前分支为main">git修改当前分支为main</h1>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git branch -M main
+</code></pre></div></div>
+
+<h1 id="ruby获取当前文件路径">Ruby获取当前文件路径</h1>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$current_dir = File.dirname(File.expand_path(__FILE__))
 </code></pre></div></div>
 
 <h1 id="终端git设置代理">终端、git设置代理</h1>
