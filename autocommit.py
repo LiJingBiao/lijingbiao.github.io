@@ -35,7 +35,7 @@ returned_value = subprocess.call(cmd, shell=True)
 if returned_value != 0:
     print('\033[31;1m 【push失败】  \033[0m')
     exit(-1)
-print("\033[32;1m 提交成功 🎉  🎉  🎉   \033[0m")
+print("\033[32;1m 提交成功 🎉🎉🎉   \033[0m")
 
 # print(returned_value)
 # cmd = 'git push'
