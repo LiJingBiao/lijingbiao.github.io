@@ -18,7 +18,8 @@ with open(lastPost,mode='r') as f:
         title = match.group()
 
 commitMsg = f'更新【{title}】'
-cmd = 'git add -A'
+
+cmd = 'git pull && git add -A'
 returned_value = subprocess.call(cmd, shell=True)
 if returned_value != 0:
     print('\033[31;1m 【add失败】  \033[0m')
