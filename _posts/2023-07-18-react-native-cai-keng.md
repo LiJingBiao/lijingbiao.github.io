@@ -9,3 +9,13 @@ tags: ios
 ```
 yarn ios --simulator 'iPhone 14Pro'
 ```
+
+## [**React Navigation**](https://reactnavigation.org/)安装
+
+```
+npm install @react-navigation/native
+npm install react-native-screens react-native-safe-area-context
+npx pod-install ios
+npm install @react-navigation/native-stack
+```
+
