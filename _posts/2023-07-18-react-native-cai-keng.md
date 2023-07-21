@@ -319,7 +319,7 @@ useEffect(() => {
 
 ## React使用默认`props`
 
-```react
+```js
 class App extends React.Component {
   static defaultProps = {
     name: 'Mary'
@@ -327,11 +327,72 @@ class App extends React.Component {
 }
 ```
 
+## 结构类里面的所有值
 
+```js
+const {page, pagesize, ...others} = this.state.params;
+```
 
+## `flex`布局
 
+- [Flex 布局教程：语法篇](http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html)
 
+- [Flex 布局教程：实例篇](http://www.ruanyifeng.com/blog/2015/07/flex-examples.html)
 
+## 运行iOS工程报错，找不到node环境
+
+```
+[Warning] You need to configure your node path in the `".xcode.env" file` environment.  You can set it up quickly by running:  `echo export NODE_BINARY=$(command -v node) > .xcode.env`  in the ios folder. This is needed by React Native to work correctly.  We fallback to the DEPRECATED behavior of finding `node`. This will be REMOVED in a future version.  You can read more about this here: https://reactnative.dev/docs/environment-setup#optional-configuring-your-environment
+[Error] Could not find node. It looks like that the .xcode.env or .xcode.env.local 
+Command PhaseScriptExecution failed with a nonzero exit code
+
+```
+
+解决办法
+
+- 第一种办法
+
+如果本地有`/usr/local/bin`目录
+
+```
+ln -s $(which node) /usr/local/bin/node
+```
+
+如果没有`/usr/local/bin`目录，创建一个
+
+```
+sudo mkdir /usr/local/bin
+```
+
+- 第二种办法
+
+  找到node目录
+
+  ```
+  which node
+  ```
+
+  在xcode中设置
+
+  ```
+  export NODE_BINARY=[your node path]
+  ../node_modules/react-native/packager/react-native-xcode.sh to node_modules/react-native/scripts/react-native-xcode.sh
+  ```
+
+  ![图片](https://i.stack.imgur.com/pwWA2.png)
+
+- 第三种方法
+
+  ```js
+  # Fix for machines using nvm
+  if [[ -s "$HOME/.nvm/nvm.sh" ]]; then
+  . "$HOME/.nvm/nvm.sh"
+  elif [[ -x "$(command -v brew)" && -s "$(brew --prefix nvm)/nvm.sh" ]]; then
+  . "$(brew --prefix nvm)/nvm.sh"
+  fi
+  ```
+
+[参考链接](https://stackoverflow.com/questions/44492197/react-native-ios-build-cant-find-node)
 
 
 
