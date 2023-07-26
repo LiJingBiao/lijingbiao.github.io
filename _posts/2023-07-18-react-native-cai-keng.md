@@ -317,15 +317,7 @@ useEffect(() => {
 
 总之,第二个参数允许我们性能优化,避免不必要的重渲染,只在关心的状态发生变化时重新执行 effect。
 
-## React使用默认`props`
 
-```js
-class App extends React.Component {
-  static defaultProps = {
-    name: 'Mary'
-  }
-}
-```
 
 ## 结构类里面的所有值
 
@@ -393,6 +385,28 @@ sudo mkdir /usr/local/bin
   ```
 
 [参考链接](https://stackoverflow.com/questions/44492197/react-native-ios-build-cant-find-node)
+
+## 定义默认传参`Props`
+
+```react
+import PropTypes from 'prop-types';
+export default class MyComponent extends Component {
+	//类型
+  static propTypes = {
+    ...Text.propTypes,
+    type: PropTypes.oneOf(['default', 'title', 'detail', 'danger']),
+    size: PropTypes.oneOf(['xl', 'lg', 'md', 'sm', 'xs']),
+    text: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  };
+
+  static defaultProps = {
+    ...Text.defaultProps,
+    type: 'default',
+    size: 'md',
+    numberOfLines: 1,
+  };
+}
+```
 
 
 
